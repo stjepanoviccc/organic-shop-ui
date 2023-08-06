@@ -1,3 +1,7 @@
+# IMPORTANT!!!
+
+Reconstructed Wordpress Astra Theme - Organic Store Template - with minor changes made with React and Sass.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
