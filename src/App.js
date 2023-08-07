@@ -1,19 +1,30 @@
-import classes from './App.module.scss';
-import { useEffect } from 'react';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import RootLayout from './pages/Root';
+import HomePage from './pages/Home';
+import ShopPage from './pages/Shop';
+import AboutPage from './pages/About';
+import ContactPage from './pages/Contact';
+import ProfilePage from './pages/Profile';
+import ErrorPage from './pages/Error';
 
-function App() {
-  useEffect(() => {
-    fetch('https://react-organic-shop-5b019-default-rtdb.firebaseio.com/.json')
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error('Error fetching data:', error));
-  }, []);
+const router = createBrowserRouter([{
+  path: '/',
+  element: <RootLayout />,
+  errorElement: <ErrorPage />,
+  children: [
+    { index: true, element: <HomePage /> },
+    { path: 'everything', element: <ShopPage /> },
+    { path: 'about', element: <AboutPage /> },
+    { path: 'contact', element: <ContactPage /> },
+    { path: 'profile', element: <ProfilePage /> },
+  ],
+}])
+
+const App = () => {
 
   return (
-    <div className={classes.flow}>
-      Hello World
-    </div>
+    <RouterProvider router={router} />
   );
-}
+};
 
 export default App;
