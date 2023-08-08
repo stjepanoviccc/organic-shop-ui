@@ -3,7 +3,10 @@ import HamburgerMenu from './HamburgerMenu';
 import styles from './NavigationMenu.module.scss';
 
 const NavigationMenu = () => {
-    const logo = `${process.env.PUBLIC_URL}/static/media/organic-store-logo5.svg`;
+    let logo;
+    const isLocalhost = window.location.href.includes('localhost');
+    { isLocalhost ? logo = `${process.env.PUBLIC_URL}/static/media/organic-store-logo5.svg` : logo = `../../public/static/media/organic-store-logo5.svg` }
+
     const classNames = `${styles.wrap} ${styles.nav}`
 
     return (
@@ -12,7 +15,7 @@ const NavigationMenu = () => {
                 <img src={logo} alt="logo" className={styles.logo} />
             </Link>
             <HamburgerMenu />
-            
+
         </div>
     );
 }
