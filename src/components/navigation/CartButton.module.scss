@@ -1,0 +1,24 @@
+@import '../../scss/base/Colors.module.scss';
+
+.cartPriceButton {
+    color: $green;
+    font-size: 17px;
+}
+
+.cartButton {
+    position: relative;
+}
+
+.cartIcon {
+    font-size: 17px;
+    color: $green;
+}
+
+.cartItemsCounterHolder {
+    background: $green;
+    border-radius: 50px;
+    position: absolute;
+    padding: 2px 6px;
+    right: -10px;
+    top: 15px;
+}

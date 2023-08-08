@@ -6,7 +6,7 @@
 
 .left {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     gap: 30px;
     padding-left: 30px;
     width: 100%;
@@ -14,7 +14,7 @@
 
 .right {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 30px;
     padding-right: 30px;
     width: 100%;
