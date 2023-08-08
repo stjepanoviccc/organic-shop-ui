@@ -1,7 +1,20 @@
+@import '../../scss/base/Colors.module.scss';
+
 .hamburgerMenu {
     display: flex;
     align-items: center;
     width: 100%;
+    transition: 300ms;
+
+    @media (max-width: 920px) {
+        height: 100vh;
+        flex-direction: column;
+        z-index: 999;
+        margin-left: 30px;
+        position: fixed;
+        top: 0;
+        background: $white;
+    }
 }
 
 .left {
@@ -10,6 +23,12 @@
     gap: 30px;
     padding-left: 30px;
     width: 100%;
+
+    @media (max-width: 920px) {
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+    }
 }
 
 .right {
@@ -18,4 +37,28 @@
     gap: 30px;
     padding-right: 30px;
     width: 100%;
+
+    @media (max-width: 920px) {
+        flex-direction: column;     
+        gap: 0;
+        padding-right: 0;
+    }
+}
+
+.link {
+    &:hover {
+        color: $green;
+        transition: 300ms;
+    }
+
+    @media (max-width: 920px) {
+        border-bottom: 1px solid $gray;
+        padding: 25px 0 25px 15px;
+    }
+}
+
+.closeIcon {
+    position: absolute;
+    top: 15px;
+    right: 70px;
 }

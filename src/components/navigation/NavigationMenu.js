@@ -2,11 +2,12 @@ import { Link } from 'react-router-dom';
 import useCheckDevice from '../../custom_hooks/CheckDevice';
 import useCheckImagePath from '../../custom_hooks/CheckImagePath';
 import HamburgerMenu from './HamburgerMenu';
+import HamburgerToggler from './HamburgerToggler';
 import CartButton from './CartButton';
 import ProfileButton from './ProfileButton';
 import styles from './NavigationMenu.module.scss';
 
-const NavigationMenu = () => {
+const NavigationMenu = ({toggle, active}) => {
     const windowWidth = useCheckDevice();
     const logo = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/organic-store-logo5.svg`, './static/media/organic-store-logo5.svg');
     const classNames = `${styles.wrap} ${styles.nav}`
@@ -16,9 +17,9 @@ const NavigationMenu = () => {
             <Link to="/">
                 <img src={logo} alt="logo" className={styles.logo} />
             </Link>
-            <HamburgerMenu />
+            {windowWidth > 920 && <HamburgerMenu />}
             <CartButton />
-            {windowWidth > 920 && <ProfileButton />}
+            {windowWidth > 920 ? <ProfileButton /> : <HamburgerToggler toggle={toggle} active={active} />}
         </div>
     );
 }

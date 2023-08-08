@@ -1,7 +1,20 @@
+@import '../../scss/base/Colors.module.scss';
+
 .profileButton {
-    margin-left: 20px;
+    @media (max-width: 920px) {
+        width: 100%;
+        text-align: left;
+        margin: 0;
+        padding-top: 50px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid $gray;
+    }
 }
 
 .profileIcon {
     font-size: 17px;
+    margin-left: 20px;
+    @media (max-width: 920px) {
+        margin-left: 10px;
+    }
 }

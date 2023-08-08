@@ -3,6 +3,10 @@
 .cartPriceButton {
     color: $green;
     font-size: 17px;
+
+    @media (max-width: 920px) {
+        margin-left: auto;
+    }
 }
 
 .cartButton {
