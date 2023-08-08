@@ -5,7 +5,7 @@ import styles from './NavigationMenu.module.scss';
 const NavigationMenu = () => {
     let logo;
     const isLocalhost = window.location.href.includes('localhost');
-    { isLocalhost ? logo = `${process.env.PUBLIC_URL}/static/media/organic-store-logo5.svg` : logo = `../../public/static/media/organic-store-logo5.svg` }
+    { isLocalhost ? logo = `${process.env.PUBLIC_URL}/static/media/organic-store-logo5.svg` : logo = `./static/media/organic-store-logo5.svg` }
 
     const classNames = `${styles.wrap} ${styles.nav}`
 
