@@ -1,0 +1,2 @@
+In this folder I will store custom component and base styles. 
+I decided to split every module file behind its component and that is the main reason why I'm not using (component-base-modules) scss structure, but instead I use (component-base).

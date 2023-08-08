@@ -1,0 +1,21 @@
+.hamburgerMenu {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.left {
+    display: flex;
+    justify-content: start;
+    gap: 30px;
+    padding-left: 30px;
+    width: 100%;
+}
+
+.right {
+    display: flex;
+    justify-content: end;
+    gap: 30px;
+    padding-right: 30px;
+    width: 100%;
+}

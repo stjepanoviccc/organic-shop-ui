@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import NavigationMenu from "../components/NavigationMenu";
+import NavigationMenu from "../components/navigation/NavigationMenu";
 
 const RootLayout = () => {
     return (
