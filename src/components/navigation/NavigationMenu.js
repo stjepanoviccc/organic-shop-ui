@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom';
 import HamburgerMenu from './HamburgerMenu';
 import styles from './NavigationMenu.module.scss';
-import Logo from './organic-store-logo5.svg';
 
 const NavigationMenu = () => {
+    const logo = `${process.env.PUBLIC_URL}/static/media/organic-store-logo5.svg`;
     const classNames = `${styles.wrap} ${styles.nav}`
+
     return (
         <div className={classNames}>
             <Link to="/">
-                <img src={Logo} alt="logo" className={styles.logo} />
+                <img src={logo} alt="logo" className={styles.logo} />
             </Link>
             <HamburgerMenu />
             
