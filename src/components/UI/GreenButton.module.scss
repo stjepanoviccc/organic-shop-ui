@@ -1,11 +1,28 @@
 @import '../../scss/base/Colors.module.scss';
 
 .greenBtn {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
     width: 100%;
-    padding: 15px 20px;
+    padding: 17px 20px;
     border-radius: 5px;
     text-transform: uppercase;
     background: $darkGreen;
     color: $white;
     font-weight: bold;
+    overflow-wrap: break-word;
+
+    &:hover {
+        transition: 300ms;
+        background: $green;
+    }
+}
+
+.greenBtnCartIcon {
+    color: red;
+}
+
+.btnHolder {
+    width: 170px;
 }

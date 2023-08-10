@@ -1,10 +1,13 @@
 import styles from './GreenButton.module.scss';
 
-const GreenButton = ({children}) => {
+const GreenButton = (props) => {
+
     return (
-        <button className={styles.greenBtn}>
-            {children}
-        </button>
+        <div className={props.class && styles.btnHolder}>
+            <button className={styles.greenBtn}>
+                {props.children}
+            </button>
+        </div>
     )
 };
 
