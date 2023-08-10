@@ -1,0 +1,11 @@
+@import '../../scss/base/Colors.module.scss';
+
+.greenBtn {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    background: $darkGreen;
+    color: $white;
+    font-weight: bold;
+}
