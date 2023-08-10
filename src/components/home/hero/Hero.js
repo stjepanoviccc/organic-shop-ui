@@ -5,7 +5,7 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import styles from './Hero.module.scss';
 
 const Hero = () => {
-    const bgImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/leaves-free-img.png`, './static/media/organic-store-logo5.svg');
+    const bgImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/leaves-free-img.png`, './static/media/leaves-free-img.png');
     const smallLeafImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/logo-leaf-new.png`, './static/media/logo-leaf-new.png');
     const heroImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/organic-products-hero.png`, './static/media/organic-products-hero.png')
     return (
