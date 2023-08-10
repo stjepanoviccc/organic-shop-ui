@@ -22,7 +22,7 @@ const Hero = () => {
                         <h1 className={styles.title}>Join The Organic Movement!</h1>
                         <p className={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
                         <div className={styles.buttonHolder}>
-                            <GreenButton class="btnHolder"><FontAwesomeIcon icon={faCartShopping} className={styles.greenBtnCartIcon} />Shop Now</GreenButton>
+                            <GreenButton class="btnHolder"><FontAwesomeIcon icon={faCartShopping} />Shop Now</GreenButton>
                         </div>
                     </div>
                 </div>
