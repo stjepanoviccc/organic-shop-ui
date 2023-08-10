@@ -4,10 +4,10 @@ import styles from './HamburgerToggler.module.scss';
 import HamburgerMenu from './HamburgerMenu';
 
 const HamburgerToggler = ({toggle, active}) => {
-    
+
     return (
         <>
-        {active && <HamburgerMenu toggle={toggle} />}
+        <HamburgerMenu toggle={toggle} inProp={active} />
         <button className={styles.togglerHolder} onClick={toggle}>
             <FontAwesomeIcon icon={faBars} size="xl" className={styles.togglerIcon} />
         </button>
