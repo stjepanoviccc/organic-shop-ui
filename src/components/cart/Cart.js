@@ -1,4 +1,4 @@
-import {useRef} from 'react';
+import { useRef } from 'react';
 import { Transition } from 'react-transition-group';
 import CloseButton from '../UI/CloseButton';
 import GreenButton from '../UI/GreenButton';

@@ -8,6 +8,7 @@ const Hero = () => {
     const bgImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/leaves-free-img.png`, './static/media/leaves-free-img.png');
     const smallLeafImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/logo-leaf-new.png`, './static/media/logo-leaf-new.png');
     const heroImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/organic-products-hero.png`, './static/media/organic-products-hero.png')
+
     return (
         <section className={styles.heroSection}>
             <div className={styles.mainWrap}>
