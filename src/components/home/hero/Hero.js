@@ -1,5 +1,5 @@
 import useCheckImagePath from '../../../custom_hooks/CheckImagePath';
-import GreenButton from '../../UI/GreenButton';
+import GreenButton from '../../UI/buttons/GreenButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import styles from './Hero.module.scss';

@@ -1,0 +1,32 @@
+@import '../../../scss/base/Colors.module.scss';
+
+.servicesCard {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    padding: 40px;
+    border-radius: 5px;
+    color: $white;
+    background: $darkgray;
+
+    @media (max-width: 920px) {
+        flex-direction: column;
+    }
+
+}
+
+.contentHolder {
+    display: flex;
+    flex-direction: column;
+    gap:7px;
+    width: 100%;
+}
+.cardIcon {
+    font-size: 25px;
+    color: $green;
+}
+
+.cardTitle {
+    font-size: 1.3rem;
+    font-weight: bold;
+}

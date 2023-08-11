@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Transition } from 'react-transition-group';
 import useCheckDevice from '../../custom_hooks/CheckDevice';
 import ProfileButton from './ProfileButton'
-import CloseButton from '../UI/CloseButton';
+import CloseButton from '../UI/buttons/CloseButton';
 import styles from './HamburgerMenu.module.scss';
 
 const HamburgerMenu = ({ toggle, inProp }) => {

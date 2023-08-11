@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { Transition } from 'react-transition-group';
-import CloseButton from '../UI/CloseButton';
-import GreenButton from '../UI/GreenButton';
+import CloseButton from '../UI/buttons/CloseButton';
+import GreenButton from '../UI/buttons/GreenButton';
 import styles from './Cart.module.scss';
 
 const Cart = ({ toggleCart, inProp }) => {
