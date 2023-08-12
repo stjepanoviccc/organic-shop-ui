@@ -1,0 +1,16 @@
+@import '../../scss/base/Colors.module.scss';
+
+.onSale {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -10px;
+    right: -10px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    padding: 5px;
+    font-size: 0.8rem;
+    background: $darkGreen;
+}

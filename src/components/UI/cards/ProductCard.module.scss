@@ -1,0 +1,42 @@
+@import '../../../scss/base/Colors.module.scss';
+@import '../../../scss/components/Global.module.scss';
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+}
+
+.cardImg {
+    height: auto;
+    width: 100%;
+    display: block;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.cardCategory {
+    font-size: 0.9rem;
+    color: $gray;
+}
+
+.cardTitle {
+    font-weight: bold;
+}
+
+.cardStars {
+    color: $green;
+}
+
+.cardPrice {
+    font-weight: bold;
+}
