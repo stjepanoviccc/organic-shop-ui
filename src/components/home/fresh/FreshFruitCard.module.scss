@@ -1,0 +1,47 @@
+@import '../../../scss/base/Colors.module.scss';
+
+.freshCard {
+    display: flex;
+    position: relative;
+    min-height: 270px;
+    padding: 30px;
+    background: $white;
+
+    @media (max-width: 920px) {
+        min-height: auto;
+    }
+}
+
+.freshCardTitle {
+    font-size: 1.5rem;
+}
+
+.freshCardBody {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    z-index: 3;
+    text-align: center;
+    @media (max-width: 768px) {
+        align-items: center;
+    }
+}
+
+.fruitImg {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    height: 150px;
+
+    @media (max-width: 920px) {
+        bottom: 10px;
+        right: 10px;
+        height: 100px;
+    }
+}
+
+.arrowIcon {
+    font-size: 15px;
+}
