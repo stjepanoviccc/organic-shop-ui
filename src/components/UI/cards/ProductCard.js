@@ -5,7 +5,7 @@ import { faStar } from '@fortawesome/free-regular-svg-icons';
 import styles from './ProductCard.module.scss';
 
 const ProductCard = ({ sale }) => {
-    const img = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/products/coffee-asorted.jpg`, './static/products/coffee-asorted.jpg');
+    const img = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/products/coffee-asorted.jpg`, './static/media/products/coffee-asorted.jpg');
 
     return (
         <div className={styles.card}>

@@ -24,6 +24,7 @@
     z-index: 3;
     text-align: center;
     @media (max-width: 768px) {
+        gap: 30px;
         align-items: center;
     }
 }
