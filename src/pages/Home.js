@@ -1,6 +1,6 @@
 import Hero from "../components/home/hero/Hero";
 import ServicesContainer from "../components/home/services/Services";
-import BestSellingContainer from "../components/home/products/best_selling/BestSelling";
+import ProductsSortContainer from "../components/home/products/ProductsSort";
 import FreshContainer from "../components/home/fresh/FreshContainer";
 
 const HomePage = () => {
@@ -8,8 +8,9 @@ const HomePage = () => {
         <>
             <Hero />
             <ServicesContainer />
-            <BestSellingContainer />
+            <ProductsSortContainer type="bestSelling" />
             <FreshContainer />
+            <ProductsSortContainer type="trending" />
         </>
     )
 }

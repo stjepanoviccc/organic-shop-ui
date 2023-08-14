@@ -1,7 +1,7 @@
-@import '../../../../scss/base/Colors.module.scss';
-@import '../../../../scss/components/Global.module.scss';
+@import '../../../scss/base/Colors.module.scss';
+@import '../../../scss/components/Global.module.scss';
 
-.bestSellingWrap {
+.productsMainWrap {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -18,7 +18,7 @@
     height: 100%;
 }
 
-.bestSellingProductsWrap {
+.productsWrap {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
