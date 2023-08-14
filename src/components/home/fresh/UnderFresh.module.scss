@@ -1,0 +1,52 @@
+@import '../../../scss/base/Colors.module.scss';
+
+.discountWrap {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $white;
+    padding: 40px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+}
+
+.discountText {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    @media (max-width: 768px) {
+        font-size: 1.2rem;
+    }
+}
+
+.spikeDecoration {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    width: 0;
+	height: 0;
+	border-left: 40px solid transparent;
+	border-right: 40px solid transparent;
+	border-top: 50px solid $black;
+
+}
+
+.noRegistrationWrap {
+    padding: 30px;
+    text-align: center;
+}
+
+.regText {
+    font-size: 1.5rem;
+
+    @media (max-width: 768px) {
+        font-size: 1.2rem;
+    }
+}
+

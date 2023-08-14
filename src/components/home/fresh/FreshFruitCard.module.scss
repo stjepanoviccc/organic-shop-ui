@@ -1,6 +1,7 @@
 @import '../../../scss/base/Colors.module.scss';
 
 .freshCard {
+    box-shadow: 0 0 10px 0 rgba(40,40,40,0.1);
     display: flex;
     position: relative;
     min-height: 270px;
