@@ -1,0 +1,29 @@
+@import '../../../scss/components/Global.module.scss';
+
+.brandsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media(max-width: 1200px) {
+        flex-direction: column;
+    }
+}
+
+.brandsImages {
+    @media (max-width: 1200px) {
+        padding-top: 50px;
+        column-gap: 150px;
+        row-gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+
+        @media(max-width: 540px) {
+            grid-template-columns: 1fr;
+        }
+    }    
+}
+
+.title {
+    font-size: 1.3rem;
+}
