@@ -1,0 +1,35 @@
+@import '../../scss/base/Colors.module.scss';
+@import '../../scss/components/Global.module.scss';
+
+.footerSection {
+    background-color: $footerBg;
+}
+
+.footerWrap {
+    display: grid;
+    grid-template-areas:
+        "a b c"
+        "a d e";
+    padding: 50px 0;
+    color: $white;
+}
+
+.logoArea {
+    grid-area: "a";
+}
+
+.quickLinksArea {
+    grid-area: "b";
+}
+
+.downloadArea {
+    grid-area: "c";
+}
+
+.siteLinksArea {
+    grid-area: "d";
+}
+
+.greenLinks {
+    grid-area: "e";
+}
