@@ -4,7 +4,6 @@
 .heroSection {
     background: $heroBg;
     position: relative;
-    min-height: 80vh;
 }
 
 .heroBgImage {
@@ -26,8 +25,9 @@
 .heroWrap {
     display: flex;
     gap: 20px;
-    padding: 100px 0;
+    padding: 150px 0;
     @media (max-width: 768px) {
+        padding: 100px 0;
         flex-direction: column-reverse;
         gap: 80px;
     }
