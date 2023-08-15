@@ -1,5 +1,5 @@
 import useCheckImagePath from '../../../custom_hooks/CheckImagePath';
-import GreenButton from '../../UI/buttons/GreenButton';
+import GreenButton from '../buttons/GreenButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import styles from './FreshFruitCard.module.scss';

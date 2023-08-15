@@ -1,0 +1,41 @@
+@import '../../../scss/base/Colors.module.scss';
+@import '../../../scss/components/Global.module.scss';
+
+.customersReviewsSection {
+    position: relative;
+}
+
+.reviewsWrap {
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 0;
+    gap: 30px;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.reviewsCardsHolder {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 30px;
+    margin-top: 30px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+}
+
+.leafBackgroundImage {
+    width: 35%;
+    position: absolute;
+    opacity: 0.2;
+    top: 0;
+}

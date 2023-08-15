@@ -3,6 +3,7 @@ import ProductCard from '../../UI/cards/ProductCard';
 import styles from './ProductsSort.module.scss';
 
 const ProductsSortContainer = ({type}) => {
+    const section = type + 'Section';
     const title =
     type === 'bestSelling' ? 'Best Selling Products' :
     type === 'trending' ? 'Trending Products' : null;
@@ -10,6 +11,7 @@ const ProductsSortContainer = ({type}) => {
     const smallLeafImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/logo-leaf-new.png`, './static/media/logo-leaf-new.png');
 
     return (
+        <section className={section}>
         <div className={styles.mainWrap}>
             <div className={styles.productsMainWrap}>
                 <h2 className={styles.title}>{title}</h2>
@@ -22,7 +24,7 @@ const ProductsSortContainer = ({type}) => {
                 </div>
             </div>
         </div>
-
+        </section>
     )
 };
 

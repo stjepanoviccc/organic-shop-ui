@@ -1,0 +1,63 @@
+@import '../../../scss/base/Colors.module.scss';
+
+.adsOverlay {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    transition: background-color 0.3s ease;
+}
+
+.adsCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    min-height: 330px;
+    width: 100%;
+    border-radius: 4px;
+    padding: 40px;
+    color: $white;
+    text-align: center;
+    background-image: url('../../../../public/static/media/organic-food-card-img.jpg');
+    background-size: cover;
+    background-position: center;
+
+    @media (max-width: 768px) {
+        width: auto;
+        padding: 30px;
+    }
+}
+
+.adsCard:hover .adsOverlay {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.adsContent {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.arrowIcon {
+    font-size: 15px;
+}
+
+.contentHolder {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.importantText {
+    font-size: 2.5rem;
+    line-height: 1;
+}
