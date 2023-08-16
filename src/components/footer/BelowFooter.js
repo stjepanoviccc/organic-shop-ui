@@ -8,9 +8,9 @@ const BelowFooter = () => {
         <div className={styles.belowFooterContainer} >
             <p className={styles.copyright}>Copyright © 2023 | Andrej Stjepanović </p>
             <div className={styles.socialHolder}>
-                <Link className={styles.socialIcon} to="#"><FontAwesomeIcon icon={faFacebook} /></Link>
-                <Link className={styles.socialIcon} to="#"><FontAwesomeIcon icon={faTwitter} /></Link>
-                <Link className={styles.socialIcon} to="#"><FontAwesomeIcon icon={faInstagram} /></Link>
+                <Link className={styles.socialIconLink} to="#"><FontAwesomeIcon icon={faFacebook} /></Link>
+                <Link className={styles.socialIconLink} to="#"><FontAwesomeIcon icon={faTwitter} /></Link>
+                <Link className={styles.socialIconLink} to="#"><FontAwesomeIcon icon={faInstagram} /></Link>
             </div>
         </div>
     )

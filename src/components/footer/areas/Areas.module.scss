@@ -33,3 +33,17 @@
         opacity: 0.9;
     }
 }
+
+.areasStore {
+    display: flex;
+    gap: 10px;
+    padding-top: 20px;
+}
+
+.storeButton {
+    width: auto;
+    min-height: 50px;
+    min-width: 130px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}

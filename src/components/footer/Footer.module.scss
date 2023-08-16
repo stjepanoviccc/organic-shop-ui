@@ -5,15 +5,32 @@
     background-color: $footerBg;
 }
 
+.belowFooterSection {
+    background-color: $footerBg;
+    border-top: 1px inset $silver;
+}
+
 .footerWrap {
     display: grid;
     grid-template-areas:
         "a b c"
         "a d e";
-    column-gap: 150px;
+    column-gap: 200px;
     row-gap: 50px;
     padding: 50px 0;
     color: $silver;
+
+    @media (max-width: 1200px) {
+        column-gap: 50px;
+    }
+
+    @media (max-width: 920px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
 }
 
 .logoArea {
