@@ -1,2 +1,35 @@
 @import '../../../scss/base/Colors.module.scss';
 @import '../../../scss/components/Global.module.scss';
+
+.areasTitle {
+    font-size: 1.6rem;
+    color: $white;
+}
+
+.areasContentHolder {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.areasLogoText {
+    padding-top: 10px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.areasLink {
+    color: $silver;
+    transition: 300ms;
+    &:hover {
+        color: $white;
+    }
+}
+
+.areasGreenLink {
+    color: $darkGreen;
+    transition: 300ms;
+    &:hover {
+        opacity: 0.9;
+    }
+}

@@ -11,28 +11,15 @@ const Footer = () => {
         <section className={styles.footerSection}>
             <div className={styles.mainWrap}>
                 <div className={styles.footerWrap}>
-                    <div className={styles.logoArea}>
-                        <LogoArea />
-                    </div>
-                    <div className={styles.quickLinksArea}>
-                        <QuickLinksArea />
-                    </div>
-                    <div className={styles.downloadArea}>
-                        <DownloadArea />
-                    </div>
-                    <div className={styles.siteLinksArea}>
-                        <SiteLinksArea />
-                    </div>
-                    <div className={styles.greenLinksArea}>
-                        <GreenLinksArea />
-                    </div>
+                    <div className={styles.logoArea}><LogoArea /></div>
+                    <div className={styles.quickLinksArea}><QuickLinksArea /></div>
+                    <div className={styles.downloadArea}><DownloadArea /></div>
+                    <div className={styles.siteLinksArea}><SiteLinksArea /></div>
+                    <div className={styles.greenLinksArea}><GreenLinksArea /></div>
                 </div>
             </div>
             <hr></hr>
-            <div className={styles.mainWrap}>
-                <BelowFooter />
-            </div>
-
+            <div className={styles.mainWrap}><BelowFooter /></div>
         </section>
     )
 };
