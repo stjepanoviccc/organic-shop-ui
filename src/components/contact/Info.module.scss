@@ -1,0 +1,32 @@
+@import '../../scss/base/Colors.module.scss';
+@import '../../scss/components/Global.module.scss';
+
+.infoWrap {
+    position: relative;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.infoTitle {
+    font-size: 3rem;
+}
+
+.infoCardHolder {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    margin-top: 70px;
+    padding: 70px 30px 50px 30px;
+    border: 2px solid $silver;
+    box-shadow: 0 0 5px 0 $darkGreen;
+}
+
+.leafImg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    top: 0;
+}

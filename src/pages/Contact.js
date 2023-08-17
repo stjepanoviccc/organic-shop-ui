@@ -1,7 +1,10 @@
+import Info from '../components/contact/Info';
+
 const ContactPage = () => {
+
     return (
         <>
-            <p>ContactPage</p>
+            <Info />
         </>
     )
 }

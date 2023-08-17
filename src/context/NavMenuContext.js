@@ -12,7 +12,7 @@ const NavMenuProvider = (props) => {
     return (
         <NavMenuContext.Provider value={isActive} >
             <NavMenuContextUpdate.Provider value={toggleMenu}>
-                {props.children}
+                    {props.children}
             </NavMenuContextUpdate.Provider>
         </NavMenuContext.Provider>
     )

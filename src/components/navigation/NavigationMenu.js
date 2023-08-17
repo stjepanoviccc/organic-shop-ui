@@ -12,11 +12,10 @@ const NavigationMenu = () => {
     useCheckBodyBehavior();
     const windowWidth = useCheckDevice();
     const logo = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/organic-store-logo5.svg`, './static/media/organic-store-logo5.svg');
-    const classNames = `${styles.nav}`
 
     return (
         <header>
-            <div className={classNames}>
+            <div className={styles.nav} >
                 <Link to="/">
                     <img src={logo} alt="logo" className={styles.logo} />
                 </Link>
