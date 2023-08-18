@@ -4,7 +4,12 @@
 .infoWrap {
     position: relative;
     text-align: center;
-    padding: 50px 0;
+    min-height: 400px;
+}
+
+.titleHolder {
+    padding: 50px 0 100px 0;
+    text-align: center;
 }
 
 .infoTitle {
@@ -12,19 +17,28 @@
 }
 
 .infoCardHolder {
-    position: relative;
+    z-index: 2;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
     display: flex;
     flex-direction: row;
     gap: 50px;
-    margin-top: 70px;
     padding: 70px 30px 50px 30px;
     border: 2px solid $silver;
-    box-shadow: 0 0 5px 0 $darkGreen;
+    box-shadow: 0 0 2px 0 $darkGreen;
+    background-color: $white;
+
+    @media (max-width: 920px) {
+        flex-direction: column;
+        top: 320px;
+    }
 }
 
 .leafImg {
     position: absolute;
-    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 150px;
