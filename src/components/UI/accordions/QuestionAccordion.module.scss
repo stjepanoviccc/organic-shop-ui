@@ -1,0 +1,33 @@
+@import '../../../scss/base/Colors.module.scss';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    border-bottom: 1px solid $silver;
+}
+
+.questionAccordion {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    padding: 40px 20px 20px;
+}
+
+.accordionTitle {
+    font-weight: bold;
+}
+
+.arrowIcon {
+    font-size: 14px;
+}
+
+.panel {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 500ms ease; /* Or any other animation properties you want */
+}
+
+.panelText {
+    padding: 0 20px 40px 20px;
+}

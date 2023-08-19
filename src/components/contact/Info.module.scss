@@ -4,16 +4,22 @@
 .infoWrap {
     position: relative;
     text-align: center;
-    min-height: 400px;
+    min-height: 350px;
 }
 
 .titleHolder {
     padding: 50px 0 100px 0;
     text-align: center;
+    @media (max-width: 920px) {
+        padding: 30px 0 70px 0;
+    }
 }
 
 .infoTitle {
     font-size: 3rem;
+    @media (max-width: 920px) {
+        font-size: 2rem;
+    }
 }
 
 .infoCardHolder {
@@ -27,13 +33,18 @@
     flex-direction: row;
     gap: 50px;
     padding: 70px 30px 50px 30px;
-    border: 2px solid $silver;
-    box-shadow: 0 0 2px 0 $darkGreen;
+    border-radius: 25px;
+    box-shadow: 0 5px 10px 0 $silver;
     background-color: $white;
 
     @media (max-width: 920px) {
+        position: static;
         flex-direction: column;
-        top: 320px;
+        justify-content: center;
+        transform: none;
+        width: 100%;
+        padding: 40px 0 20px 0;
+        gap: 20px;
     }
 }
 

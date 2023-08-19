@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone} from '@fortawesome/free-solid-svg-icons'; // , faEnvelope, faLocationDot 
-import styles from './ContactCard.module.scss';
+import styles from './InfoCard.module.scss';
 
-const ContactCard = () => {
+const InfoCard = () => {
     return (
-        <div className={styles.contactCard}>
+        <div className={styles.infoCard}>
             <FontAwesomeIcon className={styles.icon} icon={faPhone}></FontAwesomeIcon>
             <div className={styles.cardContent}>
                 <p>info@example.com</p>
@@ -14,4 +14,4 @@ const ContactCard = () => {
     )
 };
 
-export default ContactCard;
+export default InfoCard;

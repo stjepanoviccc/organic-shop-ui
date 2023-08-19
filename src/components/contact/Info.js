@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useBackgroundColorUpdate } from '../../context/NavBackgroundContext';
 import useCheckImagePath from '../../custom_hooks/CheckImagePath';
-import ContactCard from '../UI/cards/ContactCard';
+import InfoCard from '../UI/cards/InfoCard';
 import styles from './Info.module.scss';
 
 const ContactInfo = () => {
@@ -25,9 +25,9 @@ const ContactInfo = () => {
                 <div className={styles.infoWrap}>
                     <div className={styles.infoCardHolder}>
                         <img className={styles.leafImg} src={leafImg} alt="leaf-img"></img>
-                        <ContactCard></ContactCard>
-                        <ContactCard></ContactCard>
-                        <ContactCard></ContactCard>
+                        <InfoCard></InfoCard>
+                        <InfoCard></InfoCard>
+                        <InfoCard></InfoCard>
                     </div>
                 </div>
             </div>

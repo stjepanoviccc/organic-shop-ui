@@ -1,14 +1,19 @@
 @import '../../../scss/base/Colors.module.scss';
 
-.contactCard {
+.infoCard {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     gap: 15px;
     padding: 40px 30px;
     border: 1px solid $silver;
-    border-radius: 4px;
-    box-shadow: 0 0 2px 0 $darkGreen;
+    border-radius: 25px;
+    box-shadow: 0 2px 2px 0 $silver;
+
+    @media (max-width: 920px) {
+        margin: 0 20px 0 20px;
+        padding: 20px;
+    }
 }
 
 .icon {
