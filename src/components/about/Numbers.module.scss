@@ -1,0 +1,58 @@
+@import '../../scss/base/Colors.module.scss';
+@import '../../scss/components/Global.module.scss';
+
+.numbersSection {
+    background-color: $footerBg;
+    margin-bottom: 5px;
+    padding: 30px 0 40px 0;
+}
+
+.numbersWrap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    color: $white;
+    @media (max-width: 920px) {
+        grid-template-columns: repeat(3, 1fr); /* Single column layout */
+    }
+    @media (max-width: 576px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.titleRow {
+    @media (min-width: 577px) and (max-width: 920px) {
+        grid-column: 1/4;
+        padding-bottom: 20px;
+    }
+}
+// universal
+.numbersRow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 920px) {
+        padding: 10px 0;
+    }
+}
+
+.numbersTitle {
+    font-size: 1.5rem;
+    @media (max-width: 920px) {
+        font-size: 1.2rem;
+    }
+}
+
+.bigText {
+    font-size: 3rem;
+    @media (max-width: 920px) {
+        font-size: 2rem;
+    }
+}
+
+.text {
+    font-size: 1.2rem;
+    @media (max-width: 920px) {
+        font-size: 1rem;
+    }
+}
