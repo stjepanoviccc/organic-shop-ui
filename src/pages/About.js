@@ -1,7 +1,9 @@
+import FavoriteStoreContainer from "../components/about/FavoriteStore";
+
 const AboutPage = () => {
     return (
         <>
-            <p>AboutPage</p>
+            <FavoriteStoreContainer />
         </>
     )
 }
