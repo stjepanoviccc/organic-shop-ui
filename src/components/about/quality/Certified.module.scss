@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    @media (max-width: 768px) {
+    @media (max-width: 920px) {
         flex-direction: column;
     }
 }
@@ -22,7 +22,7 @@
 .mainTitleExt {
     text-align: left;
     line-height: 1.2;
-    @media (max-width: 768px) {
+    @media (max-width: 920px) {
         text-align: center;
     }
 }
@@ -33,7 +33,7 @@
 }
 
 .certifiedButtonHolder {
-    @media (max-width: 768px) {
+    @media (max-width: 920px) {
         display: flex;
         justify-content: center;
     }

@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import useCheckImagePath from "../../custom_hooks/CheckImagePath";
+import useCheckImagePath from "../../../custom_hooks/CheckImagePath";
 import styles from './Slider.module.scss';
 import "swiper/css";
 
@@ -11,7 +11,7 @@ const Slider = () => {
 
   return (
     <>
-      <Swiper className="slider">
+      <Swiper loop={true} className="slider">
         <SwiperSlide><img className={styles.slideImg} src={slideImg1} alt="slider-img-1"></img></SwiperSlide>
         <SwiperSlide><img className={styles.slideImg} src={slideImg2} alt="slider-img-2"></img></SwiperSlide>
         <SwiperSlide><img className={styles.slideImg} src={slideImg3} alt="slider-img-3"></img></SwiperSlide>

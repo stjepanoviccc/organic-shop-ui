@@ -1,0 +1,18 @@
+.cardStarsHolder {
+    display: flex;
+}
+
+.cardStar {
+    color: $darkGreen;
+}
+
+.cardContentHolder {
+    line-height: 1.5;
+}
+
+.cardPersonInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}

@@ -4,17 +4,21 @@
 .qualityWrap {
     display: flex;
     gap: 100px;
-    padding: 100px 0;
-    @media (max-width: 768px) {
+    padding: 200px 0 100px 0;
+    @media (min-width: 768px) and (max-width: 1200px) {
+        gap: 30px;
+    }
+    @media (max-width: 920px) {
         flex-direction: column;
         align-items: center;
     }
 }
 
 .qualitySliderWrap {
-    width: 45%;
+    width: 50%;
     background: $light;
-    @media (max-width: 768px) {
+    border-radius: 10px; 
+    @media (max-width: 920px) {
         width: 100%;
     }
 }
@@ -22,9 +26,10 @@
 .certifiedWrap {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 20px;
     width: 55%;
-    @media (max-width: 768px) {
+    @media (max-width: 920px) {
         width: 100%;
         text-align: center;
     }

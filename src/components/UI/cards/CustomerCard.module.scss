@@ -1,4 +1,5 @@
 @import '../../../scss/base/Colors.module.scss';
+@import '../../../scss/components/Card.module.scss';
 
 .customerCard {
     display: flex;
@@ -11,23 +12,4 @@
     text-align: center;
     background: $white;
     box-shadow: 0 0 10px 0 rgba(40,40,40,0.1);
-}
-
-.cardStarsHolder {
-    display: flex;
-}
-
-.star {
-    color: $darkGreen;
-}
-
-.cardContentHolder {
-    line-height: 1.5;
-}
-
-.personInfo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
 }

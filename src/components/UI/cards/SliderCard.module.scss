@@ -1,7 +1,38 @@
+@import '../../../scss/base/Colors.module.scss';
+@import '../../../scss/components/Card.module.scss';
+
+.sliderCardContainer {
+    position: relative;
+}
+
 .sliderCard {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 30px;
+    padding: 30px;
     border-radius: 10px;
     text-align: center;
+}
+
+.sliderHolder {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.cardContentHolder {
+    padding-top: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    @media (max-width: 768px) {
+        padding-top: 320px;
+    }
+    @media (max-width: 576px) {
+        padding-top: 240px;
+    }
 }
