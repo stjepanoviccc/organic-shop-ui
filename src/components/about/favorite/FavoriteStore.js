@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useBackgroundColorUpdate } from '../../context/NavBackgroundContext';
-import useCheckImagePath from '../../custom_hooks/CheckImagePath';
+import { useBackgroundColorUpdate } from '../../../context/NavBackgroundContext'
+import useCheckImagePath from '../../../custom_hooks/CheckImagePath';
 import styles from './FavoriteStore.module.scss';
 
 const FavoriteStoreContainer = () => {

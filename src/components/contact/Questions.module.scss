@@ -1,6 +1,10 @@
 @import '../../scss/base/Colors.module.scss';
 @import '../../scss/components/Global.module.scss';
 
+.questionsSection {
+    position: relative;
+}
+
 .questionsTitleHolder {
     position: relative;
     @media (max-width: 920px) {

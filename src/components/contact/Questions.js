@@ -4,6 +4,7 @@ import styles from './Questions.module.scss';
 
 const QuestionsContainer = () => {
     const smallLeafImg = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/logo-leaf-new.png`, './static/media/logo-leaf-new.png');
+    const bgImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/leaves-free-img.png`, './static/media/leaves-free-img.png');
 
     const accordionItems = [
         {
@@ -51,6 +52,7 @@ const QuestionsContainer = () => {
                     ))}
                 </div>
             </div>
+            <img src={bgImage} alt="leaf-bg-img" className={styles.mainBgImage}></img>
         </section>
 
     )

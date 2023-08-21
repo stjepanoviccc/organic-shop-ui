@@ -1,0 +1,40 @@
+@import '../../../scss/base/Colors.module.scss';
+@import '../../../scss/components/Global.module.scss';
+
+.organicLogo {
+    width: 20%;
+}
+
+.certifiedLogoHolder {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+}
+
+.certifiedSubtitle {
+    font-size: 1.3rem;
+    padding-bottom: 10px;
+}
+
+.mainTitleExt {
+    text-align: left;
+    line-height: 1.2;
+    @media (max-width: 768px) {
+        text-align: center;
+    }
+}
+
+.certifiedProductsHolder {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.certifiedButtonHolder {
+    @media (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+    }
+}

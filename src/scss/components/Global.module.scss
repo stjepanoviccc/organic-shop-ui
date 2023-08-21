@@ -11,3 +11,19 @@
         font-size: 1.5rem;
     }
 }
+
+.mainBgImage {
+    pointer-events: none;
+    height: 90%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0.1;
+    @media (min-width: 768px) and (max-width: 920px) {
+        height: 25%;
+        bottom: 100px;
+    }
+    @media(max-width: 768px) {
+        height: 20%;
+    }
+}

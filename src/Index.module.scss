@@ -6,20 +6,7 @@ body {
     line-height: 1.5;
 }
 
-// scrollbar and selection
-::-webkit-scrollbar {
-    width: 15px;
-}
-::-webkit-scrollbar-track {
-    background: $white;
-}
-::-webkit-scrollbar-thumb {
-    background-color: $darkGreen;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: $green;
-}
 ::selection {
     color: $white;
     background-color: $darkGreen;
-  }
+}

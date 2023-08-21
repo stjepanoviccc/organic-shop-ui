@@ -14,7 +14,7 @@ const Hero = () => {
             <div className={styles.mainWrap}>
                 <div className={styles.heroWrap}>
                     <div className={styles.heroImageHolder}>
-                        <img className={styles.heroBgImage} src={bgImage} alt="bg-leaves-img" />
+                        <img className={`${styles.mainBgImage} ${styles.mainBgImageExt}`} src={bgImage} alt="bg-leaves-img"/>
                         <img className={styles.heroImage} src={heroImage} alt="organic-products-hero-img" />
                     </div>
                     <div className={styles.heroHeadingHolder}>

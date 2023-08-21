@@ -1,0 +1,31 @@
+@import '../../../scss/base/Colors.module.scss';
+@import '../../../scss/components/Global.module.scss';
+
+.qualityWrap {
+    display: flex;
+    gap: 100px;
+    padding: 100px 0;
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.qualitySliderWrap {
+    width: 45%;
+    background: $light;
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}
+
+.certifiedWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 55%;
+    @media (max-width: 768px) {
+        width: 100%;
+        text-align: center;
+    }
+}
