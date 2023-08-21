@@ -14,7 +14,7 @@ const ProductsSortContainer = ({type}) => {
         <section className={section}>
         <div className={styles.mainWrap}>
             <div className={styles.productsMainWrap}>
-                <h2 className={styles.title}>{title}</h2>
+                <h2 className={styles.mainTitle}>{title}</h2>
                 <img className={styles.leafImg} src={smallLeafImage} alt="img" />
                 <div className={styles.productsWrap}>
                     <ProductCard />

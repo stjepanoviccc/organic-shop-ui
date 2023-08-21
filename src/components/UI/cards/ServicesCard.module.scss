@@ -16,11 +16,12 @@
 
 }
 
-.contentHolder {
+.cardContentHolder {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
+
 .cardIcon {
     font-size: 25px;
     color: $green;

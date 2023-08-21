@@ -38,7 +38,7 @@ const QuestionsContainer = () => {
         <section className={styles.questionsSection}>
             <div className={styles.mainWrap}>
                 <div className={styles.questionsTitleHolder}>
-                    <h2 className={styles.questionsTitle}>Frequently Asked Question!</h2>
+                    <h2 className={styles.mainTitle}>Frequently Asked Question!</h2>
                     <img className={styles.smallLeafImg} src={smallLeafImg} alt="small-leaf-img"></img>
                 </div>
                 <div className={styles.questionsWrap}>

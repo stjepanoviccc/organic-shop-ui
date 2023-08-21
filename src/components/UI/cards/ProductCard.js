@@ -10,7 +10,7 @@ const ProductCard = ({ sale }) => {
     return (
         <div className={styles.card}>
             <img className={styles.cardImg} src={img} alt="product-card-img" />
-            <div className={styles.cardContent}>
+            <div className={styles.cardContentHolder}>
                 <h5 className={styles.cardCategory}>Groceries</h5>
                 <h4 className={styles.cardTitle}>Assorted Coffee</h4>
                 <div className={styles.cardStarsWrap}>

@@ -6,7 +6,7 @@ import useCheckImagePath from '../../custom_hooks/CheckImagePath';
 import HamburgerMenu from './HamburgerMenu';
 import HamburgerToggler from './HamburgerToggler';
 import CartToggler from './CartToggler';
-import ProfileButton from './ProfileButton';
+import ProfileButton from '../UI/buttons/ProfileButton';
 import styles from './NavigationMenu.module.scss';
 
 const NavigationMenu = () => {

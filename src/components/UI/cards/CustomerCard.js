@@ -8,14 +8,14 @@ const CustomerCard = () => {
 
     return (
         <div className={styles.customerCard}>
-            <div className={styles.starHolder}>
+            <div className={styles.cardStarHolder}>
                 <FontAwesomeIcon className={styles.star} icon={faStar} />
                 <FontAwesomeIcon className={styles.star} icon={faStar} />
                 <FontAwesomeIcon className={styles.star} icon={faStar} />
                 <FontAwesomeIcon className={styles.star} icon={faStar} />
                 <FontAwesomeIcon className={styles.star} icon={faStar} />
             </div>
-            <p className={styles.cardContent}>Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+            <p className={styles.cardContentHolder}>Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
             <div className={styles.personInfo}>
                 <img src={personImg} alt="person-img" />
                 <p>Mila Kunis</p>

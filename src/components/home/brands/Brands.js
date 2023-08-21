@@ -8,7 +8,7 @@ const BrandsContainer = () => {
         <section className={styles.brandsSection}>
             <div className={styles.mainWrap}>
                 <div className={styles.brandsContainer}>
-                    <h4 className={styles.title}>Featured Brands:</h4>
+                    <h4 className={styles.brandsTitle}>Featured Brands:</h4>
                     <div className={styles.brandsImages}>
                         <img src={brandLogo} alt="logo-1" />
                         <img src={brandLogo} alt="logo-1" />

@@ -13,7 +13,7 @@
     box-shadow: 0 0 10px 0 rgba(40,40,40,0.1);
 }
 
-.starsHolder {
+.cardStarsHolder {
     display: flex;
 }
 
@@ -21,7 +21,7 @@
     color: $darkGreen;
 }
 
-.cardContent {
+.cardContentHolder {
     line-height: 1.5;
 }
 

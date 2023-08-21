@@ -11,7 +11,7 @@ const ReviewsContainer = () => {
         <section className={styles.customersReviewsSection}>
             <div className={styles.mainWrap}>
                 <div className={styles.reviewsWrap}>
-                    <h2 className={styles.title}>Customers Reviews</h2>
+                    <h2 className={styles.mainTitle}>Customers Reviews</h2>
                     <img className={styles.leafImg} src={smallLeafImage} alt="small-leaf-img"></img>
                     <div className={styles.reviewsCardsHolder}>
                         <CustomerCard />

@@ -19,14 +19,6 @@
     }
 }
 
-.title {
-    text-align: center;
-    font-size: 2.5rem;
-    @media (max-width: 920px) {
-        font-size: 2rem;
-    }
-}
-
 .reviewsCardsHolder {
     display: flex;
     flex-direction: row;

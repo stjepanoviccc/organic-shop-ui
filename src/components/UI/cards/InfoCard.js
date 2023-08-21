@@ -6,7 +6,7 @@ const InfoCard = () => {
     return (
         <div className={styles.infoCard}>
             <FontAwesomeIcon className={styles.icon} icon={faPhone}></FontAwesomeIcon>
-            <div className={styles.cardContent}>
+            <div className={styles.cardContentHolder}>
                 <p>info@example.com</p>
                 <p>support@example.com</p>
             </div>

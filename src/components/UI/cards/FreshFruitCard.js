@@ -9,9 +9,9 @@ const FreshFruitCard = () => {
 
     return (
         <div className={styles.freshCard}>
-            <div className={styles.freshCardBody}>
-                <h3 className={styles.freshCardTitle}>Farm Fresh Fruits</h3>
-                <p className={styles.freshCardContent}>Ut sollicitudin quam vel purus tempus, vel eleifend felis varius.</p>
+            <div className={styles.cardContentHolder}>
+                <h3 className={styles.cardTitle}>Farm Fresh Fruits</h3>
+                <p className={styles.cardText}>Ut sollicitudin quam vel purus tempus, vel eleifend felis varius.</p>
                 <GreenButton class={true}>
                     Shop Now
                     <FontAwesomeIcon className={styles.arrowIcon} icon={faArrowRight} />

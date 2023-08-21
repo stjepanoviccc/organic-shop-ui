@@ -24,10 +24,10 @@ const ServicesCard = ({type}) => {
 
     return (
         <div className={styles.servicesCard}>
-            <div className={styles.iconHolder}>
+            <div className={styles.cardIconHolder}>
                 <FontAwesomeIcon className={styles.cardIcon} icon={iconMap[type]} />
             </div>
-            <div className={styles.contentHolder}>
+            <div className={styles.cardContentHolder}>
                 <h4 className={styles.cardTitle}>{titleMap[type]}</h4>
                 <p className={styles.cardContent}>{contentMap[type]}</p>
             </div>
