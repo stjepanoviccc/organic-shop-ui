@@ -35,12 +35,11 @@
     bottom: 0;
     right: 0;
     z-index: 2;
-    height: 150px;
+    height: 200px;
 
     @media (max-width: 920px) {
-        bottom: 10px;
         right: 10px;
-        height: 100px;
+        height: 150px;
     }
 }
 

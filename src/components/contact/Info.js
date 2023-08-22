@@ -25,9 +25,9 @@ const ContactInfo = () => {
                 <div className={styles.infoWrap}>
                     <div className={styles.infoCardHolder}>
                         <img className={styles.leafImg} src={leafImg} alt="leaf-img"></img>
-                        <InfoCard></InfoCard>
-                        <InfoCard></InfoCard>
-                        <InfoCard></InfoCard>
+                        <InfoCard type="phone"></InfoCard>
+                        <InfoCard type="mail"></InfoCard>
+                        <InfoCard type="location"></InfoCard>
                     </div>
                 </div>
             </div>

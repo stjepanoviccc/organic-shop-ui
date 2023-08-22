@@ -1,12 +1,11 @@
 import { useEffect } from 'react';
 import { useBackgroundColorUpdate } from '../../../context/NavBackgroundContext'
 import useCheckImagePath from '../../../custom_hooks/CheckImagePath';
-import useImagePathHandler from '../../../custom_hooks/ImagePathHandler';
 import styles from './FavoriteStore.module.scss';
 
 const FavoriteStoreContainer = () => {
     const leafImg = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/basil-leaf.png`, './static/media/basil-leaf.png');
-    const grapesImg = useImagePathHandler("https://drive.google.com/file/d/1dAy4ymNzpRr8aACac8yCRPCseXCvh1wj/view?usp=sharing")
+    const grapesImg = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/banner-01.jpg`, './static/media/banner-01.jpg')
     const changeBgColor = useBackgroundColorUpdate();
     const lightColor = '#f8f6f3';
 
@@ -34,7 +33,6 @@ const FavoriteStoreContainer = () => {
                     </div>
                     <div className={styles.favoriteStoreImageHolder}>
                         <img src={grapesImg} className={styles.grapesImg} alt="banner-grapes-img"></img>
-
                     </div>
                 </div>
             </div>

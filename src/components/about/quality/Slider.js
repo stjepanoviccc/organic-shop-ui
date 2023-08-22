@@ -1,24 +1,35 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import useCheckImagePath from "../../../custom_hooks/CheckImagePath";
 import styles from './Slider.module.scss';
 import "swiper/css";
 
-const Slider = () => {
-  const slideImg1 = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/slider/slide1.jpg`, './static/media/slider/slide1.jpg')
-  const slideImg2 = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/slider/slide2.jpg`, './static/media/slider/slide2.jpg')
-  const slideImg3 = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/slider/slide3.jpg`, './static/media/slider/slide3.jpg')
-  const slideImg4 = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/slider/slide4.jpg`, './static/media/slider/slide4.jpg')
+const Slider = ({ sliderData }) => {
+  const modifiedSliderData = sliderData.map(item => {
+    return {
+      image: copiedImagePathHandler(item.image),
+    };
+  });
+
+  const sliderImages = modifiedSliderData.map((slide, index) => (
+    <SwiperSlide key={index}>
+      <img className={styles.slideImg} src={slide.image} alt={`slider-img-${index + 1}`} />
+    </SwiperSlide>
+  ));
+  
 
   return (
     <>
       <Swiper loop={true} className="slider">
-        <SwiperSlide><img className={styles.slideImg} src={slideImg1} alt="slider-img-1"></img></SwiperSlide>
-        <SwiperSlide><img className={styles.slideImg} src={slideImg2} alt="slider-img-2"></img></SwiperSlide>
-        <SwiperSlide><img className={styles.slideImg} src={slideImg3} alt="slider-img-3"></img></SwiperSlide>
-        <SwiperSlide><img className={styles.slideImg} src={slideImg4} alt="slider-img-4"></img></SwiperSlide>
+        {sliderImages}
       </Swiper>
     </>
   );
+};
+
+// custom hook couldn't be called inside callback and thats reason why i copied exactly same code
+const copiedImagePathHandler = (baseUrl) => {
+  const fileId = baseUrl.match(/\/file\/d\/([^/]+)/)[1];
+  const newUrl = `https://drive.google.com/uc?export=view&id=${fileId}`;
+  return newUrl;
 };
 
 export default Slider;

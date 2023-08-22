@@ -1,9 +1,11 @@
+import { useCustomersData } from '../../../context/FetchDataContext';
 import useCheckImagePath from '../../../custom_hooks/CheckImagePath';
 import CustomerCard from '../../UI/cards/CustomerCard';
 import AdsCard from '../../UI/cards/AdsCard';
 import styles from './Reviews.module.scss';
 
 const ReviewsContainer = () => {
+    const customersData = useCustomersData();
     const bgImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/logo-leaf2-free-img.png`, './static/media/logo-leaf2-free-img.png');
     const smallLeafImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/logo-leaf-new.png`, './static/media/logo-leaf-new.png');
 
@@ -14,9 +16,9 @@ const ReviewsContainer = () => {
                     <h2 className={styles.mainTitle}>Customers Reviews</h2>
                     <img className={styles.leafImg} src={smallLeafImage} alt="small-leaf-img"></img>
                     <div className={styles.reviewsCardsHolder}>
-                        <CustomerCard />
+                        {customersData.length > 0 && <CustomerCard data={customersData[0]}/> }
                         <AdsCard />
-                        <CustomerCard />
+                        {customersData.length > 0 && <CustomerCard data={customersData[1]}/> }
                     </div>
                 </div>
             </div>

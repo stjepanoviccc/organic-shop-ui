@@ -1,14 +1,30 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone} from '@fortawesome/free-solid-svg-icons'; // , faEnvelope, faLocationDot 
+import { faPhone, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import styles from './InfoCard.module.scss';
 
-const InfoCard = () => {
+const InfoCard = ({type}) => {
+    const iconMap = {
+        'phone': faPhone,
+        'mail': faEnvelope,
+        'location': faLocationDot
+    };
+    const firstLine = {
+        'phone': '+123 456 7890',
+        'mail': 'info@example.com',
+        'location': '1569 Ave, New York,'
+    }
+    const secondLine = {
+        'phone': '+123 456 7890',
+        'mail': 'support@example.com',
+        'location': 'NY 10028, USA'
+    }
+
     return (
         <div className={styles.infoCard}>
-            <FontAwesomeIcon className={styles.icon} icon={faPhone}></FontAwesomeIcon>
+            <FontAwesomeIcon className={styles.icon} icon={iconMap[type]}></FontAwesomeIcon>
             <div className={styles.cardContentHolder}>
-                <p>info@example.com</p>
-                <p>support@example.com</p>
+                <p>{firstLine[type]}</p>
+                <p>{secondLine[type]}</p>
             </div>
         </div>
     )

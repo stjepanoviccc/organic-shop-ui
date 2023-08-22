@@ -1,3 +1,4 @@
+import { useCertifiedProductsData } from '../../../context/FetchDataContext';
 import CertifiedProduct from './CertifiedProduct';
 import GreenButton from '../../UI/buttons/GreenButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,38 +7,9 @@ import useCheckImagePath from '../../../custom_hooks/CheckImagePath';
 import styles from './Certified.module.scss';
 
 const CertifiedContainer = () => {
+    const certifiedProductsData = useCertifiedProductsData();
     const smallLeafImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/logo-leaf-new.png`, './static/media/logo-leaf-new.png');
     const organicLogo = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/organic-badge-freeimg.png`, './static/media/organic-badge-freeimg.png');
-
-    const certifiedProducts = [
-        {
-            text: 'Fresh fruits'
-        },
-        {
-            text: 'Beauty products'
-        },
-        {
-            text: 'Dry fruits'
-        },
-        {
-            text: 'Milk products'
-        },
-        {
-            text: 'Fresh vegetables'
-        },
-        {
-            text: 'Organic honey'
-        },
-        {
-            text: 'Dried vegetables'
-        },
-        {
-            text: 'Organic tea'
-        },
-        {
-            text: 'Dried Vegetables'
-        }
-    ];
 
     return (
         <>
@@ -55,7 +27,7 @@ const CertifiedContainer = () => {
                 <img src={smallLeafImage} alt="small-leaf-img"></img>
             </div>
             <div className={styles.certifiedProductsHolder}>
-                {certifiedProducts.map((product, key) => (
+                {certifiedProductsData.map((product, key) => (
                     <CertifiedProduct key={key} text={product.text} />
                 ))}
             </div>

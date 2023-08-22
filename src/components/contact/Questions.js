@@ -1,3 +1,4 @@
+import { useAccordionsData } from '../../context/FetchDataContext';
 import useCheckImagePath from '../../custom_hooks/CheckImagePath';
 import QuestionAccordion from '../UI/accordions/QuestionAccordion';
 import styles from './Questions.module.scss';
@@ -5,34 +6,7 @@ import styles from './Questions.module.scss';
 const QuestionsContainer = () => {
     const smallLeafImg = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/logo-leaf-new.png`, './static/media/logo-leaf-new.png');
     const bgImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/leaves-free-img.png`, './static/media/leaves-free-img.png');
-
-    const accordionItems = [
-        {
-            title: 'Pulvinar nostrud class cum facilis?',
-            text: 'I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar leo.'
-        },
-        {
-            title: 'Pon excepturi numquam, facilis?',
-            text: 'I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar leo.'
-        },
-        {
-            title: 'Pon excepturi numquam, facilis?',
-            text: 'I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar leo.'
-        },
-        {
-            title: 'Pon excepturi numquam, facilis?',
-            text: 'I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar leo.'
-        },
-        {
-            title: 'Consequat nesciunt fusce facilisi?',
-            text: 'I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar leo.'
-        },
-        {
-            title: 'Consequat nesciunt fusce facilisi?',
-            text: 'I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar leo.'
-        },
-
-    ]
+    const accordionItems = useAccordionsData();
     const chunkedAccordionItems = chunkArray(accordionItems, accordionItems.length/2);
 
     return (

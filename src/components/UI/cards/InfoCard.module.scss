@@ -8,7 +8,7 @@
     padding: 40px 30px;
     border: 1px solid $silver;
     border-radius: 25px;
-    box-shadow: 0 2px 2px 0 $silver;
+    box-shadow: 1px 1px 10px 1px $silver;
 
     @media (max-width: 920px) {
         margin: 0 20px 0 20px;
@@ -17,6 +17,6 @@
 }
 
 .icon {
-    font-size: 20px;
+    font-size: 22px;
     color: $darkGreen;
 }

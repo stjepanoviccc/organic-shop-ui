@@ -1,24 +1,23 @@
-import useCheckImagePath from '../../../custom_hooks/CheckImagePath';
+import useImagePathHandler from '../../../custom_hooks/ImagePathHandler';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import styles from './CustomerCard.module.scss';
 
-const CustomerCard = () => {
-    const personImg = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/client02-free-img.png`, './static/media/client02-free-img.png');
+const CustomerCard = (props) => {
+    const personImg = useImagePathHandler(props.data.image);
+    const starIcons = Array.from({ length: props.data.stars }).map((_, index) => (
+        <FontAwesomeIcon key={index} className={styles.cardStar} icon={faStar} />
+    ));
 
     return (
         <div className={styles.customerCard}>
             <div className={styles.cardStarHolder}>
-                <FontAwesomeIcon className={styles.cardStar} icon={faStar} />
-                <FontAwesomeIcon className={styles.cardStar} icon={faStar} />
-                <FontAwesomeIcon className={styles.cardStar} icon={faStar} />
-                <FontAwesomeIcon className={styles.cardStar} icon={faStar} />
-                <FontAwesomeIcon className={styles.cardStar} icon={faStar} />
+                {starIcons}
             </div>
-            <p className={styles.cardContentHolder}>Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+            <p className={styles.cardContentHolder}>{props.data.info}</p>
             <div className={styles.cardPersonInfo}>
                 <img src={personImg} alt="person-img" />
-                <p>Mila Kunis</p>
+                <p>{props.data.name}</p>
             </div>
         </div>
     )
