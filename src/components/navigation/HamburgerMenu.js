@@ -17,13 +17,13 @@ const HamburgerMenu = ({ toggle, inProp }) => {
                     {windowWidth < 920 && <ProfileButton />}
                     {windowWidth < 920 && <CloseButton close={toggle} />}
                     <div className={styles.navLeft}>
-                        <Link className={styles.link} to="/everything"><p>Everything</p></Link>
-                        <Link className={styles.link} to="/everything"><p>Groceries</p></Link>
-                        <Link className={styles.link} to="/everything"><p>Juice</p></Link>
+                        <Link onClick={toggle} className={styles.link} to="/everything"><p>Everything</p></Link>
+                        <Link onClick={toggle} className={styles.link} to="/everything"><p>Groceries</p></Link>
+                        <Link onClick={toggle} className={styles.link} to="/everything"><p>Juice</p></Link>
                     </div>
                     <div className={styles.navRight}>
-                        <Link className={styles.link} to="/about"><p>About</p></Link>
-                        <Link className={styles.link} to="/contact"><p>Contact</p></Link>
+                        <Link onClick={toggle} className={styles.link} to="/about"><p>About</p></Link>
+                        <Link onClick={toggle} className={styles.link} to="/contact"><p>Contact</p></Link>
                     </div>
                 </div>
             )}

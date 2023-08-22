@@ -62,4 +62,7 @@
 .mainBgImageExt{
     height: 60%;
     opacity: 0.3;
+    @media (max-width: 768px) {
+        height: 10%;
+    }
 }
