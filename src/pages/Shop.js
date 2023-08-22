@@ -1,7 +1,9 @@
+import ShopContainer from "../components/shop/Shop";
+
 const ShopPage = () => {
     return (
         <>
-            <p>ShopPage</p>
+            <ShopContainer />
         </>
     )
 }

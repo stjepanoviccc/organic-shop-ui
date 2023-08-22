@@ -18,11 +18,7 @@ const QuestionAccordion = ({ title, text }) => {
                 <h4 className={styles.accordionTitle}>{title}</h4>
                 {!isActive ? <FontAwesomeIcon className={styles.arrowIcon} icon={faArrowDown} /> : <FontAwesomeIcon className={styles.arrowIcon} icon={faArrowUp} />}
             </button>
-            <Transition
-                nodeRef={nodeRef}
-                in={isActive}
-                timeout={0}
-                >
+            <Transition nodeRef={nodeRef} in={isActive} timeout={0}>
                 {state => (
                     <div ref={nodeRef} className={`${styles.panel} ${styles[state]}`} style={{ maxHeight: isActive ? `${nodeRef.current.scrollHeight}px` : '0px' }}>
                         <p className={styles.panelText}>{text}</p>

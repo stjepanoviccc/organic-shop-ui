@@ -1,4 +1,4 @@
-import { useBrandsData } from '../../../context/FetchDataContext';
+import { useBrandsData, copiedImagePathHandler } from '../../../context/FetchDataContext';
 import styles from './Brands.module.scss';
 
 const BrandsContainer = () => {
@@ -12,7 +12,6 @@ const BrandsContainer = () => {
         <img key={index} src={brand.image} alt={`brand-${index}-img`}></img>
     ));
 
-
     return (
         <section className={styles.brandsSection}>
             <div className={styles.mainWrap}>
@@ -25,13 +24,6 @@ const BrandsContainer = () => {
             </div>
         </section>
     )
-};
-
-// custom hook couldn't be called inside callback and thats reason why i copied exactly same code
-const copiedImagePathHandler = (baseUrl) => {
-    const fileId = baseUrl.match(/\/file\/d\/([^/]+)/)[1];
-    const newUrl = `https://drive.google.com/uc?export=view&id=${fileId}`;
-    return newUrl;
 };
 
 export default BrandsContainer;

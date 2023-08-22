@@ -1,9 +1,11 @@
 import { useSliderData, useCustomersData } from '../../../context/FetchDataContext';
+import useCheckImagePath from '../../../custom_hooks/CheckImagePath';
 import CertifiedContainer from './Certified';
 import SliderCard from '../../UI/cards/SliderCard';
 import styles from './Quality.module.scss';
 
 const QualityContainer = () => {
+    const bgImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/leaves-free-img.png`, './static/media/leaves-free-img.png');
     const sliderData = useSliderData();
     const customersData = useCustomersData();
 
@@ -19,6 +21,7 @@ const QualityContainer = () => {
                     </div>
                 </div>
             </div>
+            <img src={bgImage} alt="leaf-bg-img" className={`${styles.mainBgImage} ${styles.mainBgImageExt}`}></img>
         </section>
     )
 };

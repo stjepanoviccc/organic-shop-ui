@@ -1,6 +1,10 @@
 @import '../../../scss/base/Colors.module.scss';
 @import '../../../scss/components/Global.module.scss';
 
+.qualitySection {
+    position: relative;
+}
+
 .qualityWrap {
     display: flex;
     gap: 100px;
@@ -32,5 +36,12 @@
     @media (max-width: 920px) {
         width: 100%;
         text-align: center;
+    }
+}
+
+.mainBgImageExt{
+    height: 50%;
+    @media (max-width: 920px) {
+        height: 10%;
     }
 }
