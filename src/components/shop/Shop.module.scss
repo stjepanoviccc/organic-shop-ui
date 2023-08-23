@@ -11,8 +11,8 @@
 }
 
 .shopPrimaryWrap {
-    flex-grow: 5;
-    padding: 0 25px;
+    flex-grow: 3;
+    padding-left: 40px;
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -21,4 +21,8 @@
 .shopSecondaryWrap {
     flex-grow: 1;
     border-right: 1px solid $silver;
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }

@@ -1,0 +1,7 @@
+@import '../../../scss/base/Colors.module.scss';
+
+.mainProductsWrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}

@@ -1,4 +1,5 @@
 @import '../../../scss/base/Colors.module.scss';
+@import '../../../scss/components/Card.module.scss';
 @import '../../../scss/components/Global.module.scss';
 
 .card {
@@ -21,6 +22,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 .cardCategory {
@@ -38,4 +40,10 @@
 
 .cardPrice {
     font-weight: bold;
+}
+
+.cardOldPrice {
+    text-decoration: line-through;
+    padding-right: 5px;
+    color: $gray;
 }

@@ -1,0 +1,33 @@
+@import '../../../scss/base/Colors.module.scss';
+
+.searchWrap {
+    display: flex;
+    gap: 5px;
+}
+
+.searchInput {
+    font-size: 16px;
+    padding-left: 5px;
+}
+
+.searchButton {
+    border: 1px solid $darkGreen;
+    background-color: $darkGreen;
+    color: $white;
+    padding: 13px;
+    border-radius: 5px;
+}
+
+.priceWrap {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.priceInput {
+    border: 1px solid $silver;
+    border-radius: 5px;
+    font-size: 15px;
+    width: 15%;
+    padding: 12px;
+}

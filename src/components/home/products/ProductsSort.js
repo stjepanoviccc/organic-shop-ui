@@ -17,10 +17,7 @@ const ProductsSortContainer = ({type}) => {
                 <h2 className={styles.mainTitle}>{title}</h2>
                 <img className={styles.leafImg} src={smallLeafImage} alt="img" />
                 <div className={styles.productsWrap}>
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard sale={true} />
+                    <p style={{color: 'red'}}>ADD SHOP CARDS HERE</p>
                 </div>
             </div>
         </div>

@@ -18,6 +18,7 @@ const FetchDataProvider = (props) => {
     const [freshProductsData, setFreshProductsData] = useState([]);
     const [certifiedProductsData, setCertifiedProductsData] = useState([]);
     const [accordionsData, setAccordionsData] = useState([]);
+    const [productsData, setProductsData] = useState([]);
 
 
     const fetchData = async () => {
@@ -29,6 +30,7 @@ const FetchDataProvider = (props) => {
         const loadedFreshProductsData = [];
         const loadedCertifiedProductsData = [];
         const loadedAccordionsData = [];
+        const loadedProductsData = [];
 
         for (let key in data.customers) {
              loadedCustomersData.push({
@@ -81,6 +83,18 @@ const FetchDataProvider = (props) => {
         }
         setAccordionsData(loadedAccordionsData);
 
+        for (let key in data.products) {
+            loadedProductsData.push({
+               id: key,
+               title: data.products[key].title,
+               image: data.products[key].image,
+               discount: data.products[key].discount,
+               price: data.products[key].price,
+               category: data.products[key].category,
+           }); 
+       }
+       setProductsData(loadedProductsData);
+
     };
 
     useEffect(() => {
@@ -96,6 +110,7 @@ const FetchDataProvider = (props) => {
                 freshProductsData: freshProductsData,
                 certifiedProductsData: certifiedProductsData,
                 accordionsData: accordionsData,
+                productsData: productsData,
                 fetchData: fetchData,
             }}>
             {props.children}
@@ -125,6 +140,10 @@ export const useCertifiedProductsData = () => {
 
 export const useAccordionsData = () => {
     return useContext(FetchContext).accordionsData;
+};
+
+export const useProductsData = () => {
+    return useContext(FetchContext).productsData;
 };
 
 // helping functions when i can't use custom hooks for url

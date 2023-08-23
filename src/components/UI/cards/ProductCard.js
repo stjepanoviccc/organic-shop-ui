@@ -1,28 +1,31 @@
-import useCheckImagePath from '../../../custom_hooks/CheckImagePath';
+import useImagePathHandler from '../../../custom_hooks/ImagePathHandler';
 import Sale from '../Sale';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import styles from './ProductCard.module.scss';
 
-const ProductCard = ({ sale }) => {
-    const img = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/products/coffee-asorted.jpg`, './static/media/products/coffee-asorted.jpg');
+const ProductCard = (props) => {
+    const img = useImagePathHandler(props.data.image);
+    const priceFixed = (props.data.discount > 0) ? (props.data.price - props.data.discount).toFixed(2) : props.data.price.toFixed(2);
+    const starIcons = Array.from({ length: 5 }).map((_, index) => (
+        <FontAwesomeIcon key={index} className={styles.cardStar} icon={faStar} />
+    ));
 
     return (
         <div className={styles.card}>
             <img className={styles.cardImg} src={img} alt="product-card-img" />
             <div className={styles.cardContentHolder}>
-                <h5 className={styles.cardCategory}>Groceries</h5>
-                <h4 className={styles.cardTitle}>Assorted Coffee</h4>
+                <h5 className={styles.cardCategory}>{props.data.category}</h5>
+                <h4 className={styles.cardTitle}>{props.data.title}</h4>
                 <div className={styles.cardStarsWrap}>
-                    <FontAwesomeIcon icon={faStar} className={styles.cardStars} size="sm" />
-                    <FontAwesomeIcon icon={faStar} className={styles.cardStars} size="sm" />
-                    <FontAwesomeIcon icon={faStar} className={styles.cardStars} size="sm" />
-                    <FontAwesomeIcon icon={faStar} className={styles.cardStars} size="sm" />
-                    <FontAwesomeIcon icon={faStar} className={styles.cardStars} size="sm" />
+                    {starIcons}
                 </div>
-                <p className={styles.cardPrice}>35.00$</p>
+                <p className={styles.cardPrice}>
+                {props.data.discount > 0 &&<small className={styles.cardOldPrice}>{props.data.price.toFixed(2)}$</small> }
+                    {priceFixed}$
+                </p>
             </div>
-            {sale && <Sale />}
+            {props.data.discount > 0 && <Sale />}
         </div>
     )
 };

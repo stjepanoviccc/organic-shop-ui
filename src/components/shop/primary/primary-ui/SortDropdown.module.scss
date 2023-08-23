@@ -1,13 +1,18 @@
-.sortForm {
-    border: none;
-}
+@import '../../../../scss/base/Colors.module.scss';
 
 .customSelect {
-    border: none;
+    border: 1px solid $silver;
+    padding: 10px;
     background-color: transparent;
     font-size: 1rem;
-}
-
-.customOption {
-    border: 1px solid red;
-}
+    width: 100%;
+  
+    &:hover, &:focus, &:active {
+        outline: none; 
+    }
+  }
+  
+  .customOption {
+    border: 1px solid red; 
+    padding: 5px;
+  }

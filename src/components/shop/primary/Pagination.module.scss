@@ -1,0 +1,23 @@
+@import '../../../scss/base/Colors.module.scss';
+
+.paginationWrap {
+    padding-top: 20px;
+    display: flex;
+    gap: 5px;
+}
+
+.buttonPagination {
+    border: 1px solid $darkGreen;
+    padding: 15px 20px;
+    color: $darkGreen;
+    transition: 300ms;
+    &:hover {
+        background-color: $darkGreen;
+        color: $white;
+    }
+}
+
+.buttonPaginationActive {
+    background-color: $darkGreen;
+    color: $white; 
+}
