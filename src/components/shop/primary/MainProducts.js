@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useProductsData } from '../../../context/FetchDataContext';
 import Pagination from './Pagination';
@@ -6,14 +6,19 @@ import SortDropdown from './primary-ui/SortDropdown';
 import ProductCard from '../../UI/cards/ProductCard';
 import styles from './MainProducts.module.scss';
 
-const MainProductsContainer = () => {
+const MainProductsContainer = ({ category }) => {
     const productsData = useProductsData();
     const [currentPage, setCurrentPage] = useState(1);
     const productsPerPage = 9;
-    const numberOfProducts = productsData.length;
     const indexOfLast = currentPage * productsPerPage;
     const indexOfFirst = indexOfLast - productsPerPage;
-    const currentProducts = productsData.slice(indexOfFirst, indexOfLast);
+    const filteredProducts = productsData.filter(product => product.category.toUpperCase() === category);
+    const numberOfProducts = category === 'ALL' ? productsData.length : filteredProducts.length;
+    const currentProducts = category === 'ALL' ? productsData.slice(indexOfFirst, indexOfLast) : filteredProducts.slice(indexOfFirst, indexOfLast);
+
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [category])
 
     return (
         <>
@@ -25,15 +30,14 @@ const MainProductsContainer = () => {
                 {currentProducts.map((product, index) => (
                     <Link key={`link_${index}`} to="/"> <ProductCard key={index} data={product} /> </Link>
                 ))}
-                <Pagination
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                    numberOfProducts={numberOfProducts}
-                    productsPerPage={productsPerPage}
-                />
             </div>
+            <Pagination
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+                numberOfProducts={numberOfProducts}
+                productsPerPage={productsPerPage}
+            />
         </>
-
     )
 };
 

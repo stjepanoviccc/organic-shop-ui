@@ -1,9 +1,10 @@
 import ShopContainer from "../components/shop/Shop";
 
-const ShopPage = () => {
+const ShopPage = ({category}) => {
+   
     return (
         <>
-            <ShopContainer />
+            <ShopContainer category={category} />
         </>
     )
 }

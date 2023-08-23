@@ -9,7 +9,7 @@ const ShopHeaderContainer = () => {
     return (
         <div className={styles.shopHeaderWrap}>
             <p><Link to="/">Home</Link> / {capitalizedSegment}</p>
-            <h1 className={styles.shopTitle}>Shop</h1>
+            <h1 className={styles.shopTitle}>{capitalizedSegment}</h1>
         </div>
     )
 };

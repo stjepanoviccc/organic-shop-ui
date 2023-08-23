@@ -5,7 +5,7 @@ import ShopHeader from './primary/ShopHeader';
 import MainProducts from './primary/MainProducts';
 import styles from './Shop.module.scss';
 // <FilterContainer /> this add
-const ShopContainer = () => {
+const ShopContainer = ({category}) => {
     return (
         <section className={styles.shopSection}>
             <div className={styles.mainWrap}>
@@ -17,7 +17,7 @@ const ShopContainer = () => {
                     </div>
                     <div className={styles.shopPrimaryWrap}>
                         <ShopHeader />
-                        <MainProducts />
+                        <MainProducts category={category} />
                     </div>
                 </div>
             </div>
