@@ -1,5 +1,11 @@
 @import '../../../scss/base/Colors.module.scss';
 
+.sortWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .mainProductsWrap {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

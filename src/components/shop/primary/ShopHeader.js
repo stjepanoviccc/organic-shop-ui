@@ -1,17 +1,15 @@
 import { Link } from 'react-router-dom';
-import SortDropdown from './primary-ui/SortDropdown';
 import styles from './ShopHeader.module.scss';
 
 const ShopHeaderContainer = () => {
-    
+    const url = window.location.href.split('/');
+    const lastSegment = url[url.length - 1];
+    const capitalizedSegment = lastSegment.charAt(0).toUpperCase() + lastSegment.slice(1);
+
     return (
         <div className={styles.shopHeaderWrap}>
-            <p><Link to="/">Home</Link> / Shop</p>
+            <p><Link to="/">Home</Link> / {capitalizedSegment}</p>
             <h1 className={styles.shopTitle}>Shop</h1>
-            <div className={styles.sortWrap}>
-                <p>Showing 1-9 of 12 results</p>
-                <SortDropdown />
-            </div>
         </div>
     )
 };
