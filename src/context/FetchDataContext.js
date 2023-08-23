@@ -20,7 +20,6 @@ const FetchDataProvider = (props) => {
     const [accordionsData, setAccordionsData] = useState([]);
     const [productsData, setProductsData] = useState([]);
 
-
     const fetchData = async () => {
         const response = await fetch("https://react-organic-shop-5b019-default-rtdb.firebaseio.com/.json");
         const data = await response.json();
@@ -92,6 +91,7 @@ const FetchDataProvider = (props) => {
                price: data.products[key].price,
                category: data.products[key].category,
            }); 
+           
        }
        setProductsData(loadedProductsData);
 

@@ -1,0 +1,14 @@
+@import '../../../scss/base/Colors.module.scss';
+
+.categoryItem {
+    padding: 3px 0;
+}
+
+.categoryLink {
+    color: $darkGreen;
+}
+
+.numberSpan {
+    padding-left: 5px;
+    color: $black;
+}
