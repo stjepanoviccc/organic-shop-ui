@@ -1,0 +1,47 @@
+@import '../../../../scss/base/Colors.module.scss';
+
+.slider {
+    margin-top: 20px;
+    width: 100%;
+    height: 4px;
+    background-color: $darkGreen;
+}
+
+.track {
+    top: 0;
+    height: 4px;
+}
+
+.track-0,
+.track-2 {
+    background-color: $gray;
+}
+
+.track-1 {
+    background-color: $darkGreen;
+}
+
+.thumb {
+    width: 15px;
+    height: 15px;
+    cursor: grab;
+    background: $darkGreen;
+    border-radius: 50%;
+    top: -5px;
+    z-index: 2;
+}
+
+.priceWrap {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    padding-top: 20px;
+}
+
+.priceInput {
+    border: 1px solid $silver;
+    border-radius: 5px;
+    font-size: 15px;
+    width: 15%;
+    padding: 12px;
+}

@@ -14,12 +14,10 @@ const Pagination = ({ currentPage, setCurrentPage, numberOfProducts, productsPer
         setCurrentPage(Math.max(currentPage - 1, 1));
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
-
     const nextPage = () => {
         setCurrentPage(Math.min(currentPage + 1, numberOfPages))
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
-
     const specificPage = (page) => {
         setCurrentPage(page);
         window.scrollTo({ top: 0, behavior: 'smooth' });

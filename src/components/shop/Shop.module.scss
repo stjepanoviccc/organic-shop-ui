@@ -11,7 +11,7 @@
 }
 
 .shopPrimaryWrap {
-    flex-grow: 3;
+    flex-grow: 2;
     padding-left: 40px;
     display: flex;
     flex-direction: column;
@@ -25,4 +25,5 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
+    width: 50%;
 }

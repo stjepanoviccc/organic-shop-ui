@@ -1,9 +1,10 @@
+import SearchContainer from './secondary/Search';
 import FilterContainer from './secondary/Filter';
 import CategoriesContainer from './secondary/Categories';
-import PopularContainer from './secondary/Popular';
 import ShopHeader from './primary/ShopHeader';
 import MainProducts from './primary/MainProducts';
 import styles from './Shop.module.scss';
+import OnSaleContainer from './secondary/OnSale';
 
 const ShopContainer = ({category}) => {
     return (
@@ -11,9 +12,10 @@ const ShopContainer = ({category}) => {
             <div className={styles.mainWrap}>
                 <div className={styles.shopWrap}>
                     <div className={styles.shopSecondaryWrap}>
+                        <SearchContainer />
                         <FilterContainer />
                         <CategoriesContainer />
-                        <PopularContainer />
+                        <OnSaleContainer />
                     </div>
                     <div className={styles.shopPrimaryWrap}>
                         <ShopHeader />
