@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useProductsData } from '../../../context/FetchDataContext';
 import Pagination from './Pagination';
-import SortDropdown from './primary-ui/SortDropdown';
+import SortDropdown from './SortDropdown';
 import ProductCard from '../../UI/cards/ProductCard';
 import styles from './MainProducts.module.scss';
 

@@ -17,7 +17,7 @@ const Slider = ({ sliderData }) => {
   ));
 
   return (
-    <Swiper loop={true} className="slider">
+    <Swiper loop={true} >
       {sliderImages}
     </Swiper>
   );

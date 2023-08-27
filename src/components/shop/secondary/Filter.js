@@ -1,4 +1,4 @@
-import DoubleRangedSlider from './secondary-ui/DoubleRangedSlider';
+import DoubleRangedSlider from './DoubleRangedSlider';
 import styles from './Filter.module.scss';
 
 const FilterContainer = () => {

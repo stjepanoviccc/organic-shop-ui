@@ -1,4 +1,4 @@
-@import '../../../../scss/base/Colors.module.scss';
+@import '../../../scss/base/Colors.module.scss';
 
 .slider {
     margin-top: 20px;
@@ -34,7 +34,6 @@
 .priceWrap {
     display: flex;
     gap: 10px;
-    justify-content: flex-end;
     padding-top: 20px;
 }
 
@@ -44,4 +43,8 @@
     font-size: 15px;
     width: 15%;
     padding: 12px;
+}
+
+.validationMsg {
+    padding-top: 20px;
 }
