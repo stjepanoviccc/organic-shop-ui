@@ -24,7 +24,17 @@
     display: grid;
 }
 
-.priceErrorText {
+.errorHolder {
+    grid-column: 1 / -1; 
+}
+
+.titleErrorText {
+    font-size: 2rem;
+    padding-bottom: 20px;
+    color: $darkGreen;
+}
+
+.bodyErrorText {
     font-size: 1.5rem;
     border-top: 2px solid $darkGreen;
     padding-top: 10px;

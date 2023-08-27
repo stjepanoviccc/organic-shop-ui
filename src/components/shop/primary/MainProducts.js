@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useProductsData } from '../../../context/FetchDataContext';
 import { usePricesData } from '../../../context/ShopPriceContext';
+import { useSearchQuery } from '../../../context/SearchContext';
 import Pagination from './Pagination';
 import SortDropdown from './SortDropdown';
 import ProductCard from '../../UI/cards/ProductCard';
@@ -23,20 +24,47 @@ const MainProductsContainer = ({ category }) => {
         );
     const numberOfProducts = filteredProducts.length;
     const currentProducts = filteredProducts.slice(indexOfFirst, indexOfLast);
+    // search filtering
+    const searchCtx = useSearchQuery();
+    const [searchCount, setSearchCount] = useState(null);
+    const searchedProducts = currentProducts.filter(product => product.title.toLowerCase().includes(searchCtx.searchQuery.toLowerCase()));
 
     useEffect(() => {
         setCurrentPage(1);
     }, [category])
 
+    useEffect(() => {
+        setSearchCount(prev => searchedProducts.length);
+    }, [searchedProducts])
+    console.log(`searchQuery: ${searchCtx.searchQuery}`)
+    console.log(`searchCOunt: ${searchCount}`)
     return (
         <>
             <div className={styles.sortWrap}>
-                <p>Showing {indexOfFirst}-{indexOfLast > numberOfProducts ? numberOfProducts : indexOfLast} of {numberOfProducts} results</p>
+                {searchCtx.searchQuery === '' && <p>Showing {indexOfFirst}-{indexOfLast > numberOfProducts ? numberOfProducts : indexOfLast} of {numberOfProducts} results</p>}
+                {searchCtx.searchQuery !== '' && <p>Showing all {searchCount} results</p>}
                 <SortDropdown />
             </div>
             <div className={numberOfProducts > 0 ? styles.mainProductsWrap : styles.mainProductsWrapError}>
-                {numberOfProducts > 0 && currentProducts.map((product, index) => <Link key={`link_${index}`} to="/"><ProductCard key={index} data={product} /></Link>)}
-                {numberOfProducts === 0 && <p className={styles.priceErrorText}>No products were found matching your selection.</p>}
+                {numberOfProducts > 0 && searchCtx.searchQuery === '' &&
+                    currentProducts.map((product, index) => <Link key={`link_${index}`} to="/"><ProductCard key={index} data={product} /></Link>)}
+
+                {numberOfProducts > 0 && searchCtx.searchQuery !== '' &&
+                    searchedProducts.map((product, index) => <Link key={`link_${index}`} to="/"><ProductCard key={index} data={product} /></Link>)}
+
+                {(searchCtx.searchQuery !== '' && searchedProducts.length === 0) && (
+                    <div className={styles.errorHolder}>
+                        <p className={styles.titleErrorText}>Search results: "{searchCtx.searchQuery}"</p>
+                        <p className={styles.bodyErrorText}>No products were found matching your selection.</p>
+                    </div>
+                )}
+
+                {searchCtx.searchQuery === '' && numberOfProducts === 0 && (
+                    <div className={styles.errorHolder}>
+                        <p className={styles.titleErrorText}>Check Price Filtering</p>
+                        <p className={styles.bodyErrorText}>No products were found matching your selection.</p>
+                    </div>
+                )}
             </div>
             <Pagination
                 currentPage={currentPage}
