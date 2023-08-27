@@ -11,3 +11,14 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
+
+.mainProductsWrapError {
+    display: grid;
+}
+
+.priceErrorText {
+    font-size: 1.5rem;
+    border-top: 2px solid $darkGreen;
+    padding-top: 10px;
+    color: $darkGreen;
+}

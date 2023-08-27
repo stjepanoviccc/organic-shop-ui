@@ -11,19 +11,18 @@
 }
 
 .shopPrimaryWrap {
-    flex-grow: 2;
     padding-left: 40px;
     display: flex;
     flex-direction: column;
     gap: 40px;
+    width: 100%;
 }
 
 .shopSecondaryWrap {
-    flex-grow: 1;
     border-right: 1px solid $silver;
     padding-right: 40px;
     display: flex;
     flex-direction: column;
     gap: 40px;
-    width: 50%;
+    width: 25%;
 }

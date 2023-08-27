@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { useProductsData } from "./FetchDataContext";
 
 const ShopPriceUpdateContext = React.createContext();
