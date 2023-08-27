@@ -8,6 +8,9 @@
 .searchInput {
     font-size: 16px;
     padding-left: 5px;
+    @media (max-width: 1000px) {
+        width: 100%;
+    }
 }
 
 .searchButton {

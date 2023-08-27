@@ -8,6 +8,10 @@
 .shopWrap {
     display: flex;
     padding: 50px 0;
+    @media (max-width: 1000px) {
+        flex-direction: column-reverse;
+        gap: 100px;
+    }
 }
 
 .shopPrimaryWrap {
@@ -16,6 +20,9 @@
     flex-direction: column;
     gap: 40px;
     width: 100%;
+    @media (max-width: 1000px) {
+        padding-left: 0;
+    }
 }
 
 .shopSecondaryWrap {
@@ -25,4 +32,9 @@
     flex-direction: column;
     gap: 40px;
     width: 25%;
+    @media (max-width: 1000px) {
+        width: 100%;
+        padding-right: 0;
+        border-right: none;
+    }
 }
