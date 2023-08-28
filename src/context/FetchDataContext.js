@@ -5,6 +5,7 @@ export const FetchContext = React.createContext({
     brandsData: [],
     sliderData: [],
     productsData: [],
+    productsMap: new Map(),
     freshProductsData: [],
     certifiedProductsData: [],
     accordionsData: [],
@@ -19,6 +20,7 @@ const FetchDataProvider = (props) => {
     const [certifiedProductsData, setCertifiedProductsData] = useState([]);
     const [accordionsData, setAccordionsData] = useState([]);
     const [productsData, setProductsData] = useState([]);
+    const [productsMap, setProductsMap] = useState(new Map());
 
     const fetchData = async () => {
         const response = await fetch("https://react-organic-shop-5b019-default-rtdb.firebaseio.com/.json");
@@ -90,15 +92,18 @@ const FetchDataProvider = (props) => {
                discount: data.products[key].discount,
                price: data.products[key].price,
                category: data.products[key].category,
+               query: data.products[key].query
            }); 
+           productsMap.set(`${data.products[key].query}`, [key, data.products[key]]);
            
        }
        setProductsData(loadedProductsData);
-
+       setProductsMap(new Map(productsMap));
     };
 
     useEffect(() => {
         fetchData();
+        // eslint-disable-next-line
     }, []);
 
     return (
@@ -111,6 +116,7 @@ const FetchDataProvider = (props) => {
                 certifiedProductsData: certifiedProductsData,
                 accordionsData: accordionsData,
                 productsData: productsData,
+                productsMap: productsMap,
                 fetchData: fetchData,
             }}>
             {props.children}
@@ -145,6 +151,10 @@ export const useAccordionsData = () => {
 export const useProductsData = () => {
     return useContext(FetchContext).productsData;
 };
+
+export const useProductsMap = () => {
+    return useContext(FetchContext).productsMap;
+}
 
 // helping functions when i can't use custom hooks for url
 export const copiedImagePathHandler = (baseUrl) => {

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useProductsData } from '../../../context/FetchDataContext';
 import { usePricesData } from '../../../context/ShopPriceContext';
 import { useSearchQuery } from '../../../context/SearchContext';
@@ -46,10 +45,10 @@ const MainProductsContainer = ({ category }) => {
             </div>
             <div className={numberOfProducts > 0 ? styles.mainProductsWrap : styles.mainProductsWrapError}>
                 {numberOfProducts > 0 && searchCtx.searchQuery === '' &&
-                    currentProducts.map((product, index) => <Link key={`link_${index}`} to="/"><ProductCard key={index} data={product} /></Link>)}
+                    currentProducts.map((product, index) => <ProductCard key={index} data={product} />)}
 
                 {numberOfProducts > 0 && searchCtx.searchQuery !== '' &&
-                    searchedProducts.map((product, index) => <Link key={`link_${index}`} to="/"><ProductCard key={index} data={product} /></Link>)}
+                    searchedProducts.map((product, index) => <ProductCard key={index} data={product} />)}
 
                 {(searchCtx.searchQuery !== '' && searchedProducts.length === 0) && (
                     <div className={styles.errorHolder}>

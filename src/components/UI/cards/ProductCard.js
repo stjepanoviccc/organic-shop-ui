@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import useImagePathHandler from '../../../custom_hooks/ImagePathHandler';
 import Sale from '../Sale';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,15 +14,15 @@ const ProductCard = (props) => {
 
     return (
         <div className={styles.card} id={props.data.id}>
-            <img className={styles.cardImg} src={img} alt="product-card-img" />
+            <Link to={`/product/${props.data.query}`}><img className={styles.cardImg} src={img} alt="product-card-img" /></Link>
             <div className={styles.cardContentHolder}>
                 <h5 className={styles.cardCategory}>{props.data.category}</h5>
-                <h4 className={styles.cardTitle}>{props.data.title}</h4>
+                <Link to={`/product/${props.data.query}`}><h4 className={styles.cardTitle}>{props.data.title}</h4></Link>
                 <div className={styles.cardStarsWrap}>
                     {starIcons}
                 </div>
                 <p className={styles.cardPrice}>
-                {props.data.discount > 0 &&<small className={styles.cardOldPrice}>{props.data.price.toFixed(2)}$</small> }
+                    {props.data.discount > 0 && <small className={styles.cardOldPrice}>{props.data.price.toFixed(2)}$</small>}
                     {priceFixed}$
                 </p>
             </div>

@@ -2,6 +2,7 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 import RootLayout from './pages/Root';
 import HomePage from './pages/Home';
 import ShopPage from './pages/Shop';
+import ProductPage from "./pages/Product";
 import AboutPage from './pages/About';
 import ContactPage from './pages/Contact';
 import ProfilePage from './pages/Profile';
@@ -18,6 +19,7 @@ const router = createHashRouter([{
       { path: 'groceries', element: <ShopPage category="GROCERIES" />},
       { path: 'juice', element: <ShopPage category="JUICE" />},
     ]},
+    { path: 'product/:productId', element: <ProductPage />},
     { path: 'about', element: <AboutPage /> },
     { path: 'contact', element: <ContactPage /> },
     { path: 'profile', element: <ProfilePage /> },
