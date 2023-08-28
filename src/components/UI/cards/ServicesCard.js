@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruck, faAddressBook, faMoneyCheckDollar, faRotate } from '@fortawesome/free-solid-svg-icons';
 import styles from './ServicesCard.module.scss';
 
-const ServicesCard = ({type}) => {
+const ServicesCard = ({ type }) => {
     const iconMap = {
         'truck': faTruck,
         'address': faAddressBook,
@@ -24,9 +24,7 @@ const ServicesCard = ({type}) => {
 
     return (
         <div className={styles.servicesCard}>
-            <div className={styles.cardIconHolder}>
-                <FontAwesomeIcon className={styles.cardIcon} icon={iconMap[type]} />
-            </div>
+            <FontAwesomeIcon className={styles.cardIcon} icon={iconMap[type]} />
             <div className={styles.cardContentHolder}>
                 <h4 className={styles.cardTitle}>{titleMap[type]}</h4>
                 <p className={styles.cardContent}>{contentMap[type]}</p>

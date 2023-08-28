@@ -8,7 +8,7 @@ import GreenLinksArea from './areas/GreenLinks';
 
 const Footer = () => {
     return (
-        <>
+        <footer>
             <section className={styles.footerSection}>
                 <div className={styles.mainWrap}>
                     <div className={styles.footerWrap}>
@@ -23,7 +23,7 @@ const Footer = () => {
             <section className={styles.belowFooterSection}>
                 <div className={styles.mainWrap}><BelowFooter /></div>
             </section>
-        </>
+        </footer>
     )
 };
 

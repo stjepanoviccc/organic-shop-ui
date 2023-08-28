@@ -5,6 +5,7 @@ import { faStar } from '@fortawesome/free-regular-svg-icons';
 import styles from './ProductCard.module.scss';
 
 const ProductCard = (props) => {
+    console.log(props);
     const img = useImagePathHandler(props.data.image);
     const priceFixed = (props.data.discount > 0) ? (props.data.price - props.data.discount).toFixed(2) : props.data.price.toFixed(2);
     const starIcons = Array.from({ length: 5 }).map((_, index) => (
@@ -12,7 +13,7 @@ const ProductCard = (props) => {
     ));
 
     return (
-        <div className={styles.card}>
+        <div className={styles.card} id={props.data.id}>
             <img className={styles.cardImg} src={img} alt="product-card-img" />
             <div className={styles.cardContentHolder}>
                 <h5 className={styles.cardCategory}>{props.data.category}</h5>

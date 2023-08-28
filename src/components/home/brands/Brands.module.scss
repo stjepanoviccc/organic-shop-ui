@@ -1,5 +1,9 @@
 @import '../../../scss/components/Global.module.scss';
 
+.brandsSection {
+    position: relative;
+}
+
 .brandsContainer {
     display: flex;
     justify-content: space-between;

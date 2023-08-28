@@ -36,8 +36,7 @@ const MainProductsContainer = ({ category }) => {
     useEffect(() => {
         setSearchCount(prev => searchedProducts.length);
     }, [searchedProducts])
-    console.log(`searchQuery: ${searchCtx.searchQuery}`)
-    console.log(`searchCOunt: ${searchCount}`)
+
     return (
         <>
             <div className={styles.sortWrap}>

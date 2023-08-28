@@ -1,6 +1,10 @@
 @import '../../scss/base/Colors.module.scss';
 @import '../../scss/components/Global.module.scss';
 
+footer {
+    position: relative;
+}
+
 .footerSection {
     background-color: $footerBg;
 }
