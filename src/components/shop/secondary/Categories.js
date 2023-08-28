@@ -15,7 +15,7 @@ const CategoriesContainer = () => {
         <div className={styles.categoriesWrap}>
             {Object.keys(categoryCounter).map((category, index) => (
                 <div key={`item-${index}`}className={styles.categoryItem}>
-                    <Link className={styles.categoryLink} to={`/${category === 'All' ? 'shop' : category}`} key={`link-${index}`}>{category}</Link>
+                    <Link className={styles.categoryLink} to={`/${category === 'All' ? 'shop' : 'product-category/'+category.toLowerCase()}`} key={`link-${index}`}>{category}</Link>
                     <span className={styles.numberSpan}>({categoryCounter[category]})</span>
                 </div>
             ))}

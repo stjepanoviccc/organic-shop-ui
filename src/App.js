@@ -14,8 +14,10 @@ const router = createHashRouter([{
   children: [
     { index: true, element: <HomePage /> },
     { path: 'shop', element: <ShopPage category="ALL" /> },
-    { path: 'groceries', element: <ShopPage category="GROCERIES" />},
-    { path: 'juice', element: <ShopPage category="JUICE" />},
+    { path: 'product-category', children: [
+      { path: 'groceries', element: <ShopPage category="GROCERIES" />},
+      { path: 'juice', element: <ShopPage category="JUICE" />},
+    ]},
     { path: 'about', element: <AboutPage /> },
     { path: 'contact', element: <ContactPage /> },
     { path: 'profile', element: <ProfilePage /> },
