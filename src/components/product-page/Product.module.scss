@@ -4,3 +4,66 @@
 .productSection {
     background-color: $light;
 }
+
+.productWrap {
+    display: flex;
+    gap: 50px;
+    padding: 70px 0;
+    @media (max-width: 920px) {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+.productImageWrap, .productImage {
+    width: 100%;
+}
+
+.productDataWrap {
+    width: 100%;
+}
+
+.productTitle{
+    font-size: 2rem;
+}
+
+.productPrice {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.addToCartHolder {
+    display: flex;
+    gap: 10px;
+    padding: 20px 0;
+    border-bottom: 1px solid $silver;
+}
+
+.addToCartButton {
+    min-width: 50%;
+    padding: 10px 0;
+    border-radius: 4px;
+    background-color: $darkGreen;
+    color: $white;
+    font-weight: bold;
+}
+
+.valueInput {
+    width: 50px;
+    height: 30px;
+    font-size: 1.1rem;
+    padding-left: 15px;
+}
+
+.productCategories {
+    padding: 10px 0;
+}
+
+.categoryLink {
+    padding-left: 5px;
+    color: $darkGreen;
+    transition: 300ms;
+    &:hover {
+        color: $green;
+    }
+}
