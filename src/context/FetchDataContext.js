@@ -93,7 +93,8 @@ const FetchDataProvider = (props) => {
                price: data.products[key].price,
                category: data.products[key].category,
                query: data.products[key].query,
-               description: data.products[key].description
+               description: data.products[key].description,
+               reviews: typeof data.products[key].reviews !== 'undefined' ? null : data.products[key].reviews
            }); 
            productsMap.set(`${data.products[key].query}`, [key, data.products[key]]);
            
