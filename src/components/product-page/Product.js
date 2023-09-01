@@ -50,7 +50,7 @@ const ProductContainer = () => {
                         </p>
                     </div>
                 </div>
-                <SubmenuContainer description={null} reviews={null} />
+                <SubmenuContainer description={productData[1].description} reviews={null} />
                 <RelatedProducts relatedProducts={allProducts.filter((product) => product.title !== productData[1].title && product.category === productData[1].category).slice(0, 4)} />
             </div>
         </section>

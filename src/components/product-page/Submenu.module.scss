@@ -1,3 +1,25 @@
+@import '../../scss/base/Colors.module.scss';
+
 .submenuWrap {
     padding: 50px 0;
+}
+
+.submenuList {
+    display: flex;
+    gap: 30px;
+    border-top: 1px solid $silver;
+}
+
+.submenuItem {
+    font-weight: bold;
+    padding: 5px 0 20px 0;
+    border-top: 3px solid transparent;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.submenuItemActive {
+    border-top: 3px solid $darkGreen;
 }

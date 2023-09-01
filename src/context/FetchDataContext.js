@@ -92,7 +92,8 @@ const FetchDataProvider = (props) => {
                discount: data.products[key].discount,
                price: data.products[key].price,
                category: data.products[key].category,
-               query: data.products[key].query
+               query: data.products[key].query,
+               description: data.products[key].description
            }); 
            productsMap.set(`${data.products[key].query}`, [key, data.products[key]]);
            

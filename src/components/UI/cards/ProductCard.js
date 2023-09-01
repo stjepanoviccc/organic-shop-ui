@@ -12,12 +12,16 @@ const ProductCard = (props) => {
         <FontAwesomeIcon key={index} className={styles.cardStar} icon={faStar} />
     ));
 
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     return (
         <div className={styles.card} id={props.data.id}>
-            <Link to={`/product/${props.data.query}`}><img className={styles.cardImg} src={img} alt="product-card-img" /></Link>
+            <Link onClick={scrollToTop} to={`/product/${props.data.query}`}><img className={styles.cardImg} src={img} alt="product-card-img" /></Link>
             <div className={styles.cardContentHolder}>
                 <h5 className={styles.cardCategory}>{props.data.category}</h5>
-                <Link to={`/product/${props.data.query}`}><h4 className={styles.cardTitle}>{props.data.title}</h4></Link>
+                <Link onClick={scrollToTop} to={`/product/${props.data.query}`}><h4 className={styles.cardTitle}>{props.data.title}</h4></Link>
                 <div className={styles.cardStarsWrap}>
                     {starIcons}
                 </div>
