@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useProductsMap } from "../../context/FetchDataContext";
 import { Link } from "react-router-dom";
+import { useProductsData, useProductsMap } from "../../context/FetchDataContext";
+import RelatedProducts from "./Related";
+import SubmenuContainer from './Submenu';
 import styles from './Product.module.scss';
 
 const ProductContainer = () => {
+    const allProducts = useProductsData();
     const productQuery = useParams().productId;
     const productsMap = useProductsMap();
     const [productData, setProductData] = useState(null);
@@ -40,13 +43,15 @@ const ProductContainer = () => {
                             <input className={styles.valueInput} defaultValue="1" type="number"></input>
                             <button className={styles.addToCartButton}>ADD TO CART</button>
                         </div>
-                        <p className={styles.productCategories}>Categories: 
-                        {productData[1].category.split(',').map((category, index) => (
-                            <Link className={styles.categoryLink} key={index} to={`/product-category/${category.toLowerCase()}`}>{category}</Link>
-                        ))}
+                        <p className={styles.productCategories}>Categories:
+                            {productData[1].category.split(',').map((category, index) => (
+                                <Link className={styles.categoryLink} key={index} to={`/product-category/${category.toLowerCase()}`}>{category}</Link>
+                            ))}
                         </p>
                     </div>
                 </div>
+                <SubmenuContainer description={null} reviews={null} />
+                <RelatedProducts relatedProducts={allProducts.filter((product) => product.title !== productData[1].title && product.category === productData[1].category).slice(0, 4)} />
             </div>
         </section>
     )

@@ -8,7 +8,7 @@
 .productWrap {
     display: flex;
     gap: 50px;
-    padding: 70px 0;
+    padding-top: 70px;
     @media (max-width: 920px) {
         flex-direction: column;
         gap: 20px;
