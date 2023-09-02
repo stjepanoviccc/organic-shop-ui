@@ -1,7 +1,77 @@
 @import '../../scss/base/Colors.module.scss';
 
 .reviewForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     margin-top: 20px;
-    padding: 20px;
+    padding: 25px;
     border: 1px solid $silver;
+}
+
+.formContentWrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.formText{
+    font-size: 1.1rem;
+}
+
+.formTitle {
+    font-size: 1.3rem;
+}
+
+.formContentWrap {
+    width: 100%;
+}
+
+.formRatingWrap {
+    display: flex;
+    gap: 10px;
+}
+
+.formNameAndEmailWrap {
+    display: flex;
+    gap: 20px;
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+}
+
+.formCheckboxWrap {
+    display: flex;
+    gap: 5px;
+}
+
+.starWrap {
+    display: flex;
+    gap: 1px;
+}
+
+.starIconButton {
+    height: 20px;
+    width: 30px;
+}
+
+.starIcon {
+    color: $darkGreen;
+    font-size: 20px;
+    transition: 300ms;
+}
+
+.formInput {
+    min-height: 40px;
+    font-size: 1rem;
+    padding-left: 10px;
+    border: 1px solid $silver;
+    border-radius: 4px;
+}
+
+.formTextArea {
+    min-height: 80px;
+    max-width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
 }
