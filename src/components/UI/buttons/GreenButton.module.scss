@@ -17,6 +17,9 @@
         transition: 300ms;
         background: $green;
     }
+    &:disabled {
+        background: $silver;
+    }
 }
 
 .btnHolder {
