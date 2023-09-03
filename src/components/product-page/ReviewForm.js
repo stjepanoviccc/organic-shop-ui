@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import useInput from '../../custom_hooks/input';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as faRegularStar } from '@fortawesome/free-regular-svg-icons';
 import { faStar as faSolidStar } from '@fortawesome/free-solid-svg-icons';
@@ -6,50 +7,34 @@ import GreenButton from '../UI/buttons/GreenButton';
 import styles from './ReviewForm.module.scss';
 
 const ReviewForm = ({ data }) => {
-    const [enteredName, setEnteredName] = useState('');
-    const [enteredEmail, setEnteredEmail] = useState('');
-    const [enteredReview, setEnteredReview] = useState('');
-    const [nameIsValid, setNameIsValid] = useState(false);
-    const [emailIsValid, setEmailIsValid] = useState(false);
-    const [reviewIsValid, setReviewIsValid] = useState(false);
-    const [formIsValid, setFormIsValid] = useState(false);
+    const {
+        value: enteredName, error: nameInputIsInvalid, valid: nameIsValid,
+        valueChangeHandler: nameChangeHandler, valueBlurHandler: nameBlurHandler, reset: resetNameInput
+    } = useInput(value => (value.length > 3 && value.length < 30) && (value[0] === value[0].toUpperCase()));
 
-    const nameChangeHandler = (event) => {
-        const newName = event.target.value
-        setEnteredName(newName);
-        const isValid = (newName.length > 3 && newName.length < 30) && (newName[0] === newName[0].toUpperCase());
-        setNameIsValid(isValid);
-    };
+    const {
+        value: enteredEmail, error: emailInputIsInvalid, valid: emailIsValid,
+        valueChangeHandler: emailChangeHandler, valueBlurHandler: emailBlurHandler, reset: resetEmailInput
+    } = useInput(value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
 
-    const emailChangeHandler = (event) => {
-        const newEmail = event.target.value;
-        setEnteredEmail(newEmail);
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const isValid = emailRegex.test(newEmail);
-        setEmailIsValid(isValid);
-    };
+    const {
+        value: enteredReview, error: reviewInputIsInvalid, valid: reviewIsValid,
+        valueChangeHandler: reviewChangeHandler, valueBlurHandler: reviewBlurHandler, reset: resetReviewInput
+    } = useInput(value => value.length > 10 && value.length < 100);
 
-    const reviewChangeHandler = (event) => {
-        const reviewMessage = event.target.value;
-        setEnteredReview(reviewMessage);
-        const isValid = reviewMessage.length > 10 && reviewMessage.length < 100;
-        setReviewIsValid(isValid);
-    };
-
-    useEffect(() => {
-        if (nameIsValid && emailIsValid && reviewIsValid) {
-          setFormIsValid(true);
-        } else {
-          setFormIsValid(false);
-        }
-      }, [nameIsValid, emailIsValid, reviewIsValid]);
+    let formIsValid = false;
+    if (nameIsValid && emailIsValid && reviewIsValid) {
+        formIsValid = true;
+    }
 
     const formSubmitHandler = (event) => {
         event.preventDefault();
-        console.log(`${enteredName} + ${nameIsValid}`)
-        console.log(`${enteredEmail} + ${emailIsValid}`)
-        console.log(`${enteredReview} + ${reviewIsValid}`)
-        console.log(formIsValid);
+        console.log(enteredName);
+        console.log(enteredEmail)
+        console.log(enteredReview);
+        resetNameInput();
+        resetEmailInput();
+        resetReviewInput();
     }
 
     // rating star logic
@@ -77,27 +62,28 @@ const ReviewForm = ({ data }) => {
             </div>
             <div className={styles.formRatingWrap}>
                 <p className={styles.formText}>Your Rating *</p>
-                <div className={styles.starWrap}>
-                    {starIcons}
-                </div>
+                <div className={styles.starWrap}>{starIcons}</div>
             </div>
             <div className={styles.formContentWrap}>
                 <p className={styles.formText}>Your Review *</p>
-                <textarea className={styles.formTextArea} onBlur={reviewChangeHandler}></textarea>
+                <textarea value={enteredReview} className={styles.formTextArea} onChange={reviewChangeHandler} onBlur={reviewBlurHandler}></textarea>
+                {reviewInputIsInvalid && <p className={styles.formErrorMsg}>Review must be between 3 and 100 characters length!</p>}
             </div>
             <div className={styles.formNameAndEmailWrap}>
                 <div className={styles.formContentWrap}>
                     <p className={styles.formText}>Name *</p>
-                    <input className={styles.formInput} type="text" onBlur={nameChangeHandler}></input>
+                    <input value={enteredName} className={styles.formInput} type="text" onChange={nameChangeHandler} onBlur={nameBlurHandler}></input>
+                    {nameInputIsInvalid && <p className={styles.formErrorMsg}>Name must be between 3 and 30 characters length and first letter must be uppercase!</p>}
                 </div>
                 <div className={styles.formContentWrap}>
                     <p className={styles.formText}>Email *</p>
-                    <input className={styles.formInput} type="text" onBlur={emailChangeHandler}></input>
+                    <input value={enteredEmail} className={styles.formInput} type="text" onChange={emailChangeHandler} onBlur={emailBlurHandler}></input>
+                    {emailInputIsInvalid && <p className={styles.formErrorMsg}>Email must be in format simple@email.com</p>}
                 </div>
             </div>
             <div className={styles.formCheckboxWrap}>
                 <input type="checkbox"></input>
-                <p>Save my name, email, and website in this browser for the next time I comment.</p>
+                <p className={styles.checkboxText}>Save my name, email, and website in this browser for the next time I comment.</p>
             </div>
             <GreenButton disabled={!formIsValid} class={true}>SUBMIT</GreenButton>
         </form>
