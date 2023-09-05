@@ -6,6 +6,7 @@ export const FetchContext = React.createContext({
     sliderData: [],
     productsData: [],
     productsMap: new Map(),
+    addNewReview: null,
     freshProductsData: [],
     certifiedProductsData: [],
     accordionsData: [],
@@ -34,13 +35,13 @@ const FetchDataProvider = (props) => {
         const loadedProductsData = [];
 
         for (let key in data.customers) {
-             loadedCustomersData.push({
+            loadedCustomersData.push({
                 id: key,
                 name: data.customers[key].name,
                 image: data.customers[key].image,
                 info: data.customers[key].info,
                 stars: data.customers[key].stars,
-            }); 
+            });
         }
         setCustomersData(loadedCustomersData);
 
@@ -86,21 +87,32 @@ const FetchDataProvider = (props) => {
 
         for (let key in data.products) {
             loadedProductsData.push({
-               id: key,
-               title: data.products[key].title,
-               image: data.products[key].image,
-               discount: data.products[key].discount,
-               price: data.products[key].price,
-               category: data.products[key].category,
-               query: data.products[key].query,
-               description: data.products[key].description,
-               reviews: typeof data.products[key].reviews !== 'undefined' ? null : data.products[key].reviews
-           }); 
-           productsMap.set(`${data.products[key].query}`, [key, data.products[key]]);
-           
-       }
-       setProductsData(loadedProductsData);
-       setProductsMap(new Map(productsMap));
+                id: key,
+                title: data.products[key].title,
+                image: data.products[key].image,
+                discount: data.products[key].discount,
+                price: data.products[key].price,
+                category: data.products[key].category,
+                query: data.products[key].query,
+                description: data.products[key].description,
+                reviews: data.products[key].reviews === undefined ? {} : data.products[key].reviews
+            });
+            productsMap.set(`${data.products[key].query}`, [key, data.products[key]]);
+
+        }
+        setProductsData(loadedProductsData);
+        setProductsMap(new Map(productsMap));
+    };
+
+    const addNewReview = (productId, newReview) => {
+        const updatedProducts = productsData.map(product => {
+            if (product.id === productId) {
+                const uniqueId = `${Date.now()}-${Math.random().toString(36).substring(7)}`;
+                product.reviews[uniqueId] = newReview;
+            }
+            return product;
+        });
+        setProductsData(updatedProducts);
     };
 
     useEffect(() => {
@@ -119,6 +131,7 @@ const FetchDataProvider = (props) => {
                 accordionsData: accordionsData,
                 productsData: productsData,
                 productsMap: productsMap,
+                addNewReview: addNewReview,
                 fetchData: fetchData,
             }}>
             {props.children}
@@ -156,6 +169,10 @@ export const useProductsData = () => {
 
 export const useProductsMap = () => {
     return useContext(FetchContext).productsMap;
+}
+
+export const useAddNewReview = () => {
+    return useContext(FetchContext).addNewReview;
 }
 
 // helping functions when i can't use custom hooks for url

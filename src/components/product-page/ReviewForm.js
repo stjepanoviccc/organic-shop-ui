@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useAddNewReview, useProductsData } from '../../context/FetchDataContext';
 import useInput from '../../custom_hooks/input';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as faRegularStar } from '@fortawesome/free-regular-svg-icons';
@@ -7,14 +8,17 @@ import GreenButton from '../UI/buttons/GreenButton';
 import styles from './ReviewForm.module.scss';
 
 const ReviewForm = ({ data }) => {
+    const allProducts = useProductsData();
+    const addNewReview = useAddNewReview();
+
     const {
         value: enteredName, error: nameInputIsInvalid, valid: nameIsValid,
-        valueChangeHandler: nameChangeHandler, valueBlurHandler: nameBlurHandler, reset: resetNameInput
+        valueChangeHandler: nameChangeHandler, valueBlurHandler: nameBlurHandler, reset: resetNameInput, valueChangeFromLocalStorage: nameChangeFromLocalStorage
     } = useInput(value => (value.length > 3 && value.length < 30) && (value[0] === value[0].toUpperCase()));
 
     const {
         value: enteredEmail, error: emailInputIsInvalid, valid: emailIsValid,
-        valueChangeHandler: emailChangeHandler, valueBlurHandler: emailBlurHandler, reset: resetEmailInput
+        valueChangeHandler: emailChangeHandler, valueBlurHandler: emailBlurHandler, reset: resetEmailInput, valueChangeFromLocalStorage: emailChangeFromLocalStorage
     } = useInput(value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
 
     const {
@@ -22,23 +26,12 @@ const ReviewForm = ({ data }) => {
         valueChangeHandler: reviewChangeHandler, valueBlurHandler: reviewBlurHandler, reset: resetReviewInput
     } = useInput(value => value.length > 10 && value.length < 100);
 
-    let formIsValid = false;
-    if (nameIsValid && emailIsValid && reviewIsValid) {
-        formIsValid = true;
-    }
-
-    const formSubmitHandler = (event) => {
-        event.preventDefault();
-        console.log(enteredName);
-        console.log(enteredEmail)
-        console.log(enteredReview);
-        resetNameInput();
-        resetEmailInput();
-        resetReviewInput();
-    }
-
     // rating star logic
     const [hoveredStar, setHoveredStar] = useState(null);
+    const [clickedStar, setClickedStar] = useState(null);
+    const handleStarClick = (index) => {
+        setClickedStar(index);
+    };
     const handleStarHover = (index) => {
         setHoveredStar(index);
     };
@@ -46,10 +39,75 @@ const ReviewForm = ({ data }) => {
         setHoveredStar(null);
     };
     const starIcons = Array.from({ length: 5 }).map((_, index) => (
-        <button key={index} className={styles.starIconButton} onMouseEnter={() => handleStarHover(index)} onMouseLeave={handleStarLeave} onClick={() => console.log(index + 1)}>
-            <FontAwesomeIcon className={styles.starIcon} icon={hoveredStar === null ? faRegularStar : index <= hoveredStar ? faSolidStar : faRegularStar} />
+        <button type="button" key={index} className={styles.starIconButton} onMouseEnter={() => handleStarHover(index)} onMouseLeave={handleStarLeave} onClick={() => handleStarClick(index)}>
+            <FontAwesomeIcon className={styles.starIcon}
+                icon={hoveredStar === null && clickedStar === null ? faRegularStar
+                    : hoveredStar === null && clickedStar !== null && index <= clickedStar ? faSolidStar
+                        : index <= hoveredStar ? faSolidStar : faRegularStar} />
         </button>
     ));
+
+    // checkbox -> remember name and mail
+    const checkboxRef = useRef();
+    const [rememberMe, setRememberMe] = useState(false);
+
+    useEffect(() => {
+        const name = localStorage.getItem('reviewFormName');
+        const email = localStorage.getItem('reviewFormEmail');
+        if (name && email) {
+            nameChangeFromLocalStorage(name);
+            emailChangeFromLocalStorage(email);
+        }
+        // these will never change - lint warning
+    }, [nameChangeFromLocalStorage, emailChangeFromLocalStorage]);
+
+    const handleRememberMeChange = () => {
+        setRememberMe(prev => !prev);
+    }
+
+    // form submit
+    let formIsValid = false;
+    if (nameIsValid && emailIsValid && reviewIsValid && clickedStar !== null) {
+        formIsValid = true;
+    }
+
+    const formSubmitHandler = async (event) => {
+        event.preventDefault();
+        const reviewData = {
+            email: enteredEmail,
+            name: enteredName,
+            review: enteredReview,
+            rating: clickedStar + 1,
+            image: 'https://drive.google.com/file/d/13NEHhu63OHc0CWisTGgCOxG4Pl_bn_Uo/view?usp=sharing'
+        };
+        for (let product in allProducts) {
+            if (allProducts[product].query === data.query) {
+                try {
+                    const response = await fetch(`https://react-organic-shop-5b019-default-rtdb.firebaseio.com/products/${allProducts[product].id}/reviews.json`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', },
+                        body: JSON.stringify(reviewData),
+                    });
+                    if (!response.ok) {
+                        throw new Error(`HTTP Error! Status: ${response.status}`);
+                    }
+                    addNewReview(allProducts[product].id, reviewData);
+                } catch (error) {
+                    console.error('Fetch Error:', error);
+                }
+            }
+        }
+
+        if (rememberMe === true) {
+            localStorage.setItem('reviewFormName', enteredName);
+            localStorage.setItem('reviewFormEmail', enteredEmail);
+        }
+
+        resetNameInput();
+        resetEmailInput();
+        resetReviewInput();
+        checkboxRef.checked = false;
+    }
 
     return (
         <form onSubmit={formSubmitHandler} className={styles.reviewForm}>
@@ -82,7 +140,7 @@ const ReviewForm = ({ data }) => {
                 </div>
             </div>
             <div className={styles.formCheckboxWrap}>
-                <input type="checkbox"></input>
+                <input type="checkbox" checked={rememberMe} onChange={handleRememberMeChange}></input>
                 <p className={styles.checkboxText}>Save my name, email, and website in this browser for the next time I comment.</p>
             </div>
             <GreenButton disabled={!formIsValid} class={true}>SUBMIT</GreenButton>

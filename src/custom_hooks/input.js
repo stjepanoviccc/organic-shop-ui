@@ -10,6 +10,10 @@ const useInput = (validation) => {
         setValue(event.target.value);
     };
 
+    const valueChangeFromLocalStorage = (value) => {
+        setValue(value);
+    }
+
     const valueBlurHandler = () => {
         setTouched(true);
     };
@@ -20,7 +24,7 @@ const useInput = (validation) => {
     }
 
     return {
-        value, error, valid, valueChangeHandler, valueBlurHandler, reset
+        value, error, valid, valueChangeHandler, valueBlurHandler, reset, valueChangeFromLocalStorage
     }
 };
 
