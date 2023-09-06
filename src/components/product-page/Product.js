@@ -40,7 +40,7 @@ const ProductContainer = () => {
                         <p><span className={styles.productPrice}>{productData[1].price.toFixed(2)}$</span> + Free Shipping</p>
                         <p>Neque porro quisquam est, qui dolore ipsum quia dolor sit amet, consectetur adipisci velit, sed quia non incidunt lores ta porro ame. numquam eius modi tempora incidunt lores ta porro ame.</p>
                         <div className={styles.addToCartHolder}>
-                            <input className={styles.valueInput} defaultValue="1" type="number"></input>
+                            <input className={styles.valueInput} defaultValue="1" min="1" type="number"></input>
                             <button className={styles.addToCartButton}>ADD TO CART</button>
                         </div>
                         <p className={styles.productCategories}>Categories:

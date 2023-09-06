@@ -1,33 +1,25 @@
+import store from '../store/index';
+import { Provider } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import NavMenuProvider from '../context/NavMenuContext';
-import BackgroundColorProvider from '../context/NavBackgroundContext';
 import FetchDataProvider from '../context/FetchDataContext';
-import ShopPriceProvider from '../context/ShopPriceContext';
-import SearchProvider from '../context/SearchContext';
-import CartProvider from '../context/CartContext';
 import NavigationMenu from "../components/navigation/NavigationMenu";
 import Footer from '../components/footer/Footer';
 
 const RootLayout = () => {
 
     return (
-        <FetchDataProvider>
-            <ShopPriceProvider>
-                <SearchProvider>
+        <Provider store={store}>
+            <FetchDataProvider>
                 <NavMenuProvider>
-                    <BackgroundColorProvider>
-                        <CartProvider>
-                            <NavigationMenu />
-                            <main>
-                                <Outlet />
-                            </main>
-                            <Footer />
-                        </CartProvider>
-                    </BackgroundColorProvider>
+                    <NavigationMenu />
+                    <main>
+                        <Outlet />
+                    </main>
+                    <Footer />
                 </NavMenuProvider>
-                </SearchProvider>
-            </ShopPriceProvider>
-        </FetchDataProvider>
+            </FetchDataProvider>
+        </Provider>
     )
 };
 

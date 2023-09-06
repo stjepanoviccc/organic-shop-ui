@@ -9,3 +9,14 @@
     width: 150px;
     height: 70px;
 }
+
+.loginButton {
+    border: 1px solid $darkGreen;
+    background-color: $darkGreen;
+    color: $white;
+    border-radius: 4px;
+    margin-top: 18px;
+    margin-left: 20px;
+    padding: 10px;
+    height: 40px;
+}

@@ -1,29 +1,44 @@
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { authActions } from '../../store';
 import { Link } from 'react-router-dom';
 import { useBackgroundColor } from '../../context/NavBackgroundContext';
+import { useLoginModal, useLoginModalUpdate } from '../../context/LoginModalContext';
 import useCheckBodyBehavior from '../../custom_hooks/CheckBodyBehavior';
 import useCheckDevice from '../../custom_hooks/CheckDevice';
 import useCheckImagePath from '../../custom_hooks/CheckImagePath';
+import LoginModal from './Login';
 import HamburgerMenu from './HamburgerMenu';
 import HamburgerToggler from './HamburgerToggler';
 import CartToggler from './CartToggler';
 import ProfileButton from '../UI/buttons/ProfileButton';
 import styles from './NavigationMenu.module.scss';
+import { useDispatch } from 'react-redux';
 
 const NavigationMenu = () => {
-    useCheckBodyBehavior();
+    const isLoginModalOpen = useLoginModal();
+    const toggleLoginModal = useLoginModalUpdate(); 
+    const isAuth = useSelector(state => state.auth.isAuth);
+    const dispatch = useDispatch();
     const windowWidth = useCheckDevice();
     const logo = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/organic-store-logo5.svg`, './static/media/organic-store-logo5.svg');
     const bgColor = useBackgroundColor();
+    useCheckBodyBehavior();
 
     return (
         <header>
-            <div className={styles.nav} style={{backgroundColor: bgColor}}>
+            {isLoginModalOpen && <LoginModal />}
+            <div className={styles.nav} style={{ backgroundColor: bgColor }}>
                 <Link to="/">
                     <img src={logo} alt="logo" className={styles.logo} />
                 </Link>
                 {windowWidth > 920 && <HamburgerMenu />}
                 <CartToggler />
-                {windowWidth > 920 ? <ProfileButton /> : <HamburgerToggler />}
+                {windowWidth > 920 && (
+                    isAuth
+                        ? <ProfileButton />
+                        : <button className={styles.loginButton} onClick={toggleLoginModal}>LOGIN</button>
+                )}
+                {windowWidth <= 920 && <HamburgerToggler />}
             </div>
         </header>
     );
