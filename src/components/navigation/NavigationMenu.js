@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { authActions } from '../../store';
 import { Link } from 'react-router-dom';
 import { useBackgroundColor } from '../../context/NavBackgroundContext';
 import { useLoginModal, useLoginModalUpdate } from '../../context/LoginModalContext';
@@ -13,7 +12,6 @@ import HamburgerToggler from './HamburgerToggler';
 import CartToggler from './CartToggler';
 import ProfileButton from '../UI/buttons/ProfileButton';
 import styles from './NavigationMenu.module.scss';
-import { useDispatch } from 'react-redux';
 import { useRegisterModal } from '../../context/RegisterModalContext';
 
 const NavigationMenu = () => {
@@ -21,7 +19,6 @@ const NavigationMenu = () => {
     const isLoginModalOpen = useLoginModal();
     const toggleLoginModal = useLoginModalUpdate(); 
     const isAuth = useSelector(state => state.auth.isAuth);
-    const dispatch = useDispatch();
     const windowWidth = useCheckDevice();
     const logo = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/organic-store-logo5.svg`, './static/media/organic-store-logo5.svg');
     const bgColor = useBackgroundColor();

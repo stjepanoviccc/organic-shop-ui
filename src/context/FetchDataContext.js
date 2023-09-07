@@ -10,6 +10,7 @@ export const FetchContext = React.createContext({
     freshProductsData: [],
     certifiedProductsData: [],
     accordionsData: [],
+    usersData: [],
     fetchData: () => { },
 });
 
@@ -22,6 +23,8 @@ const FetchDataProvider = (props) => {
     const [accordionsData, setAccordionsData] = useState([]);
     const [productsData, setProductsData] = useState([]);
     const [productsMap, setProductsMap] = useState(new Map());
+    const [usersData, setUsersData] = useState([]);
+    const [usersMap, setUsersMap] = useState(new Map());
 
     const fetchData = async () => {
         const response = await fetch("https://react-organic-shop-5b019-default-rtdb.firebaseio.com/.json");
@@ -33,6 +36,7 @@ const FetchDataProvider = (props) => {
         const loadedCertifiedProductsData = [];
         const loadedAccordionsData = [];
         const loadedProductsData = [];
+        const loadedUsersData = [];
 
         for (let key in data.customers) {
             loadedCustomersData.push({
@@ -102,6 +106,19 @@ const FetchDataProvider = (props) => {
         }
         setProductsData(loadedProductsData);
         setProductsMap(new Map(productsMap));
+
+        for(let key in data.users) {
+            loadedUsersData.push({
+                id: key,
+                username: data.users[key].username,
+                password: data.users[key].password,
+                email: data.users[key].email
+            });
+            usersMap.set(`${data.users[key].username}`, data.users[key].password);
+        };
+        setUsersData(loadedUsersData);
+        setUsersMap(new Map(usersMap));
+
     };
 
     const addNewReview = (productId, newReview) => {
@@ -131,6 +148,8 @@ const FetchDataProvider = (props) => {
                 accordionsData: accordionsData,
                 productsData: productsData,
                 productsMap: productsMap,
+                usersData: usersData,
+                usersMap: usersMap,
                 addNewReview: addNewReview,
                 fetchData: fetchData,
             }}>
@@ -169,6 +188,14 @@ export const useProductsData = () => {
 
 export const useProductsMap = () => {
     return useContext(FetchContext).productsMap;
+}
+
+export const useUsersData = () => {
+    return useContext(FetchContext).usersData;
+};
+
+export const useUsersMap = () => {
+    return useContext(FetchContext).usersMap;
 }
 
 export const useAddNewReview = () => {
