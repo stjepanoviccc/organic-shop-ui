@@ -11,12 +11,18 @@
 }
 
 .loginButton {
-    border: 1px solid $darkGreen;
-    background-color: $darkGreen;
-    color: $white;
-    border-radius: 4px;
+    height: 40px;
     margin-top: 18px;
     margin-left: 20px;
+    border: 2px solid $darkGreen;
     padding: 10px;
-    height: 40px;
+    border-radius: 4px;
+    background-color: $darkGreen;
+    color: $white;
+    transition: 300ms;
+    font-weight: bold;
+    &:hover {
+        background-color: transparent;
+        color: $darkGreen;
+    }
 }

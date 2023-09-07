@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import BackgroundColorProvider from './NavBackgroundContext';
 import ShopPriceProvider from './ShopPriceContext';
 import LoginModalProvider from './LoginModalContext';
+import RegisterModalProvider from './RegisterModalContext';
 import SearchProvider from './SearchContext';
 import CartProvider from './CartContext';
 
@@ -18,15 +19,17 @@ const NavMenuProvider = (props) => {
         <NavMenuContext.Provider value={isActive} >
             <NavMenuContextUpdate.Provider value={toggleMenu}>
                 <LoginModalProvider>
-                    <ShopPriceProvider>
-                        <SearchProvider>
-                            <BackgroundColorProvider>
-                                <CartProvider>
-                                    {props.children}
-                                </CartProvider>
-                            </BackgroundColorProvider>
-                        </SearchProvider>
-                    </ShopPriceProvider>
+                    <RegisterModalProvider>
+                        <ShopPriceProvider>
+                            <SearchProvider>
+                                <BackgroundColorProvider>
+                                    <CartProvider>
+                                        {props.children}
+                                    </CartProvider>
+                                </BackgroundColorProvider>
+                            </SearchProvider>
+                        </ShopPriceProvider>
+                    </RegisterModalProvider>
                 </LoginModalProvider>
             </NavMenuContextUpdate.Provider>
         </NavMenuContext.Provider>

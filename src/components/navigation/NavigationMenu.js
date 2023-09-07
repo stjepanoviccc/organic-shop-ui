@@ -6,15 +6,18 @@ import { useLoginModal, useLoginModalUpdate } from '../../context/LoginModalCont
 import useCheckBodyBehavior from '../../custom_hooks/CheckBodyBehavior';
 import useCheckDevice from '../../custom_hooks/CheckDevice';
 import useCheckImagePath from '../../custom_hooks/CheckImagePath';
-import LoginModal from './Login';
+import LoginModal from './login-and-reg/Login';
+import RegisterModal from './login-and-reg/Register';
 import HamburgerMenu from './HamburgerMenu';
 import HamburgerToggler from './HamburgerToggler';
 import CartToggler from './CartToggler';
 import ProfileButton from '../UI/buttons/ProfileButton';
 import styles from './NavigationMenu.module.scss';
 import { useDispatch } from 'react-redux';
+import { useRegisterModal } from '../../context/RegisterModalContext';
 
 const NavigationMenu = () => {
+    const isRegModalOpen = useRegisterModal();
     const isLoginModalOpen = useLoginModal();
     const toggleLoginModal = useLoginModalUpdate(); 
     const isAuth = useSelector(state => state.auth.isAuth);
@@ -27,6 +30,7 @@ const NavigationMenu = () => {
     return (
         <header>
             {isLoginModalOpen && <LoginModal />}
+            {isRegModalOpen && <RegisterModal />}
             <div className={styles.nav} style={{ backgroundColor: bgColor }}>
                 <Link to="/">
                     <img src={logo} alt="logo" className={styles.logo} />
