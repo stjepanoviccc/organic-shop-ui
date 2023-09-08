@@ -1,18 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 
-export const FetchContext = React.createContext({
-    customersData: [],
-    brandsData: [],
-    sliderData: [],
-    productsData: [],
-    productsMap: new Map(),
-    addNewReview: null,
-    freshProductsData: [],
-    certifiedProductsData: [],
-    accordionsData: [],
-    usersData: [],
-    fetchData: () => { },
-});
+export const FetchContext = React.createContext();
 
 const FetchDataProvider = (props) => {
     const [customersData, setCustomersData] = useState([]);
@@ -25,6 +13,7 @@ const FetchDataProvider = (props) => {
     const [productsMap, setProductsMap] = useState(new Map());
     const [usersData, setUsersData] = useState([]);
     const [usersMap, setUsersMap] = useState(new Map());
+    const [usersEmailMap, setUsersEmailMap] = useState(new Map());
 
     const fetchData = async () => {
         const response = await fetch("https://react-organic-shop-5b019-default-rtdb.firebaseio.com/.json");
@@ -115,10 +104,19 @@ const FetchDataProvider = (props) => {
                 email: data.users[key].email
             });
             usersMap.set(`${data.users[key].username}`, data.users[key].password);
+            usersEmailMap.set(`${data.users[key].email}`, true);
         };
         setUsersData(loadedUsersData);
         setUsersMap(new Map(usersMap));
+        setUsersEmailMap(new Map(usersEmailMap));
+    };
 
+    const addNewUser = (user) => {
+        setUsersData(prev => [
+            ...prev, user
+        ]);
+        usersMap.set(user.username, user.password);
+        usersEmailMap.set(user.email, true);
     };
 
     const addNewReview = (productId, newReview) => {
@@ -140,18 +138,20 @@ const FetchDataProvider = (props) => {
     return (
         <FetchContext.Provider
             value={{
-                customersData: customersData,
-                sliderData: sliderData,
-                brandsData: brandsData,
-                freshProductsData: freshProductsData,
-                certifiedProductsData: certifiedProductsData,
-                accordionsData: accordionsData,
-                productsData: productsData,
-                productsMap: productsMap,
-                usersData: usersData,
-                usersMap: usersMap,
-                addNewReview: addNewReview,
-                fetchData: fetchData,
+                customersData,
+                sliderData,
+                brandsData,
+                freshProductsData,
+                certifiedProductsData,
+                accordionsData,
+                productsData,
+                productsMap,
+                usersData,
+                usersMap,
+                usersEmailMap,
+                addNewUser,
+                addNewReview,
+                fetchData
             }}>
             {props.children}
         </FetchContext.Provider>
@@ -196,6 +196,14 @@ export const useUsersData = () => {
 
 export const useUsersMap = () => {
     return useContext(FetchContext).usersMap;
+}
+
+export const useUsersEmailMap = () => {
+    return useContext(FetchContext).usersEmailMap;
+}
+
+export const useAddNewUser = () => {
+    return useContext(FetchContext).addNewUser;
 }
 
 export const useAddNewReview = () => {

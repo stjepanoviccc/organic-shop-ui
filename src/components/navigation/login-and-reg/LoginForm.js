@@ -1,4 +1,4 @@
-import { useState, useRef  } from 'react';
+import { useState, useRef } from 'react';
 import { useUsersMap } from '../../../context/FetchDataContext';
 import { useRegisterModalUpdate } from '../../../context/RegisterModalContext';
 import { authActions } from '../../../store';
@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import GreenButton from '../../UI/buttons/GreenButton';
 import styles from './LoginAndRegForm.module.scss';
 
-const LoginForm = ({toggle}) => {
+const LoginForm = ({ toggle }) => {
     const toggleRegisterModal = useRegisterModalUpdate();
     const openRegistrationModal = () => {
         toggleRegisterModal();
@@ -19,16 +19,15 @@ const LoginForm = ({toggle}) => {
     const usernameRef = useRef();
     const passwordRef = useRef();
     const dispatch = useDispatch();
-    
-    const loginSubmitHandler = () => {
+
+    const loginSubmitHandler = (event) => {
+        event.preventDefault();
         if (usersMap.has(usernameRef.current.value)) {
             setUsernameError(false);
             if (passwordRef.current.value === usersMap.get(usernameRef.current.value)) {
                 setPasswordError(false);
                 dispatch(authActions.login());
-                setTimeout(() => {
-                    toggle();
-                }, 10)
+                toggle();
             } else {
                 setPasswordError(true);
             }
