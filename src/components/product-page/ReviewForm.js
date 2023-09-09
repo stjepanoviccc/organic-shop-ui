@@ -16,7 +16,7 @@ const ReviewForm = ({ data }) => {
     const {
         value: enteredName, error: nameInputIsInvalid, valid: nameIsValid,
         valueChangeHandler: nameChangeHandler, valueBlurHandler: nameBlurHandler, reset: resetNameInput, valueChangeFromLocalStorage: nameChangeFromLocalStorage
-    } = useInput(value => (value.length > 3 && value.length < 30) && (value[0] === value[0].toUpperCase()));
+    } = useInput(value => (value.length >= 3 && value.length <= 30) && (value[0] === value[0].toUpperCase()));
 
     const {
         value: enteredEmail, error: emailInputIsInvalid, valid: emailIsValid,
@@ -26,7 +26,7 @@ const ReviewForm = ({ data }) => {
     const {
         value: enteredReview, error: reviewInputIsInvalid, valid: reviewIsValid,
         valueChangeHandler: reviewChangeHandler, valueBlurHandler: reviewBlurHandler, reset: resetReviewInput
-    } = useInput(value => value.length > 10 && value.length < 100);
+    } = useInput(value => value.length >= 10 && value.length <= 100);
 
     // rating star logic
     const [hoveredStar, setHoveredStar] = useState(null);

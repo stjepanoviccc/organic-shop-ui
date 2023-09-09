@@ -1,10 +1,7 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
 const authToken = localStorage.getItem('authToken') === 'true' ? true : false;
-if (authToken === false) {
-    localStorage.removeItem('loggedName');
-    localStorage.removeItem('loggedEmail');
-}
+
 const authSlice = createSlice({
     name: 'auth',
     initialState: { isAuth: authToken },
@@ -15,6 +12,8 @@ const authSlice = createSlice({
         logout(state) {
             state.isAuth = false;
             localStorage.setItem('authToken', false);
+            localStorage.removeItem('loggedName');
+            localStorage.removeItem('loggedEmail');
         }
     }
 })

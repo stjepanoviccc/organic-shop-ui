@@ -15,16 +15,10 @@ const LoginForm = ({ toggle }) => {
 
     const [usernameError, setUsernameError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
-    const [rememberMe, setRememberMe] = useState(false);
     const usersMap = useUsersMap();
     const usernameRef = useRef();
     const passwordRef = useRef();
-    const checkboxRef = useRef();
     const dispatch = useDispatch();
-
-    const handleRememberMeChange = () => {
-        setRememberMe(prev => !prev);
-    }
 
     const localStorageRemoveHandler = (check) => {
         if (localStorage.getItem(check)) {
@@ -32,9 +26,9 @@ const LoginForm = ({ toggle }) => {
         };
     };
 
-    const isRemembered = (remember) => {
-        remember ? localStorage.setItem('authToken', true) : localStorage.setItem('authToken', false)
-        localStorage.setItem('loggedName', usernameRef.current.value)
+    const saveUserData = () => {
+        localStorage.setItem('authToken', true);
+        localStorage.setItem('loggedName', usernameRef.current.value);
         localStorage.setItem('loggedEmail', usersMap.get(usernameRef.current.value)[1]);
         localStorageRemoveHandler('reviewFormName');
         localStorageRemoveHandler('reviewFormEmail');
@@ -47,7 +41,7 @@ const LoginForm = ({ toggle }) => {
             if (passwordRef.current.value === usersMap.get(usernameRef.current.value)[0]) {
                 setPasswordError(false);
                 localStorageRemoveHandler('authToken');
-                isRemembered(rememberMe);
+                saveUserData();
                 dispatch(authActions.login());
                 toggle();
             } else {
@@ -76,10 +70,6 @@ const LoginForm = ({ toggle }) => {
                 <p className={styles.noAccText}>You don't have account?<br></br>
                     <button type="button" className={styles.noAccButtonText} onClick={openRegistrationModal}>Click here to register</button>
                 </p>
-            </div>
-            <div className={styles.formCheckboxWrap}>
-                <input type="checkbox" ref={checkboxRef} onChange={handleRememberMeChange}></input>
-                <p className={styles.checkboxText}>Remember me.</p>
             </div>
         </form>
     )

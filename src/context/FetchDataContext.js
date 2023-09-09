@@ -104,7 +104,7 @@ const FetchDataProvider = (props) => {
                 email: data.users[key].email,
                 image: data.users[key].image
             });
-            usersMap.set(`${data.users[key].username}`, [data.users[key].password, data.users[key].email, data.users[key].image]);
+            usersMap.set(`${data.users[key].username}`, [data.users[key].password, data.users[key].email, data.users[key].image, data.users[key].username, key]);
             usersEmailMap.set(`${data.users[key].email}`, true);
         };
         setUsersData(loadedUsersData);
@@ -116,8 +116,9 @@ const FetchDataProvider = (props) => {
         setUsersData(prev => [
             ...prev, user
         ]);
-        usersMap.set(user.username, [user.password, user.email, user.image]);
-        usersEmailMap.set(user.email, true);
+        const { username, password, email, image, id } = user;
+        usersMap.set(username, [password, email, image, username, id]);
+        usersEmailMap.set(email, true);
     };
 
     const addNewReview = (productId, newReview) => {
