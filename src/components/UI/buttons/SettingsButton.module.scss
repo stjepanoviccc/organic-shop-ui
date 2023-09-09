@@ -1,6 +1,6 @@
 @import '../../../scss/base/Colors.module.scss';
 
-.profileButton {
+.settingsButton {
     @media (max-width: 920px) {
         width: 100%;
         text-align: left;
@@ -11,7 +11,8 @@
     }
 }
 
-.profileIcon {
+.settingsIcon {
+    color: $darkgray;
     font-size: 17px;
     margin-left: 20px;
     @media (max-width: 920px) {

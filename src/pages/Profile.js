@@ -1,7 +1,9 @@
+import ProfileContainer from "../components/profile/Profile";
+
 const ProfilePage = () => {
     return (
         <>
-            <p>ProfilePage</p>
+            <ProfileContainer />
         </>
     )
 }

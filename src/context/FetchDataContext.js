@@ -101,9 +101,10 @@ const FetchDataProvider = (props) => {
                 id: key,
                 username: data.users[key].username,
                 password: data.users[key].password,
-                email: data.users[key].email
+                email: data.users[key].email,
+                image: data.users[key].image
             });
-            usersMap.set(`${data.users[key].username}`, [data.users[key].password, data.users[key].email]);
+            usersMap.set(`${data.users[key].username}`, [data.users[key].password, data.users[key].email, data.users[key].image]);
             usersEmailMap.set(`${data.users[key].email}`, true);
         };
         setUsersData(loadedUsersData);
@@ -115,7 +116,7 @@ const FetchDataProvider = (props) => {
         setUsersData(prev => [
             ...prev, user
         ]);
-        usersMap.set(user.username, [user.password, user.email]);
+        usersMap.set(user.username, [user.password, user.email, user.image]);
         usersEmailMap.set(user.email, true);
     };
 

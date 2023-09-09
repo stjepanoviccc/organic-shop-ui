@@ -10,7 +10,7 @@ import RegisterModal from './login-and-reg/Register';
 import HamburgerMenu from './HamburgerMenu';
 import HamburgerToggler from './HamburgerToggler';
 import CartToggler from './CartToggler';
-import ProfileButton from '../UI/buttons/ProfileButton';
+import SettingsButton from '../UI/buttons/SettingsButton';
 import styles from './NavigationMenu.module.scss';
 import { useRegisterModal } from '../../context/RegisterModalContext';
 
@@ -36,7 +36,7 @@ const NavigationMenu = () => {
                 <CartToggler />
                 {windowWidth > 920 && (
                     isAuth
-                        ? <ProfileButton />
+                        ? <SettingsButton />
                         : <button className={styles.loginButton} onClick={toggleLoginModal}>LOGIN</button>
                 )}
                 {windowWidth <= 920 && <HamburgerToggler />}

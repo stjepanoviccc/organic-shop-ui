@@ -1,0 +1,25 @@
+@import '../../scss/base/Colors.module.scss';
+
+.settingsHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.settingsTitle {
+    font-size: 1.3rem;
+}
+
+.settingsDropdown {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.settingsLink {
+    padding: 10px 0;
+    transition: 300ms;
+    &:hover {
+        background-color: $silver;
+    }
+}
