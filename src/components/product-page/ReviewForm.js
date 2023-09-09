@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { useAddNewReview, useProductsData } from '../../context/FetchDataContext';
 import useInput from '../../custom_hooks/input';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +11,7 @@ import styles from './ReviewForm.module.scss';
 const ReviewForm = ({ data }) => {
     const allProducts = useProductsData();
     const addNewReview = useAddNewReview();
+    const isAuth = useSelector(state => state.auth.isAuth);
 
     const {
         value: enteredName, error: nameInputIsInvalid, valid: nameIsValid,
@@ -52,14 +54,14 @@ const ReviewForm = ({ data }) => {
     const [rememberMe, setRememberMe] = useState(false);
 
     useEffect(() => {
-        const name = localStorage.getItem('reviewFormName');
-        const email = localStorage.getItem('reviewFormEmail');
+        const name = isAuth ? localStorage.getItem('loggedName') : localStorage.getItem('reviewFormName');
+        const email = isAuth ? localStorage.getItem('loggedEmail') : localStorage.getItem('reviewFormEmail');
         if (name && email) {
             nameChangeFromLocalStorage(name);
             emailChangeFromLocalStorage(email);
         }
         // these will never change - lint warning
-    }, [nameChangeFromLocalStorage, emailChangeFromLocalStorage]);
+    }, [nameChangeFromLocalStorage, emailChangeFromLocalStorage, isAuth]);
 
     const handleRememberMeChange = () => {
         setRememberMe(prev => !prev);

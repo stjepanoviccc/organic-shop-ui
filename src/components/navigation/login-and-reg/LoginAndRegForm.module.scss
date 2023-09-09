@@ -57,3 +57,18 @@
         color: $darkGreen;
     }
 }
+
+.formSuccessMsgHolder {
+    padding-top: 10px;
+};
+
+.formCheckboxWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.checkboxText {
+    padding-top: 2px;
+}

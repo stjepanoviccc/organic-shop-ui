@@ -1,13 +1,18 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
+const authToken = localStorage.getItem('authToken') === 'true' ? true : false;
+if (authToken === false) {
+    localStorage.removeItem('loggedName');
+    localStorage.removeItem('loggedEmail');
+}
 const authSlice = createSlice({
     name: 'auth',
-    initialState: { isAuth: false },
+    initialState: { isAuth: authToken },
     reducers: {
-        login (state) {
+        login(state) {
             state.isAuth = true;
         },
-        logout (state) {
+        logout(state) {
             state.isAuth = false;
         }
     }
