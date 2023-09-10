@@ -1,14 +1,14 @@
 @import '../../scss/base/Colors.module.scss';
 
-.editPasswordHeader {
+.modalHeader {
     display: flex;
 }
 
-.editPasswordTitle {
+.modalTitle {
     font-size: 1.3rem;
 }
 
-.editPasswordForm {
+.form {
     padding-top: 40px;
     display: flex;
     flex-direction: column;
@@ -16,7 +16,7 @@
     text-align: left;
 }
 
-.editPasswordHolder {
+.formInputHolder {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -33,4 +33,9 @@
 
 .formText {
     font-size: 1.1rem;
+}
+
+.formErrorMsg {
+    color: $red;
+    padding-top: 2px;
 }

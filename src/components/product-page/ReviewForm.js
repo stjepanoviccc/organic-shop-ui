@@ -16,7 +16,10 @@ const ReviewForm = ({ data }) => {
     const {
         value: enteredName, error: nameInputIsInvalid, valid: nameIsValid,
         valueChangeHandler: nameChangeHandler, valueBlurHandler: nameBlurHandler, reset: resetNameInput, valueChangeFromLocalStorage: nameChangeFromLocalStorage
-    } = useInput(value => (value.length >= 3 && value.length <= 30) && (value[0] === value[0].toUpperCase()));
+    } = useInput(value => {
+        const trimmedValue = value.trim();
+        return (trimmedValue.length >= 3 && trimmedValue.length <= 30) && (value[0] === value[0].toUpperCase());
+    });
 
     const {
         value: enteredEmail, error: emailInputIsInvalid, valid: emailIsValid,
@@ -26,7 +29,7 @@ const ReviewForm = ({ data }) => {
     const {
         value: enteredReview, error: reviewInputIsInvalid, valid: reviewIsValid,
         valueChangeHandler: reviewChangeHandler, valueBlurHandler: reviewBlurHandler, reset: resetReviewInput
-    } = useInput(value => value.length >= 10 && value.length <= 100);
+    } = useInput(value => value.trim().length >= 10 && value.trim().length <= 100);
 
     // rating star logic
     const [hoveredStar, setHoveredStar] = useState(null);
@@ -77,14 +80,16 @@ const ReviewForm = ({ data }) => {
         event.preventDefault();
         const reviewData = {
             email: enteredEmail,
-            name: enteredName,
-            review: enteredReview,
+            name: enteredName.trim(),
+            review: enteredReview.trim(),
             rating: clickedStar + 1,
             image: 'https://drive.google.com/file/d/13NEHhu63OHc0CWisTGgCOxG4Pl_bn_Uo/view?usp=sharing'
         };
         for (let product in allProducts) {
             if (allProducts[product].query === data.query) {
                 try {
+                    console.log(enteredName);
+                    console.log(reviewData)
                     const response = await fetch(`https://react-organic-shop-5b019-default-rtdb.firebaseio.com/products/${allProducts[product].id}/reviews.json`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json', },
@@ -145,7 +150,7 @@ const ReviewForm = ({ data }) => {
                 <input type="checkbox" checked={rememberMe} onChange={handleRememberMeChange}></input>
                 <p className={styles.checkboxText}>Save my name, email, and website in this browser for the next time I comment.</p>
             </div>
-            <GreenButton disabled={!formIsValid} class={true}>SUBMIT</GreenButton>
+            <GreenButton disabled={!formIsValid} class={true} type="submit">SUBMIT</GreenButton>
         </form>
     )
 };

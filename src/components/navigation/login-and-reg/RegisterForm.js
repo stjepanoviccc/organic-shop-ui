@@ -16,7 +16,7 @@ const RegisterForm = ({changeTitle}) => {
         value: enteredName, error: nameInputIsInvalid,
         valueChangeHandler: nameChangeHandler, valueBlurHandler: nameBlurHandler, reset: resetNameInput,
         valueExistHandler: nameExistHandler, existError: nameExistError
-    } = useInput(value => (value.length >= 3 && value.length <= 30) && (value[0] === value[0].toUpperCase()));
+    } = useInput(value => (value.trim().length >= 3 && value.trim().length <= 30) && (value[0] === value[0].toUpperCase()));
 
     const {
         value: enteredPassword, error: passwordInputIsInvalid,
@@ -41,14 +41,14 @@ const RegisterForm = ({changeTitle}) => {
         }
         else {
             const user = {
-                username: enteredName,
+                username: enteredName.trim(),
                 email: enteredEmail,
                 password: enteredPassword,
                 image: 'https://drive.google.com/file/d/13NEHhu63OHc0CWisTGgCOxG4Pl_bn_Uo/view?usp=sharing'
             }
             // send user to firebase
             try {
-                const response = await fetch(`https://react-organic-shop-5b019-default-rtdb.firebaseio.com/users/key${enteredName}.json`, {
+                const response = await fetch(`https://react-organic-shop-5b019-default-rtdb.firebaseio.com/users/key${enteredName.trim()}.json`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json', },
                     body: JSON.stringify(user),
