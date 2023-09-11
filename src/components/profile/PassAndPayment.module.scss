@@ -23,7 +23,6 @@
 }
 
 .formInput {
-    width: 98%;
     min-height: 40px;
     font-size: 1.1rem;
     padding-left: 10px;
@@ -39,3 +38,8 @@
     color: $red;
     padding-top: 2px;
 }
+
+.formSuccessMsgHolder {
+    padding-top: 10px;
+    text-align: left;
+};

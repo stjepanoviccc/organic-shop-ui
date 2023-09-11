@@ -13,18 +13,18 @@ const RegisterForm = ({changeTitle}) => {
     const toggleRegisterModal = useRegisterModalUpdate();
 
     const {
-        value: enteredName, error: nameInputIsInvalid,
+        value: enteredName, error: nameInputIsInvalid, valid: nameIsValid,
         valueChangeHandler: nameChangeHandler, valueBlurHandler: nameBlurHandler, reset: resetNameInput,
         valueExistHandler: nameExistHandler, existError: nameExistError
     } = useInput(value => (value.trim().length >= 3 && value.trim().length <= 30) && (value[0] === value[0].toUpperCase()));
 
     const {
-        value: enteredPassword, error: passwordInputIsInvalid,
+        value: enteredPassword, error: passwordInputIsInvalid, valid: passwordIsValid,
         valueChangeHandler: passwordChangeHandler, valueBlurHandler: passwordBlurHandler, reset: resetPasswordInput
     } = useInput(value => value.length >= 8 && value.length <= 30);
 
     const {
-        value: enteredEmail, error: emailInputIsInvalid,
+        value: enteredEmail, error: emailInputIsInvalid, valid: emailIsValid,
         valueChangeHandler: emailChangeHandler, valueBlurHandler: emailBlurHandler, reset: resetEmailInput,
         valueExistHandler: emailExistHandler, existError: emailExistError
     } = useInput(value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
@@ -44,11 +44,12 @@ const RegisterForm = ({changeTitle}) => {
                 username: enteredName.trim(),
                 email: enteredEmail,
                 password: enteredPassword,
-                image: 'https://drive.google.com/file/d/13NEHhu63OHc0CWisTGgCOxG4Pl_bn_Uo/view?usp=sharing'
+                image: 'https://drive.google.com/file/d/13NEHhu63OHc0CWisTGgCOxG4Pl_bn_Uo/view?usp=sharing',
+                id: enteredName.trim()
             }
             // send user to firebase
             try {
-                const response = await fetch(`https://react-organic-shop-5b019-default-rtdb.firebaseio.com/users/key${enteredName.trim()}.json`, {
+                const response = await fetch(`https://react-organic-shop-5b019-default-rtdb.firebaseio.com/users/${enteredName.trim()}.json`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json', },
                     body: JSON.stringify(user),
@@ -74,6 +75,11 @@ const RegisterForm = ({changeTitle}) => {
         toggleRegisterModal();
     }
 
+    let formIsValid = false;
+    if (nameIsValid && passwordIsValid && emailIsValid) {
+        formIsValid = true;
+    }
+
     return (
         <form className={styles.form} onSubmit={registerSuccess ? successMsgHandler : registerSubmitHandler}>
             {!registerSuccess && (
@@ -96,7 +102,7 @@ const RegisterForm = ({changeTitle}) => {
                         {emailExistError && <p className={styles.formErrorMsg}>Email already taken!</p>}
                     </div>
                     <div className={styles.formSubmitHolder}>
-                        <GreenButton class={true} type="submit">Register</GreenButton>
+                        <GreenButton disabled={!formIsValid} class={true} type="submit">Register</GreenButton>
                     </div>
                 </>
             )}
