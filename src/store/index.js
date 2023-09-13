@@ -1,26 +1,12 @@
-import { createSlice, configureStore } from "@reduxjs/toolkit";
-
-const authToken = localStorage.getItem('authToken') === 'true' ? true : false;
-
-const authSlice = createSlice({
-    name: 'auth',
-    initialState: { isAuth: authToken },
-    reducers: {
-        login(state) {
-            state.isAuth = true;
-        },
-        logout(state) {
-            state.isAuth = false;
-            localStorage.setItem('authToken', false);
-            localStorage.removeItem('loggedName');
-            localStorage.removeItem('loggedEmail');
-        }
-    }
-})
+import { configureStore } from "@reduxjs/toolkit";
+import { authSlice } from './Auth';
+import { cartSlice } from "./Cart";
 
 const store = configureStore({
-    reducer: { auth: authSlice.reducer }
+    reducer: { auth: authSlice.reducer, cart: cartSlice.reducer }
 });
 
-export const authActions = authSlice.actions;
 export default store;
+
+export const authActions = authSlice.actions;
+export const cartActions = cartSlice.actions;

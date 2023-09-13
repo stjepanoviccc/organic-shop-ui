@@ -46,6 +46,10 @@
     background-color: $darkGreen;
     color: $white;
     font-weight: bold;
+    transition: 300ms;
+    &:hover {
+        background-color: $green;
+    }
 }
 
 .valueInput {

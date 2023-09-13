@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../store";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useProductsData, useProductsMap } from "../../context/FetchDataContext";
@@ -7,11 +9,22 @@ import SubmenuContainer from './Submenu';
 import styles from './Product.module.scss';
 
 const ProductContainer = () => {
+    const dispatch = useDispatch();
     const allProducts = useProductsData();
     const productQuery = useParams().productId;
     const productsMap = useProductsMap();
+    const quantityRef = useRef();
     const [productData, setProductData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+
+    const addToCartHandler = () => {
+        dispatch(cartActions.addToCart({
+            id: productData[0],
+            title: productData[1].title,
+            price: productData[1].price,
+            quantity: quantityRef.current.value
+        }));
+    };
 
     useEffect(() => {
         const fetchProduct = () => {
@@ -28,6 +41,8 @@ const ProductContainer = () => {
         return <p className={styles.mainLoadingScreen}>Loading...</p>
     }
 
+
+
     return (
         <section className={styles.productSection}>
             <div className={styles.mainWrap}>
@@ -40,8 +55,8 @@ const ProductContainer = () => {
                         <p><span className={styles.productPrice}>{productData[1].price.toFixed(2)}$</span> + Free Shipping</p>
                         <p>Neque porro quisquam est, qui dolore ipsum quia dolor sit amet, consectetur adipisci velit, sed quia non incidunt lores ta porro ame. numquam eius modi tempora incidunt lores ta porro ame.</p>
                         <div className={styles.addToCartHolder}>
-                            <input className={styles.valueInput} defaultValue="1" min="1" type="number"></input>
-                            <button className={styles.addToCartButton}>ADD TO CART</button>
+                            <input ref={quantityRef} className={styles.valueInput} defaultValue="1" min="1" type="number"></input>
+                            <button className={styles.addToCartButton} onClick={addToCartHandler}>ADD TO CART</button>
                         </div>
                         <p className={styles.productCategories}>Categories:
                             {productData[1].category.split(',').map((category, index) => (

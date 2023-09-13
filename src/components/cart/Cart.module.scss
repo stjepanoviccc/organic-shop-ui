@@ -12,6 +12,7 @@
     transform: translateX(100%);
     transition: all 300ms ease-in-out;
     background: $white;
+    overflow: scroll;
 
     @media (max-width: 540px) {
         width: 100vw;
@@ -34,6 +35,8 @@
 .cartBody {
     flex-grow: 2;
     display: flex;
+    flex-direction: column;
+    gap: 15px;
     padding: 20px;
 }
 
@@ -48,4 +51,10 @@
 .cartEmptyText {
     justify-content: center;
     margin: auto;
+}
+
+.cartTotalAmount {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
 }

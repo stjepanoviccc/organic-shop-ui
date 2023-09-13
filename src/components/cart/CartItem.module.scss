@@ -1,0 +1,19 @@
+@import '../../scss/base/Colors.module.scss';
+
+.cartItemHolder {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid $silver;
+    padding-bottom: 5px;
+}
+
+.cartItemAmount {
+    font-weight: bold;
+}
+
+.plusAndMinusHolder {
+    display: flex;
+    align-items: center;
+}
