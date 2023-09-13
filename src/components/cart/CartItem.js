@@ -25,9 +25,12 @@ const CartItem = ({ item }) => {
 
     return (
         <div className={styles.cartItemHolder}>
-            <div className={styles.titleAndPriceHolder}>
-                <p className={styles.cartItemTitle}>{item.title}</p>
-                <p className={styles.cartItemAmount}>{item.quantity} x {item.price}$</p>
+            <div className={styles.cartContentHolder}>
+                <img className={styles.cartItemImage} src={item.image} alt={item.price}></img>
+                <div className={styles.titleAndAmountHolder}>
+                    <p className={styles.cartItemTitle}>{item.title}</p>
+                    <p className={styles.cartItemAmount}>{item.quantity} x {item.price}$</p>
+                </div>
             </div>
             <div className={styles.plusAndMinusHolder}>
                 <button className={styles.cartItemButton} onClick={addToCartHandler}>

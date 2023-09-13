@@ -5,13 +5,24 @@
     gap: 20px;
     justify-content: space-between;
     width: 100%;
-    border-bottom: 1px solid $silver;
     padding-bottom: 5px;
 }
 
 .cartItemAmount {
     font-weight: bold;
 }
+
+.cartItemImage {
+    width: 70px;
+    height: 70px;
+}
+
+.cartContentHolder {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 
 .plusAndMinusHolder {
     display: flex;

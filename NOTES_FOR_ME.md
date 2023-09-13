@@ -1,5 +1,4 @@
 // implement sorting later
-Use new (image path handler) context for images to load images from google drive 
-Use old (check image path) context for images to load locally (faster)
 
-// CART, CHECKOUT => ANIMATIONS
+// CART, CHECKOUT, ANIMATIONS
+// on cart i need to imnlement that i dont lose redux state after refreshing page ( maybe firebase maybe localStorage i will think about it. )

@@ -22,7 +22,8 @@ const ProductContainer = () => {
             id: productData[0],
             title: productData[1].title,
             price: productData[1].price,
-            quantity: quantityRef.current.value
+            quantity: quantityRef.current.value,
+            image: imgPathHandler(productData[1].image)
         }));
     };
 
@@ -40,8 +41,6 @@ const ProductContainer = () => {
     if (isLoading) {
         return <p className={styles.mainLoadingScreen}>Loading...</p>
     }
-
-
 
     return (
         <section className={styles.productSection}>
