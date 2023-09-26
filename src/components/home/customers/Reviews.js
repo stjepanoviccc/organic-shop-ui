@@ -6,8 +6,8 @@ import styles from './Reviews.module.scss';
 
 const ReviewsContainer = () => {
     const customersData = useCustomersData();
-    const bgImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/logo-leaf2-free-img.png`, './static/media/logo-leaf2-free-img.png');
-    const smallLeafImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/logo-leaf-new.png`, './static/media/logo-leaf-new.png');
+    const bgImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/logo-leaf2-free-img-min.png`, './static/images/logo-leaf2-free-img-min.png');
+    const smallLeafImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/logo-leaf-new-min.png`, './static/images/logo-leaf-new-min.png');
 
     return (
         <section className={styles.customersReviewsSection}>

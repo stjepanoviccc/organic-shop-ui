@@ -5,9 +5,9 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import styles from './Hero.module.scss';
 
 const Hero = () => {
-    const bgImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/leaves-free-img.png`, './static/media/leaves-free-img.png');
-    const smallLeafImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/logo-leaf-new.png`, './static/media/logo-leaf-new.png');
-    const heroImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/organic-products-hero.png`, './static/media/organic-products-hero.png')
+    const bgImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/leaves-free-img-min.png`, './static/images/leaves-free-img-min.png');
+    const smallLeafImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/logo-leaf-new-min.png`, './static/images/logo-leaf-new-min.png');
+    const heroImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/organic-products-hero-min.png`, './static/images/organic-products-hero-min.png')
 
     return (
         <section className={styles.heroSection}>

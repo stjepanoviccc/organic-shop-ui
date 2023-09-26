@@ -5,7 +5,7 @@ import SliderCard from '../../UI/cards/SliderCard';
 import styles from './Quality.module.scss';
 
 const QualityContainer = () => {
-    const bgImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/leaves-free-img.png`, './static/media/leaves-free-img.png');
+    const bgImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/leaves-free-img-min.png`, './static/images/leaves-free-img-min.png');
     const sliderData = useSliderData();
     const customersData = useCustomersData();
 

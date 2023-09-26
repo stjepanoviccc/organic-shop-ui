@@ -13,8 +13,8 @@ const ProfileContainer = () => {
     const username = localStorage.getItem('loggedName');
     const email = localStorage.getItem('loggedEmail')
     const [image, setImage] = useState(null);
-    const leafImg = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/basil-leaf.png`, './static/media/basil-leaf.png');
-    const bgImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/leaves-free-img.png`, './static/media/leaves-free-img.png');
+    const leafImg = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/basil-leaf-min.png`, './static/images/basil-leaf-min.png');
+    const bgImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/leaves-free-img-min.png`, './static/images/leaves-free-img-min.png');
     const changeBgColor = useBackgroundColorUpdate();
     const lightColor = '#f8f6f3';
 
@@ -52,7 +52,7 @@ const ProfileContainer = () => {
                     {dataLoaded && (
                         <>
                             <div className={styles.profileImgHolder}>
-                                <img className={styles.profileImg} src={imgPathHandler(image)} alt="profile-img"></img>
+                                <img className={styles.profileImg} src={image} alt="profile-img"></img>
                             </div>
                             <div className={styles.profileContentHolder}>
                                 <p className={styles.profileText}>Username: {username}</p>
@@ -74,10 +74,3 @@ const ProfileContainer = () => {
 };
 
 export default ProfileContainer;
-
-// mimic of custom hook - useImagePathHandler
-const imgPathHandler = (baseUrl) => {
-    const fileId = baseUrl.match(/\/file\/d\/([^/]+)/)[1];
-    const newUrl = `https://drive.google.com/uc?export=view&id=${fileId}`;
-    return newUrl;
-};

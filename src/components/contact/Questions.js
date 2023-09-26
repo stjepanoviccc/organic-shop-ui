@@ -4,8 +4,8 @@ import QuestionAccordion from '../UI/accordions/QuestionAccordion';
 import styles from './Questions.module.scss';
 
 const QuestionsContainer = () => {
-    const smallLeafImg = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/logo-leaf-new.png`, './static/media/logo-leaf-new.png');
-    const bgImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/leaves-free-img.png`, './static/media/leaves-free-img.png');
+    const smallLeafImg = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/logo-leaf-new-min.png`, './static/images/logo-leaf-new-min.png');
+    const bgImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/leaves-free-img-min.png`, './static/images/leaves-free-img-min.png');
     const accordionItems = useAccordionsData();
     const chunkedAccordionItems = chunkArray(accordionItems, accordionItems.length/2);
 

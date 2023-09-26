@@ -4,8 +4,8 @@ import useCheckImagePath from '../../../custom_hooks/CheckImagePath';
 import styles from './FavoriteStore.module.scss';
 
 const FavoriteStoreContainer = () => {
-    const leafImg = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/basil-leaf.png`, './static/media/basil-leaf.png');
-    const grapesImg = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/banner-01.jpg`, './static/media/banner-01.jpg')
+    const leafImg = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/basil-leaf-min.png`, './static/images/basil-leaf-min.png');
+    const grapesImg = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/banner-01-min.jpg`, './static/images/banner-01-min.jpg')
     const changeBgColor = useBackgroundColorUpdate();
     const lightColor = '#f8f6f3';
 

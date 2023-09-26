@@ -2,7 +2,7 @@ import useCheckImagePath from '../../../custom_hooks/CheckImagePath';
 import styles from './Areas.module.scss';
 
 const LogoArea = () => {
-    const img = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/organic-store-white-logo.png`, './static/media/organic-store-white-logo.png');
+    const img = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/organic-store-white-logo-min.png`, './static/images/organic-store-white-logo-min.png');
 
     return (
         <>

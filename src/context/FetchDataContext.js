@@ -212,11 +212,4 @@ export const useAddNewReview = () => {
     return useContext(FetchContext).addNewReview;
 }
 
-// helping functions when i can't use custom hooks for url
-export const copiedImagePathHandler = (baseUrl) => {
-    const fileId = baseUrl.match(/\/file\/d\/([^/]+)/)[1];
-    const newUrl = `https://drive.google.com/uc?export=view&id=${fileId}`;
-    return newUrl;
-};
-
 export default FetchDataProvider;

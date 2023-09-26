@@ -9,7 +9,7 @@ const FreshContainer = () => {
     const freshCards = Array.from({ length: freshProductsData.length }).map((_, index) => (
         <FreshFruitCard key={index} data={freshProductsData[index]}/>
     ));
-    const leafImg = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/basil-leaf.png`, './static/media/basil-leaf.png')
+    const leafImg = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/basil-leaf-min.png`, './static/images/basil-leaf-min.png')
 
     return (
         <>

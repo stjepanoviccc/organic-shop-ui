@@ -3,8 +3,8 @@ import useCheckImagePath from '../../../custom_hooks/CheckImagePath';
 import styles from './Areas.module.scss';
 
 const GreenLinksArea = () => {
-    const playStoreImageUrl = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/play-store.png`, './static/media/play-store.png');
-    const appStoreImageUrl = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/app-store.png`, './static/media/app-store.png');
+    const playStoreImageUrl = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/play-store-min.png`, './static/images/play-store-min.png');
+    const appStoreImageUrl = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/app-store-min.png`, './static/images/app-store-min.png');
     const playStoreImageStyle = {
         backgroundImage: `url(${playStoreImageUrl})`,
       };

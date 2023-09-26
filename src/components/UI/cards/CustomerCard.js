@@ -1,10 +1,9 @@
-import useImagePathHandler from '../../../custom_hooks/ImagePathHandler';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import styles from './CustomerCard.module.scss';
 
 const CustomerCard = (props) => {
-    const personImg = useImagePathHandler(props.data.image);
+    const personImg = props.data.image;
     const starIcons = Array.from({ length: props.data.stars }).map((_, index) => (
         <FontAwesomeIcon key={index} className={styles.cardStar} icon={faStar} />
     ));

@@ -20,7 +20,7 @@ const NavigationMenu = () => {
     const toggleLoginModal = useLoginModalUpdate(); 
     const isAuth = useSelector(state => state.auth.isAuth);
     const windowWidth = useCheckDevice();
-    const logo = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/organic-store-logo5.svg`, './static/media/organic-store-logo5.svg');
+    const logo = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/organic-store-logo5-min.svg`, './static/images/organic-store-logo5-min.svg');
     const bgColor = useBackgroundColor();
     useCheckBodyBehavior();
 

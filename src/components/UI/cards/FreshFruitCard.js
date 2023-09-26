@@ -1,11 +1,10 @@
-import useImagePathHandler from '../../../custom_hooks/ImagePathHandler';
 import GreenButton from '../buttons/GreenButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import styles from './FreshFruitCard.module.scss';
 
 const FreshFruitCard = (props) => {
-    const freshImg = useImagePathHandler(props.data.image);
+    const freshImg = props.data.image;
 
     return (
         <div className={styles.freshCard}>
