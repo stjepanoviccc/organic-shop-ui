@@ -23,9 +23,11 @@ const ProductContainer = () => {
             title: productData[1].title,
             price: productData[1].price,
             quantity: quantityRef.current.value,
-            image: productData[1].image
+            image: handleImage(productData[1].image)
         }));
     };
+console.log(allProducts)
+console.log(productsMap)
 
     useEffect(() => {
         const fetchProduct = () => {
@@ -47,7 +49,7 @@ const ProductContainer = () => {
             <div className={styles.mainWrap}>
                 <div className={styles.productWrap}>
                     <div className={styles.productImageWrap}>
-                        <img className={styles.productImage} src={productData[1].image} alt={productData[1].query}></img>
+                        <img className={styles.productImage} src={handleImage(productData[1].image)} alt={productData[1].query}></img>
                     </div>
                     <div className={styles.productDataWrap}>
                         <h2 className={styles.productTitle}>{productData[1].title}</h2>
@@ -72,3 +74,10 @@ const ProductContainer = () => {
 };
 
 export default ProductContainer;
+
+// handle image from firebase
+const handleImage = (url) => {
+    const isLocalhost = window.location.href.includes('localhost');
+    const modifiedUrl = isLocalhost ? `${process.env.PUBLIC_URL}/static/images/${url}` : `./static/images/${url}`
+    return modifiedUrl;
+};

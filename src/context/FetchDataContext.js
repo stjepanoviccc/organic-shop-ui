@@ -31,7 +31,7 @@ const FetchDataProvider = (props) => {
             loadedCustomersData.push({
                 id: key,
                 name: data.customers[key].name,
-                image: data.customers[key].image,
+                image: loadImageFromFirebase(data.customers[key].image),
                 info: data.customers[key].info,
                 stars: data.customers[key].stars,
             });
@@ -40,21 +40,21 @@ const FetchDataProvider = (props) => {
 
         for (let key in data.slider) {
             loadedSliderData.push({
-                image: data.slider[key].image
+                image: loadImageFromFirebase(data.slider[key].image)
             })
         }
         setSliderData(loadedSliderData);
 
         for (let key in data.brands) {
             loadedBrandsData.push({
-                image: data.brands[key].image
+                image: loadImageFromFirebase(data.brands[key].image)
             })
         }
         setBrandsData(loadedBrandsData);
 
         for (let key in data.freshProducts) {
             loadedFreshProductsData.push({
-                image: data.freshProducts[key].image,
+                image: loadImageFromFirebase(data.freshProducts[key].image),
                 title: data.freshProducts[key].title,
                 text: data.freshProducts[key].text
             })
@@ -63,7 +63,7 @@ const FetchDataProvider = (props) => {
 
         for (let key in data.certifiedProducts) {
             loadedCertifiedProductsData.push({
-                image: data.certifiedProducts[key].image,
+                image: loadImageFromFirebase(data.certifiedProducts[key].image),
                 title: data.certifiedProducts[key].title,
                 text: data.certifiedProducts[key].text
             })
@@ -82,7 +82,7 @@ const FetchDataProvider = (props) => {
             loadedProductsData.push({
                 id: key,
                 title: data.products[key].title,
-                image: data.products[key].image,
+                image: loadImageFromFirebase(data.products[key].image),
                 discount: data.products[key].discount,
                 price: data.products[key].price,
                 category: data.products[key].category,
@@ -96,7 +96,7 @@ const FetchDataProvider = (props) => {
         setProductsData(loadedProductsData);
         setProductsMap(new Map(productsMap));
 
-        for(let key in data.users) {
+        for (let key in data.users) {
             loadedUsersData.push({
                 id: key,
                 username: data.users[key].username,
@@ -104,7 +104,7 @@ const FetchDataProvider = (props) => {
                 email: data.users[key].email,
                 image: data.users[key].image
             });
-            usersMap.set(`${data.users[key].username}`, [data.users[key].password, data.users[key].email, data.users[key].image, data.users[key].username, key]);
+            usersMap.set(`${data.users[key].username}`, [data.users[key].password, data.users[key].email, loadImageFromFirebase(data.users[key].image), data.users[key].username, key]);
             usersEmailMap.set(`${data.users[key].email}`, true);
         };
         setUsersData(loadedUsersData);
@@ -213,3 +213,10 @@ export const useAddNewReview = () => {
 }
 
 export default FetchDataProvider;
+
+// loading images
+const loadImageFromFirebase = (url) => {
+    const isLocalhost = window.location.href.includes('localhost');
+    const modifiedUrl = isLocalhost ? `${process.env.PUBLIC_URL}/static/images/${url}` : `./static/images/${url}`
+    return modifiedUrl;
+};

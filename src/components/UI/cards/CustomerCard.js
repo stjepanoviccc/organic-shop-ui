@@ -3,7 +3,6 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import styles from './CustomerCard.module.scss';
 
 const CustomerCard = (props) => {
-    const personImg = props.data.image;
     const starIcons = Array.from({ length: props.data.stars }).map((_, index) => (
         <FontAwesomeIcon key={index} className={styles.cardStar} icon={faStar} />
     ));
@@ -15,7 +14,7 @@ const CustomerCard = (props) => {
             </div>
             <p className={styles.cardContentHolder}>{props.data.info}</p>
             <div className={styles.cardPersonInfo}>
-                <img src={personImg} alt="person-img" />
+                <img src={props.data.image} alt="person-img" />
                 <p>{props.data.name}</p>
             </div>
         </div>

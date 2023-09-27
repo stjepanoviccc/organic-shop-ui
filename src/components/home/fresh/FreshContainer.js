@@ -6,9 +6,6 @@ import FreshFruitCard from '../../UI/cards/FreshFruitCard';
 
 const FreshContainer = () => {
     const freshProductsData = useFreshProductsData();
-    const freshCards = Array.from({ length: freshProductsData.length }).map((_, index) => (
-        <FreshFruitCard key={index} data={freshProductsData[index]}/>
-    ));
     const leafImg = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/basil-leaf-min.png`, './static/images/basil-leaf-min.png')
 
     return (
@@ -18,7 +15,9 @@ const FreshContainer = () => {
                     <div className={styles.freshWrap}>
                         <img className={styles.freshLeafImg} src={leafImg} alt="small-leaf-img" />
                         <div className={styles.freshProductsWrap}>
-                            {freshCards}
+                            {freshProductsData.map((_, index) => (
+                                <FreshFruitCard key={index} data={freshProductsData[index]} />
+                            ))}
                         </div>
                     </div>
                 </div>

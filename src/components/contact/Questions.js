@@ -26,7 +26,7 @@ const QuestionsContainer = () => {
                     ))}
                 </div>
             </div>
-            <img src={bgImage} alt="leaf-bg-img" className={styles.mainBgImage}></img>
+            <img src={bgImage} alt="leaf-bg-img" className={styles.mainBgImage} style={{maxHeight: '400px'}}></img>
         </section>
 
     )
