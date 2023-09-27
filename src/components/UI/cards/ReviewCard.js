@@ -10,7 +10,7 @@ const ReviewCard = ({ data, index }) => {
     return (
         <div className={styles.reviewCard}>
             <div className={styles.reviewCardImageHolder}>
-                <img className={styles.reviewCardImage} src={data.image} alt={`review${index}`}></img>
+                <img className={styles.reviewCardImage} src={handleImage(data.image)} alt={`review${index}`}></img>
             </div>
             <div className={styles.reviewCardContentHolder}>
                 <p className={styles.reviewCardName}>{data.name}</p>
@@ -24,3 +24,10 @@ const ReviewCard = ({ data, index }) => {
 };
 
 export default ReviewCard;
+
+// handle image from firebase
+const handleImage = (url) => {
+    const isLocalhost = window.location.href.includes('localhost');
+    const modifiedUrl = isLocalhost ? `${process.env.PUBLIC_URL}/static/images/${url}` : `./static/images/${url}`
+    return modifiedUrl;
+};

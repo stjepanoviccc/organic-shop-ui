@@ -83,7 +83,7 @@ const ReviewForm = ({ data }) => {
             name: enteredName.trim(),
             review: enteredReview.trim(),
             rating: clickedStar + 1,
-            image: 'https://drive.google.com/file/d/13NEHhu63OHc0CWisTGgCOxG4Pl_bn_Uo/view?usp=sharing'
+            image: 'profile-img-min.jpg'
         };
         for (let product in allProducts) {
             if (allProducts[product].query === data.query) {

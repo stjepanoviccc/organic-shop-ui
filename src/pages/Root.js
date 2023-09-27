@@ -5,6 +5,7 @@ import NavMenuProvider from '../context/NavMenuContext';
 import FetchDataProvider from '../context/FetchDataContext';
 import NavigationMenu from "../components/navigation/NavigationMenu";
 import Footer from '../components/footer/Footer';
+import AutomaticScrollToTop from '../components/UI/ScrollToTop/Automatic';
 
 const RootLayout = () => {
 
@@ -17,6 +18,7 @@ const RootLayout = () => {
                         <Outlet />
                     </main>
                     <Footer />
+                    <AutomaticScrollToTop />
                 </NavMenuProvider>
             </FetchDataProvider>
         </Provider>

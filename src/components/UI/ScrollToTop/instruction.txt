@@ -1,0 +1,2 @@
+Automatic.js is made for automatic scroll to top after route change;
+Manual.js is made for manual scroll to top after clicking arrow on display (bottom right corner);

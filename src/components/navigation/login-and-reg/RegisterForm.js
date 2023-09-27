@@ -44,7 +44,7 @@ const RegisterForm = ({changeTitle}) => {
                 username: enteredName.trim(),
                 email: enteredEmail,
                 password: enteredPassword,
-                image: 'https://drive.google.com/file/d/13NEHhu63OHc0CWisTGgCOxG4Pl_bn_Uo/view?usp=sharing',
+                image: 'profile-img-min.jpg',
                 id: enteredName.trim()
             }
             // send user to firebase

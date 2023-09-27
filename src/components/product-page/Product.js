@@ -26,8 +26,6 @@ const ProductContainer = () => {
             image: handleImage(productData[1].image)
         }));
     };
-console.log(allProducts)
-console.log(productsMap)
 
     useEffect(() => {
         const fetchProduct = () => {

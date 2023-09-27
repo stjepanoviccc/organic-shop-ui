@@ -117,7 +117,7 @@ const FetchDataProvider = (props) => {
             ...prev, user
         ]);
         const { username, password, email, image, id } = user;
-        usersMap.set(username, [password, email, image, username, id]);
+        usersMap.set(username, [password, email, loadImageFromFirebase(image), username, id]);
         usersEmailMap.set(email, true);
     };
 

@@ -11,15 +11,11 @@ const CategoriesContainer = () => {
         categoryCounter[product.category] = (categoryCounter[product.category] || 0) + 1;
     });
 
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
     return (
         <div className={styles.categoriesWrap}>
             {Object.keys(categoryCounter).map((category, index) => (
                 <div key={`item-${index}`}className={styles.categoryItem}>
-                    <Link onClick={scrollToTop} className={styles.categoryLink} to={`/${category === 'All' ? 'shop' : 'product-category/'+category.toLowerCase()}`} key={`link-${index}`}>{category}</Link>
+                    <Link className={styles.categoryLink} to={`/${category === 'All' ? 'shop' : 'product-category/'+category.toLowerCase()}`} key={`link-${index}`}>{category}</Link>
                     <span className={styles.numberSpan}>({categoryCounter[category]})</span>
                 </div>
             ))}
