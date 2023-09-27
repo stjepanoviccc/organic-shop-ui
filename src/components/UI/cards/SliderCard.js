@@ -1,11 +1,10 @@
 import Slider from '../../about/quality/Slider';
-import useImagePathHandler from '../../../custom_hooks/ImagePathHandler';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import styles from './SliderCard.module.scss';
 
 const SliderCard = ({sliderData, customersData}) => {
-    const personImg = useImagePathHandler(customersData.image);
+    const personImg = customersData.image;
     const starIcons = Array.from({ length: customersData.stars }).map((_, index) => (
         <FontAwesomeIcon key={index} className={styles.cardStar} icon={faStar} />
     ));

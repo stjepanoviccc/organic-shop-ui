@@ -80,7 +80,7 @@ const PaymentForm = ({ username, toggleModal, changeTitle }) => {
                 city: city.trim(),
                 zip, phone, company, country
             }
-            console.log(paymentObject);
+
             const response = await fetch(`https://react-organic-shop-5b019-default-rtdb.firebaseio.com/users/${userId}/payment.json`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json', },

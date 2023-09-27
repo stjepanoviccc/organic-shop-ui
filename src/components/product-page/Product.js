@@ -23,7 +23,7 @@ const ProductContainer = () => {
             title: productData[1].title,
             price: productData[1].price,
             quantity: quantityRef.current.value,
-            image: imgPathHandler(productData[1].image)
+            image: productData[1].image
         }));
     };
 
@@ -47,7 +47,7 @@ const ProductContainer = () => {
             <div className={styles.mainWrap}>
                 <div className={styles.productWrap}>
                     <div className={styles.productImageWrap}>
-                        <img className={styles.productImage} src={imgPathHandler(productData[1].image)} alt={productData[1].query}></img>
+                        <img className={styles.productImage} src={productData[1].image} alt={productData[1].query}></img>
                     </div>
                     <div className={styles.productDataWrap}>
                         <h2 className={styles.productTitle}>{productData[1].title}</h2>
@@ -72,10 +72,3 @@ const ProductContainer = () => {
 };
 
 export default ProductContainer;
-
-// mimic of custom hook - useImagePathHandler
-const imgPathHandler = (baseUrl) => {
-    const fileId = baseUrl.match(/\/file\/d\/([^/]+)/)[1];
-    const newUrl = `https://drive.google.com/uc?export=view&id=${fileId}`;
-    return newUrl;
-};

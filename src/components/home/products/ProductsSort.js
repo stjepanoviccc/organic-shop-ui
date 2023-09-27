@@ -12,7 +12,7 @@ const ProductsSortContainer = ({type}) => {
     type === 'bestSelling' ? 'Best Selling Products' :
     type === 'trending' ? 'Trending Products' : null;
 
-    const smallLeafImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/logo-leaf-new.png`, './static/media/logo-leaf-new.png');
+    const smallLeafImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/logo-leaf-new-min.png`, './static/images/logo-leaf-new-min.png');
 
     return (
         <section className={section}>

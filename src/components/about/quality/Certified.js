@@ -8,8 +8,8 @@ import styles from './Certified.module.scss';
 
 const CertifiedContainer = () => {
     const certifiedProductsData = useCertifiedProductsData();
-    const smallLeafImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/logo-leaf-new.png`, './static/media/logo-leaf-new.png');
-    const organicLogo = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/organic-badge-freeimg.png`, './static/media/organic-badge-freeimg.png');
+    const smallLeafImage = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/logo-leaf-new-min.png`, './static/images/logo-leaf-new-min.png');
+    const organicLogo = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/organic-badge-freeimg-min.png`, './static/images/organic-badge-freeimg-min.png');
 
     return (
         <>

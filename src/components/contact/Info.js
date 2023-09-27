@@ -5,7 +5,7 @@ import InfoCard from '../UI/cards/InfoCard';
 import styles from './Info.module.scss';
 
 const ContactInfo = () => {
-    const leafImg = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/basil-leaf.png`, './static/media/basil-leaf.png');
+    const leafImg = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/basil-leaf-min.png`, './static/images/basil-leaf-min.png');
     const changeBgColor = useBackgroundColorUpdate();
     const lightColor = '#f8f6f3';
 

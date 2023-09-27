@@ -5,7 +5,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import styles from './AdsCard.module.scss';
 
 const AdsCard = () => {
-    const bgImageUrl = useCheckImagePath(`${process.env.PUBLIC_URL}/static/media/organic-food-card-img.jpg`, './static/media/organic-food-card-img.jpg');
+    const bgImageUrl = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/organic-food-card-img-min.jpg`, './static/images/organic-food-card-img-min.jpg');
     const bgImageStyle = {
         backgroundImage: `url(${bgImageUrl})`,
       };

@@ -10,7 +10,7 @@ const ReviewCard = ({ data, index }) => {
     return (
         <div className={styles.reviewCard}>
             <div className={styles.reviewCardImageHolder}>
-                <img className={styles.reviewCardImage} src={imgPathHandler(data.image)} alt={`review${index}`}></img>
+                <img className={styles.reviewCardImage} src={data.image} alt={`review${index}`}></img>
             </div>
             <div className={styles.reviewCardContentHolder}>
                 <p className={styles.reviewCardName}>{data.name}</p>
@@ -24,10 +24,3 @@ const ReviewCard = ({ data, index }) => {
 };
 
 export default ReviewCard;
-
-// mimic of custom hook - useImagePathHandler
-const imgPathHandler = (baseUrl) => {
-    const fileId = baseUrl.match(/\/file\/d\/([^/]+)/)[1];
-    const newUrl = `https://drive.google.com/uc?export=view&id=${fileId}`;
-    return newUrl;
-};
