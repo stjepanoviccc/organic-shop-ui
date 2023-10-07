@@ -6,13 +6,13 @@ const QuickLinksArea = () => {
         <>
             <h3 className={styles.areasTitle}>Quick Links</h3>
             <div className={styles.areasContentHolder}>
-                <Link className={styles.areasLink} to="#">About</Link>
-                <Link className={styles.areasLink} to="#">Cart</Link>
-                <Link className={styles.areasLink} to="#">Checkout</Link>
-                <Link className={styles.areasLink} to="#">Contact</Link>
-                <Link className={styles.areasLink} to="#">Home</Link>
-                <Link className={styles.areasLink} to="#">My Account</Link>
-                <Link className={styles.areasLink} to="#">Shop</Link>
+                <Link className={styles.areasLink} to="/about">About</Link>
+                <Link className={styles.areasLink} to="/shop">Cart</Link>
+                <Link className={styles.areasLink} to="/shop">Checkout</Link>
+                <Link className={styles.areasLink} to="/contact">Contact</Link>
+                <Link className={styles.areasLink} to="/">Home</Link>
+                <Link className={styles.areasLink} to="/profile">My Account</Link>
+                <Link className={styles.areasLink} to="/shop">Shop</Link>
             </div>
         </>
     )

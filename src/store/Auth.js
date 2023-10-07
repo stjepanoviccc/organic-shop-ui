@@ -16,4 +16,4 @@ export const authSlice = createSlice({
             localStorage.removeItem('loggedEmail');
         }
     }
-})
+});

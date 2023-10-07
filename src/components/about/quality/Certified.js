@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useCertifiedProductsData } from '../../../context/FetchDataContext';
 import CertifiedProduct from './CertifiedProduct';
 import GreenButton from '../../UI/buttons/GreenButton';
@@ -34,7 +35,7 @@ const CertifiedContainer = () => {
             <div className={styles.certifiedButtonHolder}>
                 <GreenButton class={true}>
                     <FontAwesomeIcon icon={faCartShopping} />
-                    Shop Now
+                    <Link to="/shop">Shop Now</Link>
                 </GreenButton>
             </div>
         </>

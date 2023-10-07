@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import useCheckImagePath from '../../../custom_hooks/CheckImagePath';
 import GreenButton from '../../UI/buttons/GreenButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -22,7 +23,11 @@ const Hero = () => {
                         <h3 className={styles.heroSubtitle}>Best Quality Products</h3>
                         <h1 className={styles.heroTitle}>Join The Organic Movement!</h1>
                         <p className={styles.heroText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
-                        <GreenButton class="btnHolder"><FontAwesomeIcon icon={faCartShopping} />Shop Now</GreenButton>
+                        <Link to="/shop" style={{ width: '170px' }}>
+                            <GreenButton>
+                                <FontAwesomeIcon icon={faCartShopping} />Shop now
+                            </GreenButton>
+                        </Link>
                     </div>
                 </div>
             </div>
