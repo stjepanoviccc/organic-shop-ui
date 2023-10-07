@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import RootLayout from './pages/Root';
 import HomePage from './pages/Home';
 import ShopPage from './pages/Shop';
@@ -8,7 +8,7 @@ import ContactPage from './pages/Contact';
 import ProfilePage from './pages/Profile';
 import ErrorPage from './pages/Error';
 
-const router = createBrowserRouter([{
+const router = createHashRouter([{
   path: '/',
   element: <RootLayout />,
   errorElement: <ErrorPage />,
