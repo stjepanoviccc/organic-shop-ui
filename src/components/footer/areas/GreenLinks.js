@@ -15,10 +15,10 @@ const GreenLinksArea = () => {
         <>
             <h3 className={styles.areasTitle}>Quick Links</h3>
             <div className={styles.areasContentHolder}>
-                <Link className={styles.areasGreenLink} to="#">Know More About Us</Link>
-                <Link className={styles.areasGreenLink} to="#">Visit Store</Link>
-                <Link className={styles.areasGreenLink} to="#">Let's Connect</Link>
-                <Link className={styles.areasGreenLink} to="#">Locate Stores</Link>
+                <Link className={styles.areasGreenLink} to="/about">Know More About Us</Link>
+                <Link className={styles.areasGreenLink} to="/shop">Visit Store</Link>
+                <Link className={styles.areasGreenLink} to="/contact">Let's Connect</Link>
+                <Link className={styles.areasGreenLink} to="/shop">Locate Stores</Link>
                 <div className={styles.areasStore}>
                     <button className={styles.storeButton} style={playStoreImageStyle}></button>
                     <button className={styles.storeButton} style={appStoreImageStyle}></button>
