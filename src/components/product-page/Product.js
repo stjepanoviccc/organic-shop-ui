@@ -41,29 +41,23 @@ const ProductContainer = () => {
                 if (currentCart !== null) {
                     currentCart.items.forEach((item, index) => {
                         if (item.id === itemIdToIncrement) {
-                            item.quantity += 1;
-                            item.totalPrice += parseInt(productData[1].price);
-                            setItemExistInCurrentCart(true);
+                            item.quantity = parseInt(item.quantity) + parseInt(quantityRef.current.value);
+                            currentCart.totalAmount += parseInt(quantityRef.current.value) * parseInt(item.price);
                         }
+                        setItemExistInCurrentCart(true);
                     })
                 }
 
                 if (itemExist) {
                     await fetch(`https://react-organic-shop-5b019-default-rtdb.firebaseio.com/users/${username}/currentState.json`, {
-                        currentCart: {
-                            id: productData[0],
-                            title: productData[1].title,
-                            price: productData[1].price,
-                            quantity: parseInt(quantityRef.current.value)
-                        },
                         method: 'PUT',
                         headers: {
                             'Content-Type': 'application/json',
                         },
                         body: JSON.stringify({ currentCart }),
                     });
-
-                } else {
+                }
+                else {
                     //  if it isn't fetched (doesnt exist) then this is first item, create currentCart as this item only and send to firebase.
                     if (currentCart === null || currentCart === undefined) {
                         currentCart = {
@@ -73,7 +67,7 @@ const ProductContainer = () => {
                                 price: productData[1].price,
                                 quantity: parseInt(quantityRef.current.value)
                             }],
-                            totalAmount: productData[1].price,
+                            totalAmount: productData[1].price * parseInt(quantityRef.current.value),
                             totalQuantity: 1
                         }
                         await fetch(`https://react-organic-shop-5b019-default-rtdb.firebaseio.com/users/${username}/currentState.json`, {
@@ -84,7 +78,6 @@ const ProductContainer = () => {
                             body: JSON.stringify({ currentCart }),
                         });
                     }
-
                 }
             } catch (error) {
                 console.error('Fetch Error:', error);
