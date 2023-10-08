@@ -6,6 +6,7 @@ import ProductPage from "./pages/Product";
 import AboutPage from './pages/About';
 import ContactPage from './pages/Contact';
 import ProfilePage from './pages/Profile';
+import CheckoutPage from './pages/Checkout';
 import ErrorPage from './pages/Error';
 
 const router = createHashRouter([{
@@ -23,6 +24,7 @@ const router = createHashRouter([{
     { path: 'about', element: <AboutPage /> },
     { path: 'contact', element: <ContactPage /> },
     { path: 'profile', element: <ProfilePage /> },
+    { path: 'checkout', element: <CheckoutPage />}
   ],
 }])
 

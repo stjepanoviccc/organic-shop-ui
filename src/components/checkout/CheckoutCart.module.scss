@@ -1,0 +1,31 @@
+@import "../../scss/base/Colors.module.scss";
+
+.subtitle {
+    font-size: 1.3rem;
+    padding-bottom: 10px;
+}
+
+.checkoutCart {
+    width: 100%;
+    @media (min-width: 1280px) {
+        width: 70%;
+    }
+    border: 1px solid $silver;
+}
+
+.cartWrap {
+    padding: 25px;
+}
+
+.cartItems {
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid $silver;
+   
+}

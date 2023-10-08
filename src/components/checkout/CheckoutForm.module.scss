@@ -1,0 +1,38 @@
+@import "../../scss/base/Colors.module.scss";
+
+.form {
+    width: 100%;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.formInputHolder {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.formInput {
+    min-height: 40px;
+    font-size: 1.1rem;
+    padding-left: 10px;
+    border: 1px solid $silver;
+    border-radius: 4px;
+}
+
+.formText {
+    font-size: 1.1rem;
+}
+
+.formErrorMsg {
+    color: $red;
+    padding-top: 2px;
+}
+
+.formSuccessMsgHolder {
+    padding-top: 10px;
+    text-align: left;
+};

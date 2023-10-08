@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { cartActions } from '../../store';
 import { Transition } from 'react-transition-group';
+import { Link } from 'react-router-dom';
 import CartItem from './CartItem';
 import CloseButton from '../UI/buttons/CloseButton';
 import GreenButton from '../UI/buttons/GreenButton';
@@ -50,7 +51,7 @@ const Cart = ({ toggleCart, inProp }) => {
                         </div>
                         <div className={styles.cartFooter}>
                             {items.length > 0 && <p className={styles.cartTotalAmount}>TOTAL: {totalAmount}$</p>}
-                            {items.length > 0 && <GreenButton onClick={toggleCart}>Proceed To Checkout</GreenButton>}
+                            {items.length > 0 && <GreenButton onClick={toggleCart}><Link to="/checkout">Proceed To Checkout</Link></GreenButton>}
                             <GreenButton onClick={toggleCart}>Continue Shopping</GreenButton>
                         </div>
                     </div>
