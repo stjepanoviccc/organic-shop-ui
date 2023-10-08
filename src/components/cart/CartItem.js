@@ -6,6 +6,7 @@ import { cartActions } from '../../store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './CartItem.module.scss';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+
 const CartItem = ({ item }) => {
     const [index, setIndex] = useState(0);
     const currentCart = useSelector(state => state.cart);
