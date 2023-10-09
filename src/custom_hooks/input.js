@@ -15,6 +15,10 @@ const useInput = (validation) => {
         }
     };
 
+    const valueChangeFetched = (value) => {
+        setValue(value);
+    }
+
     const valueChangeFromLocalStorage = (value) => {
         setValue(value);
     }
@@ -33,7 +37,7 @@ const useInput = (validation) => {
     }
 
     return {
-        value, error, valid, valueChangeHandler, valueBlurHandler, reset, valueChangeFromLocalStorage, valueExist, valueExistHandler, existError
+        value, error, valid, valueChangeHandler, valueBlurHandler, reset, valueChangeFromLocalStorage, valueExist, valueExistHandler, existError, valueChangeFetched
     }
 };
 

@@ -3,7 +3,6 @@ import { useUsersMap } from '../../context/FetchDataContext';
 import useCheckImagePath from '../../custom_hooks/CheckImagePath';
 import { useBackgroundColorUpdate } from '../../context/NavBackgroundContext';
 import EditPasswordModal from './EditPassword';
-import PaymentModal from './Payment';
 import GreenButton from '../UI/buttons/GreenButton';
 import styles from './Profile.module.scss';
 
@@ -33,12 +32,8 @@ const ProfileContainer = () => {
     }, [username, usersMap]);
 
     const [editPasswordModal, setEditPasswordModal] = useState(false);
-    const [paymentModal, setPaymentModal] = useState(false);
     const toggleEditPasswordModal = () => {
         setEditPasswordModal(prev => !prev);
-    }
-    const togglePaymentModal = () => {
-        setPaymentModal(prev => !prev);
     }
 
     return (
@@ -59,7 +54,6 @@ const ProfileContainer = () => {
                                 <p className={styles.profileText}>Email: {email}</p>
                                 <div className={styles.profileBtnHolder}>
                                     <GreenButton onClick={toggleEditPasswordModal} class={true}>Edit Password</GreenButton>
-                                    <GreenButton onClick={togglePaymentModal} class={true} style={{backgroundColor: "#363636"}}>Set Up Payment</GreenButton>
                                 </div>
                             </div>
                         </>
@@ -68,7 +62,6 @@ const ProfileContainer = () => {
             </div>
             <img src={bgImage} alt="leaf-bg-img" className={`${styles.mainBgImage} ${styles.mainBgImageExt}`}></img>
             {editPasswordModal && <EditPasswordModal toggle={toggleEditPasswordModal} username={username} />}
-            {paymentModal && <PaymentModal toggle={togglePaymentModal} username={username} />}
         </section>
     )
 };

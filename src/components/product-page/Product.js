@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -9,6 +9,7 @@ import SubmenuContainer from './Submenu';
 import styles from './Product.module.scss';
 
 const ProductContainer = () => {
+    const isAuth = useSelector(state => state.auth.isAuth);
     const dispatch = useDispatch();
     const allProducts = useProductsData();
     const productQuery = useParams().productId;
@@ -85,6 +86,10 @@ const ProductContainer = () => {
         }
         renderCounter += 1;
     };
+
+    useEffect(() => {
+        // render
+    }, [isAuth])
 
     useEffect(() => {
         const fetchProduct = () => {

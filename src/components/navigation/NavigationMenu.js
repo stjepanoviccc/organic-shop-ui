@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { Link } from 'react-router-dom';
 import { useBackgroundColor } from '../../context/NavBackgroundContext';
 import { useLoginModal, useLoginModalUpdate } from '../../context/LoginModalContext';
+import { useRegisterModal } from '../../context/RegisterModalContext';
 import useCheckBodyBehavior from '../../custom_hooks/CheckBodyBehavior';
 import useCheckDevice from '../../custom_hooks/CheckDevice';
 import useCheckImagePath from '../../custom_hooks/CheckImagePath';
@@ -12,7 +14,6 @@ import HamburgerToggler from './HamburgerToggler';
 import CartToggler from './CartToggler';
 import SettingsButton from '../UI/buttons/SettingsButton';
 import styles from './NavigationMenu.module.scss';
-import { useRegisterModal } from '../../context/RegisterModalContext';
 
 const NavigationMenu = () => {
     const isRegModalOpen = useRegisterModal();
@@ -23,6 +24,10 @@ const NavigationMenu = () => {
     const logo = useCheckImagePath(`${process.env.PUBLIC_URL}/static/images/organic-store-logo5-min.svg`, './static/images/organic-store-logo5-min.svg');
     const bgColor = useBackgroundColor();
     useCheckBodyBehavior();
+
+    useEffect(() => {
+        // render
+    }, [isAuth])
 
     return (
         <header>

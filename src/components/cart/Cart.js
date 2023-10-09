@@ -9,6 +9,7 @@ import GreenButton from '../UI/buttons/GreenButton';
 import styles from './Cart.module.scss';
 
 const Cart = ({ toggleCart, inProp }) => {
+    const isAuth = useSelector(state => state.auth.isAuth);
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(true);
     const username = localStorage.getItem('loggedName');
@@ -43,7 +44,10 @@ const Cart = ({ toggleCart, inProp }) => {
                         </div>
                         <div className={styles.cartBody}>
                             {items.length === 0 ?
-                                <p className={styles.cartEmptyText}>No products in the cart.</p> :
+                                <p className={styles.cartEmptyText}>
+                                    {isAuth && "No products in the cart."}
+                                    {!isAuth && "Must be logged in to have cart functionalities."}
+                                </p> :
                                 items.map((item, index) => (
                                     item.quantity > 0 && <CartItem key={index} item={item} />
                                 ))
@@ -51,7 +55,10 @@ const Cart = ({ toggleCart, inProp }) => {
                         </div>
                         <div className={styles.cartFooter}>
                             {items.length > 0 && <p className={styles.cartTotalAmount}>TOTAL: {totalAmount}$</p>}
-                            {items.length > 0 && <GreenButton onClick={toggleCart}><Link to="/checkout">Proceed To Checkout</Link></GreenButton>}
+                            {items.length > 0 && (
+                                <GreenButton style={{paddingTop: '0', paddingBottom:'0'}}>
+                                    <Link onClick={toggleCart} style={{width:'100%', paddingTop:'17px', paddingBottom: '17px'}} to="/checkout">Proceed To Checkout</Link>
+                                </GreenButton>)}
                             <GreenButton onClick={toggleCart}>Continue Shopping</GreenButton>
                         </div>
                     </div>

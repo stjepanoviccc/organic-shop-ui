@@ -102,9 +102,10 @@ const FetchDataProvider = (props) => {
                 username: data.users[key].username,
                 password: data.users[key].password,
                 email: data.users[key].email,
-                image: data.users[key].image
+                image: data.users[key].image,
+                payment: data.users[key].payment || null
             });
-            usersMap.set(`${data.users[key].username}`, [data.users[key].password, data.users[key].email, loadImageFromFirebase(data.users[key].image), data.users[key].username, key]);
+            usersMap.set(`${data.users[key].username}`, [data.users[key].password, data.users[key].email, loadImageFromFirebase(data.users[key].image), data.users[key].username, data.users[key].payment, key]);
             usersEmailMap.set(`${data.users[key].email}`, true);
         };
         setUsersData(loadedUsersData);

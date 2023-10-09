@@ -1,11 +1,13 @@
 @import "../../scss/base/Colors.module.scss";
 
 .subtitle {
+    font-weight: bold;
     font-size: 1.3rem;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 
 .checkoutCart {
+    height: 50%;
     width: 100%;
     @media (min-width: 1280px) {
         width: 70%;
@@ -27,5 +29,11 @@
     justify-content: space-between;
     padding: 10px 0;
     border-bottom: 1px solid $silver;
-   
+}
+
+.placeOrderHolder {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    padding-top: 30px;
 }

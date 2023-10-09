@@ -4,7 +4,7 @@ import { useUsersMap } from '../../context/FetchDataContext';
 import Modal from '../UI/Modal';
 import CloseButton from '../UI/buttons/CloseButton';
 import GreenButton from '../UI/buttons/GreenButton';
-import styles from './PassAndPayment.module.scss';
+import styles from './EditPassword.module.scss';
 
 const EditPasswordModal = ({ username, toggle }) => {
     const usersMap = useUsersMap();

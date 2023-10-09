@@ -1,3 +1,4 @@
+import { useState } from "react";
 import CheckoutCart from "./CheckoutCart";
 import CheckoutForm from "./CheckoutForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -5,7 +6,7 @@ import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Checkout.module.scss";
 
 const CheckoutContainer = () => {
-    const username = localStorage.getItem('loggedName');
+    const [formIsValid, setFormIsValid] = useState(false);
     const lightColor = '#f8f6f3';
 
     return (
@@ -20,9 +21,9 @@ const CheckoutContainer = () => {
                 <div className={styles.formAndCartWrap}>
                     <div className={styles.formHolder}>
                         <h2 className={styles.subtitle}>Billing details</h2>
-                        <CheckoutForm username={username} />
+                        <CheckoutForm formIsValid={formIsValid} setFormIsValid={setFormIsValid} />
                     </div>
-                    <CheckoutCart />
+                    <CheckoutCart formIsValid={formIsValid} />
                 </div>
 
             </div>
